@@ -17,7 +17,7 @@ function App () {
   let isScrolling = false;
 
   const nextSection = () => {
-    if(currentSection != sectionList.length && !isScrolling) {
+    if(currentSection !== sectionList.length && !isScrolling) {
       currentSection += 1;
       isScrolling = true;
       document.querySelector(`#section${currentSection}`).scrollIntoView({
@@ -27,7 +27,7 @@ function App () {
   }
 
   const previousSection = () => {
-    if(currentSection != 1 && !isScrolling) {
+    if(currentSection !== 1 && !isScrolling) {
       currentSection -= 1;
       isScrolling = true;
       document.querySelector(`#section${currentSection}`).scrollIntoView({
@@ -70,6 +70,8 @@ function App () {
       case 'ArrowUp':
         event.preventDefault();
         previousSection();
+        break;
+      default:
         break;
     }
   }
