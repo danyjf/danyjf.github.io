@@ -2,20 +2,35 @@ import React from "react";
 import { useEffect } from "react";
 
 function App () {
+  let sectionList = [
+    <div key='1' id="section1" style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#ff0000'}}>
+      <h1 style={{margin: '0px'}}>Section 1</h1>
+    </div>,
+    <div key='2' id="section2" style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#00ff00'}}>
+      <h1 style={{margin: '0px'}}>Section 2</h1>
+    </div>,
+    <div key='3' id="section3" style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0000ff'}}>
+      <h1 style={{margin: '0px'}}>Section 3</h1>
+    </div>
+  ];
   let currentSection = 1;
 
   const nextSection = () => {
-    currentSection += 1;
-    document.querySelector(`#section${currentSection}`).scrollIntoView({
-      behavior: 'smooth'
-    });
+    if(currentSection != sectionList.length) {
+      currentSection += 1;
+      document.querySelector(`#section${currentSection}`).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   }
 
   const previousSection = () => {
-    currentSection -= 1;
-    document.querySelector(`#section${currentSection}`).scrollIntoView({
-      behavior: 'smooth'
-    });
+    if(currentSection != 1) {
+      currentSection -= 1;
+      document.querySelector(`#section${currentSection}`).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   }
  
   useEffect(() => {
@@ -48,15 +63,7 @@ function App () {
 
   return (
     <div className="App">
-      <div id="section1" style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#ff0000'}}>
-        <h1 style={{margin: '0px'}}>Section 1</h1>
-      </div>
-      <div id="section2" style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#00ff00'}}>
-        <h1 style={{margin: '0px'}}>Section 2</h1>
-      </div>
-      <div id="section3" style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0000ff'}}>
-        <h1 style={{margin: '0px'}}>Section 3</h1>
-      </div>
+      {sectionList}
     </div>
   );
 }
