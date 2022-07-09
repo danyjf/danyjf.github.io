@@ -16,7 +16,18 @@ function App () {
  
   useEffect(() => {
     document.addEventListener('keydown', detectKeyDown, true);
+    document.addEventListener('wheel', detectScroll, {passive: false});
   });
+
+  const detectScroll = (event) => {
+    event.preventDefault();
+
+    if(event.wheelDelta < 0) {
+      nextSection();
+    } else {
+      previousSection();
+    }
+  }
 
   const detectKeyDown = (event) => {
     switch(event.key) {
