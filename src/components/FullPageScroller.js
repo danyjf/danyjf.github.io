@@ -1,65 +1,12 @@
 ﻿import React from "react";
 import { useEffect } from "react";
+import scrollTo from "../utils/ScrollTo"
 
 function FullPageScroller(props) {
   let sections = [];
   let currentSection = 0;
   let isScrolling = false;
 
-  const updateSections = () => {
-    sections = [];
-
-    for(let i = 0; i < props.children.length; i++) {
-      sections.push(window.innerHeight * i);
-    }
-  }
-
-  const easeInOutCubic = (currentTime, startValue, changeInValue, duration) => {
-    const time = (currentTime / duration) - 1;
-    const timeCubic = time * time * time;
-    return (changeInValue * (timeCubic + 1)) + startValue;
-  }
-
-  const scrollTo = (scrollTo, duration, callback) => {
-    const scrollFrom = window.scrollY || window.pageYOffset || 0;
-    const scrollDiff = scrollTo - scrollFrom;
-    let currentTime = 0;
-    const increment = 20;
-
-    (function animateScroll() {
-      currentTime += increment;
-      const newScrollPos = easeInOutCubic(currentTime, scrollFrom, scrollDiff, duration);
-
-      window.scrollTo(0, newScrollPos);
-      if(currentTime > duration) {
-        callback();
-        return;
-      }
-
-      setTimeout(animateScroll, increment);
-    }());
-  }
-
-  const nextSection = () => {
-    if(currentSection < sections.length - 1 && !isScrolling) {
-      currentSection += 1;
-      isScrolling = true;
-      scrollTo(sections[currentSection], 700, () => {
-        isScrolling = false;
-      });
-    }
-  }
-
-  const previousSection = () => {
-    if(currentSection > 0 && !isScrolling) {
-      currentSection -= 1;
-      isScrolling = true;
-      scrollTo(sections[currentSection], 700, () => {
-        isScrolling = false;
-      });
-    }
-  }
- 
   useEffect(() => {
     updateSections();
     document.addEventListener('keydown', detectKeyDown, true);
@@ -97,6 +44,34 @@ function FullPageScroller(props) {
     scrollTo(sections[currentSection], 700, () => {
       isScrolling = false;
     });
+  }
+
+  const updateSections = () => {
+    sections = [];
+
+    for(let i = 0; i < props.children.length; i++) {
+      sections.push(window.innerHeight * i);
+    }
+  }
+
+  const nextSection = () => {
+    if(currentSection < sections.length - 1 && !isScrolling) {
+      currentSection += 1;
+      isScrolling = true;
+      scrollTo(sections[currentSection], 700, () => {
+        isScrolling = false;
+      });
+    }
+  }
+
+  const previousSection = () => {
+    if(currentSection > 0 && !isScrolling) {
+      currentSection -= 1;
+      isScrolling = true;
+      scrollTo(sections[currentSection], 700, () => {
+        isScrolling = false;
+      });
+    }
   }
 
   return (
