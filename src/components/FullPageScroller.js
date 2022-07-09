@@ -2,44 +2,71 @@
 import { useEffect } from "react";
 
 function FullPageScroller(props) {
-  let sectionList = props.children;
-  let currentSection = 1;
+  // let sectionList = props.children;
+  let sections = [];
+  let currentSection = 0;
   let isScrolling = false;
 
+  const updateSections = () => {
+    sections = [];
+
+    for(let i = 0; i < props.children.length; i++) {
+      sections.push(window.innerHeight * i);
+    }
+  }
+
+  const easeInOutCubic = (currentTime, startValue, changeInValue, duration) => {
+    const time = (currentTime / duration) - 1;
+    const timeCubic = time * time * time;
+    return (changeInValue * (timeCubic + 1)) + startValue;
+  }
+
+  const scrollTo = (scrollTo, duration, callback) => {
+    const scrollFrom = window.scrollY || window.pageYOffset || 0;
+    const scrollDiff = scrollTo - scrollFrom;
+    let currentTime = 0;
+    const increment = 20;
+
+    (function animateScroll() {
+      currentTime += increment;
+      const newScrollPos = easeInOutCubic(currentTime, scrollFrom, scrollDiff, duration);
+
+      window.scrollTo(0, newScrollPos);
+      if(currentTime > duration) {
+        callback();
+        return;
+      }
+
+      setTimeout(animateScroll, increment);
+    }());
+  }
+
   const nextSection = () => {
-    if(currentSection !== sectionList.length && !isScrolling) {
+    if(currentSection < sections.length - 1 && !isScrolling) {
       currentSection += 1;
       isScrolling = true;
-      document.querySelector(`#section${currentSection}`).scrollIntoView({
-        behavior: 'smooth'
+      scrollTo(sections[currentSection], 700, () => {
+        isScrolling = false;
       });
     }
   }
 
   const previousSection = () => {
-    if(currentSection !== 1 && !isScrolling) {
+    if(currentSection > 0 && !isScrolling) {
       currentSection -= 1;
       isScrolling = true;
-      document.querySelector(`#section${currentSection}`).scrollIntoView({
-        behavior: 'smooth'
+      scrollTo(sections[currentSection], 700, () => {
+        isScrolling = false;
       });
     }
   }
  
   useEffect(() => {
+    updateSections();
     document.addEventListener('keydown', detectKeyDown, true);
     document.addEventListener('wheel', detectScroll, {passive: false});
-    document.addEventListener('scroll', detectScrollFinished);
+    window.addEventListener('resize', onResize, true);
   });
-  
-  let timer;
-  const detectScrollFinished = () => {
-    clearTimeout(timer);
-
-    timer = setTimeout(() => {
-      isScrolling = false;
-    }, 75);
-  }
 
   const detectScroll = (event) => {
     event.preventDefault();
@@ -64,6 +91,13 @@ function FullPageScroller(props) {
       default:
         break;
     }
+  }
+
+  const onResize = () => {
+    updateSections();
+    scrollTo(sections[currentSection], 700, () => {
+      isScrolling = false;
+    });
   }
 
   return (
