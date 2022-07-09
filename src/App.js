@@ -6,12 +6,16 @@ function App () {
 
   const nextSection = () => {
     currentSection += 1;
-    window.location.href = `#section${currentSection}`;
+    document.querySelector(`#section${currentSection}`).scrollIntoView({
+      behavior: 'smooth'
+    });
   }
 
   const previousSection = () => {
     currentSection -= 1;
-    window.location.href = `#section${currentSection}`;
+    document.querySelector(`#section${currentSection}`).scrollIntoView({
+      behavior: 'smooth'
+    });
   }
  
   useEffect(() => {
