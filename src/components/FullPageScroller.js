@@ -2,7 +2,6 @@
 import { useEffect } from "react";
 
 function FullPageScroller(props) {
-  // let sectionList = props.children;
   let sections = [];
   let currentSection = 0;
   let isScrolling = false;
