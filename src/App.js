@@ -14,10 +14,12 @@ function App () {
     </div>
   ];
   let currentSection = 1;
+  let isScrolling = false;
 
   const nextSection = () => {
-    if(currentSection != sectionList.length) {
+    if(currentSection != sectionList.length && !isScrolling) {
       currentSection += 1;
+      isScrolling = true;
       document.querySelector(`#section${currentSection}`).scrollIntoView({
         behavior: 'smooth'
       });
@@ -25,8 +27,9 @@ function App () {
   }
 
   const previousSection = () => {
-    if(currentSection != 1) {
+    if(currentSection != 1 && !isScrolling) {
       currentSection -= 1;
+      isScrolling = true;
       document.querySelector(`#section${currentSection}`).scrollIntoView({
         behavior: 'smooth'
       });
@@ -36,7 +39,17 @@ function App () {
   useEffect(() => {
     document.addEventListener('keydown', detectKeyDown, true);
     document.addEventListener('wheel', detectScroll, {passive: false});
+    document.addEventListener('scroll', detectScrollFinished);
   });
+  
+  let timer;
+  const detectScrollFinished = () => {
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      isScrolling = false;
+    }, 75);
+  }
 
   const detectScroll = (event) => {
     event.preventDefault();
