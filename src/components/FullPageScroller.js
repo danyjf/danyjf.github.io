@@ -1,105 +1,11 @@
-﻿import { render } from "@testing-library/react";
-import React from "react";
-import { useEffect } from "react";
+﻿import React from "react";
 import scrollTo from "../utils/ScrollTo"
 import SectionIndicator from "./SectionIndicator";
-
-// function FullPageScroller(props) {
-//   let sections = [];
-//   let currentSection = 0;
-//   let isScrolling = false;
-
-//   useEffect(() => {
-//     document.addEventListener('keydown', detectKeyDown, true);
-//     document.addEventListener('wheel', detectScroll, {passive: false});
-//     window.addEventListener('resize', onResize, true);
-//   });
-
-//   const detectScroll = (event) => {
-//     event.preventDefault();
-
-//     if(event.wheelDelta < 0) {
-//       nextSection();
-//     } else {
-//       previousSection();
-//     }
-//   }
-
-//   const detectKeyDown = (event) => {
-//     switch(event.key) {
-//       case 'ArrowDown':
-//         event.preventDefault();
-//         nextSection();
-//         break;
-//       case 'ArrowUp':
-//         event.preventDefault();
-//         previousSection();
-//         break;
-//       default:
-//         break;
-//     }
-//   }
-
-//   const onResize = () => {
-//     updateSections();
-//     scrollTo(sections[currentSection], 700, () => {
-//       isScrolling = false;
-//     });
-//   }
-
-//   const updateSections = () => {
-//     sections = [];
-
-//     for(let i = 0; i < props.children.length; i++) {
-//       sections.push(window.innerHeight * i);
-//     }
-//   }
-
-//   const nextSection = () => {
-//     if(currentSection < sections.length - 1 && !isScrolling) {
-//       currentSection += 1;
-//       isScrolling = true;
-//       updateSectionIndicators();
-//       scrollTo(sections[currentSection], 700, () => {
-//         isScrolling = false;
-//       });
-//     }
-//   }
-
-//   const previousSection = () => {
-//     if(currentSection > 0 && !isScrolling) {
-//       currentSection -= 1;
-//       isScrolling = true;
-//       updateSectionIndicators();
-//       scrollTo(sections[currentSection], 700, () => {
-//         isScrolling = false;
-//       });
-//     }
-//   }
-
-//   const updateSectionIndicators = () => {
-//     document.getElementById(currentSection).style.transform = 'scale(2.5, 2.5)';
-//   }
-
-//   updateSections();
-//   return (
-//     <div className="FullPageScroller" style={{position: 'relative'}}>
-//       <SectionIndicator sectionCount={sections.length} />
-//       {props.children}
-//     </div>
-//   );
-// }
 
 class FullPageScroller extends React.Component {
   sections = [];
   currentSection = 0;
   isScrolling = false;
-
-  // useEffect(() => {
-  //   document.addEventListener('keydown', detectKeyDown, true);
-  //   document.addEventListener('wheel', detectScroll, {passive: false});
-  //   window.addEventListener('resize', onResize, true);
-  // });
 
   detectScroll = (event) => {
     event.preventDefault();
