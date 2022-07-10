@@ -19,3 +19,8 @@
   margin: 15px 0px 15px 0px;
   transition: transform 0.1s;
 }
+
+.dot:hover {
+  cursor: pointer;
+  transform: scale(2.5) !important;
+}

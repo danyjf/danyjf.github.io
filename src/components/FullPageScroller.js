@@ -72,6 +72,15 @@ class FullPageScroller extends React.Component {
     }
   }
 
+  onIndicatorClick = (event, key) => {
+    this.isScrolling = true;
+    this.state.currentSection = key;
+    this.sectionIndicatorElement.current.updateIndicators(this.state.currentSection);
+    scrollTo(this.sections[key], 700, () => {
+      this.isScrolling = false;
+    });
+  }
+
   render() {
     scrollTo(0, 700, () => {});
 
@@ -83,7 +92,13 @@ class FullPageScroller extends React.Component {
     
     return (
       <div className="FullPageScroller" style={{position: 'relative'}}>
-        <SectionIndicator ref={this.sectionIndicatorElement} sectionCount={this.sections.length} currentSection={this.state.currentSection} />
+        <SectionIndicator 
+          ref={this.sectionIndicatorElement} 
+          sectionCount={this.sections.length} 
+          sections={this.sections} 
+          currentSection={this.state.currentSection} 
+          onIndicatorClick={this.onIndicatorClick}
+        />
         {this.props.children}
       </div>
     );
