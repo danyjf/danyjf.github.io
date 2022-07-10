@@ -8,6 +8,7 @@ class FullPageScroller extends React.Component {
   state = {
     currentSection: 0,
   }
+  sectionIndicatorElement = React.createRef();
 
   detectScroll = (event) => {
     event.preventDefault();
@@ -53,7 +54,8 @@ class FullPageScroller extends React.Component {
     if(this.state.currentSection < this.sections.length - 1 && !this.isScrolling) {
       this.state.currentSection += 1;
       this.isScrolling = true;
-      this.updateSectionIndicators();
+      // this.updateSectionIndicators();
+      this.sectionIndicatorElement.current.updateIndicators(this.state.currentSection);
       scrollTo(this.sections[this.state.currentSection], 700, () => {
         this.isScrolling = false;
       });
@@ -64,7 +66,8 @@ class FullPageScroller extends React.Component {
     if(this.state.currentSection > 0 && !this.isScrolling) {
       this.state.currentSection -= 1;
       this.isScrolling = true;
-      this.updateSectionIndicators();
+      // this.updateSectionIndicators();
+      this.sectionIndicatorElement.current.updateIndicators(this.state.currentSection);
       scrollTo(this.sections[this.state.currentSection], 700, () => {
         this.isScrolling = false;
       });
@@ -90,7 +93,7 @@ class FullPageScroller extends React.Component {
     
     return (
       <div className="FullPageScroller" style={{position: 'relative'}}>
-        <SectionIndicator sectionCount={this.sections.length} currentSection={this.state.currentSection} />
+        <SectionIndicator ref={this.sectionIndicatorElement} sectionCount={this.sections.length} currentSection={this.state.currentSection} />
         {this.props.children}
       </div>
     );
