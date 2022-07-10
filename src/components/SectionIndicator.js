@@ -1,5 +1,4 @@
-﻿import { render } from "@testing-library/react";
-import React from "react";
+﻿import React from "react";
 import "./SectionIndicator.css";
 
 class SectionIndicator extends React.Component {

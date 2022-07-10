@@ -54,7 +54,6 @@ class FullPageScroller extends React.Component {
     if(this.state.currentSection < this.sections.length - 1 && !this.isScrolling) {
       this.state.currentSection += 1;
       this.isScrolling = true;
-      // this.updateSectionIndicators();
       this.sectionIndicatorElement.current.updateIndicators(this.state.currentSection);
       scrollTo(this.sections[this.state.currentSection], 700, () => {
         this.isScrolling = false;
@@ -66,7 +65,6 @@ class FullPageScroller extends React.Component {
     if(this.state.currentSection > 0 && !this.isScrolling) {
       this.state.currentSection -= 1;
       this.isScrolling = true;
-      // this.updateSectionIndicators();
       this.sectionIndicatorElement.current.updateIndicators(this.state.currentSection);
       scrollTo(this.sections[this.state.currentSection], 700, () => {
         this.isScrolling = false;
@@ -74,17 +72,9 @@ class FullPageScroller extends React.Component {
     }
   }
 
-  updateSectionIndicators = () => {
-    for(let i = 0; i < this.sections.length; i++) {
-      if(i === this.state.currentSection) {
-        document.getElementById(`sectionIndicator${i}`).style.transform = 'scale(2.5, 2.5)';
-      } else {
-        document.getElementById(`sectionIndicator${i}`).style.transform = 'scale(1, 1)';
-      }
-    }
-  }
-
   render() {
+    scrollTo(0, 700, () => {});
+
     document.addEventListener('keydown', this.detectKeyDown, true);
     document.addEventListener('wheel', this.detectScroll, {passive: false});
     window.addEventListener('resize', this.onResize, true);
