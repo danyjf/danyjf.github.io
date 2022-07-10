@@ -5,9 +5,9 @@
 }
 
 .dot {
-  height: 25px;
-  width: 25px;
-  background-color: #bbbbbb;
+  height: 13px;
+  width: 13px;
+  background-color: #333333;
   border-radius: 50%;
   display: inline-block;
 }
