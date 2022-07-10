@@ -1,0 +1,13 @@
+﻿.SectionIndicator {
+  position: fixed;
+  top: 50vh;
+  right: 1%;
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbbbbb;
+  border-radius: 50%;
+  display: inline-block;
+}

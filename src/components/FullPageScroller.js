@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import { useEffect } from "react";
 import scrollTo from "../utils/ScrollTo"
+import SectionIndicator from "./SectionIndicator";
 
 function FullPageScroller(props) {
   let sections = [];
@@ -75,7 +76,8 @@ function FullPageScroller(props) {
   }
 
   return (
-    <div className="FullPageScroller">
+    <div className="FullPageScroller" style={{position: 'relative'}}>
+      <SectionIndicator />
       {props.children}
     </div>
   );
