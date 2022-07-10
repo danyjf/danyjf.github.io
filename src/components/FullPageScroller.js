@@ -9,7 +9,6 @@ function FullPageScroller(props) {
   let isScrolling = false;
 
   useEffect(() => {
-    updateSections();
     document.addEventListener('keydown', detectKeyDown, true);
     document.addEventListener('wheel', detectScroll, {passive: false});
     window.addEventListener('resize', onResize, true);
@@ -75,9 +74,11 @@ function FullPageScroller(props) {
     }
   }
 
+  updateSections();
+
   return (
     <div className="FullPageScroller" style={{position: 'relative'}}>
-      <SectionIndicator />
+      <SectionIndicator sectionCount={sections.length} />
       {props.children}
     </div>
   );

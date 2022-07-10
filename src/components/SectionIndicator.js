@@ -1,9 +1,16 @@
 ﻿import "./SectionIndicator.css";
 
 function SectionIndicator(props) {
+  let sectionCount = props.sectionCount;
+  
+  let indicators = [];
+  for(let i = 0; i < sectionCount; i++) {
+    indicators.push(<span key={i} className="dot"></span>);
+  }
+
   return (
     <div className="SectionIndicator">
-      <span className="dot"></span>
+      {indicators}
     </div>
   );
 }
