@@ -1,84 +1,108 @@
 ﻿import React from "react";
-import { useEffect } from "react";
 import scrollTo from "../utils/ScrollTo"
+import SectionIndicator from "./SectionIndicator";
 
-function FullPageScroller(props) {
-  let sections = [];
-  let currentSection = 0;
-  let isScrolling = false;
+class FullPageScroller extends React.Component {
+  sections = [];
+  isScrolling = false;
+  state = {
+    currentSection: 0,
+  }
+  sectionIndicatorElement = React.createRef();
 
-  useEffect(() => {
-    updateSections();
-    document.addEventListener('keydown', detectKeyDown, true);
-    document.addEventListener('wheel', detectScroll, {passive: false});
-    window.addEventListener('resize', onResize, true);
-  });
-
-  const detectScroll = (event) => {
+  detectScroll = (event) => {
     event.preventDefault();
 
     if(event.wheelDelta < 0) {
-      nextSection();
+      this.nextSection();
     } else {
-      previousSection();
+      this.previousSection();
     }
   }
 
-  const detectKeyDown = (event) => {
+  detectKeyDown = (event) => {
     switch(event.key) {
       case 'ArrowDown':
         event.preventDefault();
-        nextSection();
+        this.nextSection();
         break;
       case 'ArrowUp':
         event.preventDefault();
-        previousSection();
+        this.previousSection();
         break;
       default:
         break;
     }
   }
 
-  const onResize = () => {
-    updateSections();
-    scrollTo(sections[currentSection], 700, () => {
-      isScrolling = false;
+  onResize = () => {
+    this.updateSections();
+    scrollTo(this.sections[this.state.currentSection], 700, () => {
+      this.isScrolling = false;
     });
   }
 
-  const updateSections = () => {
-    sections = [];
+  updateSections = () => {
+    this.sections = [];
 
-    for(let i = 0; i < props.children.length; i++) {
-      sections.push(window.innerHeight * i);
+    for(let i = 0; i < this.props.children.length; i++) {
+      this.sections.push(window.innerHeight * i);
     }
   }
 
-  const nextSection = () => {
-    if(currentSection < sections.length - 1 && !isScrolling) {
-      currentSection += 1;
-      isScrolling = true;
-      scrollTo(sections[currentSection], 700, () => {
-        isScrolling = false;
+  nextSection = () => {
+    if(this.state.currentSection < this.sections.length - 1 && !this.isScrolling) {
+      this.state.currentSection += 1;
+      this.isScrolling = true;
+      this.sectionIndicatorElement.current.updateIndicators(this.state.currentSection);
+      scrollTo(this.sections[this.state.currentSection], 700, () => {
+        this.isScrolling = false;
       });
     }
   }
 
-  const previousSection = () => {
-    if(currentSection > 0 && !isScrolling) {
-      currentSection -= 1;
-      isScrolling = true;
-      scrollTo(sections[currentSection], 700, () => {
-        isScrolling = false;
+  previousSection = () => {
+    if(this.state.currentSection > 0 && !this.isScrolling) {
+      this.state.currentSection -= 1;
+      this.isScrolling = true;
+      this.sectionIndicatorElement.current.updateIndicators(this.state.currentSection);
+      scrollTo(this.sections[this.state.currentSection], 700, () => {
+        this.isScrolling = false;
       });
     }
   }
 
-  return (
-    <div className="FullPageScroller">
-      {props.children}
-    </div>
-  );
+  onIndicatorClick = (event, key) => {
+    this.isScrolling = true;
+    this.state.currentSection = key;
+    this.sectionIndicatorElement.current.updateIndicators(this.state.currentSection);
+    scrollTo(this.sections[key], 700, () => {
+      this.isScrolling = false;
+    });
+  }
+
+  render() {
+    scrollTo(0, 700, () => {});
+
+    document.addEventListener('keydown', this.detectKeyDown, true);
+    document.addEventListener('wheel', this.detectScroll, {passive: false});
+    window.addEventListener('resize', this.onResize, true);
+
+    this.updateSections();
+    
+    return (
+      <div className="FullPageScroller" style={{position: 'relative'}}>
+        <SectionIndicator 
+          ref={this.sectionIndicatorElement} 
+          sectionCount={this.sections.length} 
+          sections={this.sections} 
+          currentSection={this.state.currentSection} 
+          onIndicatorClick={this.onIndicatorClick}
+        />
+        {this.props.children}
+      </div>
+    );
+  }
 }
 
 export default FullPageScroller;
