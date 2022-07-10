@@ -5,12 +5,14 @@ function SectionIndicator(props) {
   
   let indicators = [];
   for(let i = 0; i < sectionCount; i++) {
-    indicators.push(<span key={i} className="dot"></span>);
+    indicators.push(<div key={i} className="dot"></div>);
   }
 
   return (
     <div className="SectionIndicator">
-      {indicators}
+      <div className="indicatorsWrapper">
+        {indicators}
+      </div>
     </div>
   );
 }

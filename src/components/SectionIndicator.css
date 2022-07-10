@@ -1,7 +1,14 @@
 ﻿.SectionIndicator {
   position: fixed;
-  top: 50vh;
-  right: 1%;
+  height: 100vh;
+  right: 2%;
+}
+
+.indicatorsWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .dot {
@@ -9,5 +16,4 @@
   width: 13px;
   background-color: #333333;
   border-radius: 50%;
-  display: inline-block;
 }
