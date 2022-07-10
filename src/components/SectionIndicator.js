@@ -5,7 +5,7 @@ function SectionIndicator(props) {
   
   let indicators = [];
   for(let i = 0; i < sectionCount; i++) {
-    indicators.push(<div key={i} className="dot"></div>);
+    indicators.push(<div key={i} id={i} className="dot"></div>);
   }
 
   return (
