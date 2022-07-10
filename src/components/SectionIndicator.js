@@ -8,7 +8,7 @@ class SectionIndicator extends React.Component {
   render() {
     let indicators = [];
     for(let i = 0; i < this.sectionCount; i++) {
-      indicators.push(<div key={i} id={i} className="dot"></div>);
+      indicators.push(<div key={i} id={`sectionIndicator${i}`} className="dot"></div>);
     }
 
     return (
