@@ -92,3 +92,8 @@ hr {
     min-width: 170px;
   }
 }
+
+.projectImage {
+  height: 500px;
+  width: 400px;
+}
