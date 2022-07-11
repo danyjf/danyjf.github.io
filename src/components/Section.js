@@ -1,6 +1,6 @@
 ﻿function Section(props) {
   return (
-    <div style={{...props.style, height: '100vh'}}>
+    <div className="Section" style={{...props.style, height: '100vh'}}>
       {props.children}
     </div>
   );
