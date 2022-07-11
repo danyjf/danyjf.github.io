@@ -2,16 +2,68 @@
 import $ from "jquery";
 
 class SectionHorizontal extends React.Component {
-  render() {
-    document.onclick = function() {
+  isScrolling = false;
+  here = 'here';
+
+  detectKeyDown = (event) => {
+    switch(event.key) {
+      case 'ArrowLeft':
+        event.preventDefault();
+        this.previousSection();
+        break;
+      case 'ArrowRight':
+        event.preventDefault();
+        this.nextSection();
+        break;
+      default:
+        break;
+    }
+  }
+
+  nextSection = () => {
+    if(!this.isScrolling) {
+      this.isScrolling = true;
       let elem = $("#horizontal");
       let previousLeft = parseInt(elem.css('left'));
       previousLeft = previousLeft * (100 / document.documentElement.clientWidth);
 
-      elem.animate({
-        left: previousLeft - 100 + 'vw'
-      }, 500);
+      elem.animate(
+        {
+          left: previousLeft - 100 + 'vw'
+        }, 
+        {
+          duration: 500,
+          complete: e => {
+            this.isScrolling = false;
+          }
+        }
+      );
     }
+  }
+
+  previousSection = () => {
+    if(!this.isScrolling) {
+      this.isScrolling = true;
+      let elem = $("#horizontal");
+      let previousLeft = parseInt(elem.css('left'));
+      previousLeft = previousLeft * (100 / document.documentElement.clientWidth);
+
+      elem.animate(
+        {
+          left: previousLeft + 100 + 'vw'
+        }, 
+        {
+          duration: 500,
+          complete: e => {
+            this.isScrolling = false;
+          }
+        }
+      );
+    }
+  }
+
+  render() {
+    document.addEventListener('keydown', this.detectKeyDown, true);
 
     const childrenWithCorrectStyle = React.Children.map(this.props.children, child => {
       if(React.isValidElement(child)) {
