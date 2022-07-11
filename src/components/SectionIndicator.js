@@ -1,6 +1,5 @@
 ﻿import React from "react";
 import "./SectionIndicator.css";
-import scrollTo from "../utils/ScrollTo";
 
 class SectionIndicator extends React.Component {
   initializeIndicators = () => {

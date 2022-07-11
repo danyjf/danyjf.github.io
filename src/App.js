@@ -13,18 +13,29 @@ function App () {
         <Section style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#ff5f45'}}>
           <h1 style={{margin: '0px'}}>Section 2</h1>
         </Section>
+        <SectionHorizontal>
+          <Section style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#282c34'}}>
+            <h1 style={{margin: '0px'}}>Section 3.1</h1>
+          </Section>
+          <Section style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#ff5f45'}}>
+            <h1 style={{margin: '0px'}}>Section 3.2</h1>
+          </Section>
+          <Section style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0798ec'}}>
+            <h1 style={{margin: '0px'}}>Section 3.3</h1>
+          </Section>
+        </SectionHorizontal>
         <Section style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0798ec'}}>
-          <h1 style={{margin: '0px'}}>Section 3</h1>
+          <h1 style={{margin: '0px'}}>Section 4</h1>
         </Section>
         <SectionHorizontal>
           <Section style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#282c34'}}>
-            <h1 style={{margin: '0px'}}>Section 4.1</h1>
+            <h1 style={{margin: '0px'}}>Section 5.1</h1>
           </Section>
           <Section style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#ff5f45'}}>
-            <h1 style={{margin: '0px'}}>Section 4.2</h1>
+            <h1 style={{margin: '0px'}}>Section 5.2</h1>
           </Section>
           <Section style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0798ec'}}>
-            <h1 style={{margin: '0px'}}>Section 4.3</h1>
+            <h1 style={{margin: '0px'}}>Section 5.3</h1>
           </Section>
         </SectionHorizontal>
       </FullPageScroller>

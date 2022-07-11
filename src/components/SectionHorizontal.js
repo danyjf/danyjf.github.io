@@ -3,7 +3,6 @@ import $ from "jquery";
 
 class SectionHorizontal extends React.Component {
   isScrolling = false;
-  here = 'here';
 
   detectKeyDown = (event) => {
     switch(event.key) {
@@ -23,6 +22,8 @@ class SectionHorizontal extends React.Component {
   nextSection = () => {
     if(!this.isScrolling) {
       this.isScrolling = true;
+      let elements = $(".SectionHorizontal");
+      console.log(elements);
       let elem = $("#horizontal");
       let previousLeft = parseInt(elem.css('left'));
       previousLeft = previousLeft * (100 / document.documentElement.clientWidth);
@@ -73,16 +74,14 @@ class SectionHorizontal extends React.Component {
     });
 
     return (
-      <div 
-        id="horizontal" 
-        className="SectionHorizontal" 
-        style={{
-          position: 'absolute', 
-          width: this.props.children.length * 100 + '%', 
-          zIndex: '-1'
-        }}
-      >
-        {childrenWithCorrectStyle}
+      <div style={{height: '100vh'}}>
+        <div 
+          id="horizontal" 
+          className="SectionHorizontal" 
+          style={{zIndex: '-1', position: 'absolute', width: this.props.children.length * 100 + '%'}}
+        >
+          {childrenWithCorrectStyle}
+        </div>
       </div>
     );
   }
