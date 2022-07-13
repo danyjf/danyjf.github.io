@@ -2,6 +2,18 @@
   text-align: center;
 }
 
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 hr {
   border: 1px solid grey;
 }
