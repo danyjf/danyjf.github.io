@@ -97,3 +97,65 @@ hr {
   height: 500px;
   width: 400px;
 }
+
+.skillBar {
+  text-align: left;
+  padding-top: 10px; /* Add top padding */
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+  margin-bottom: 5px;
+}
+
+.skill {
+  margin-left: 15px;
+}
+
+.skillPercentage {
+  float: right;
+  margin-right: 15px;
+}
+
+.python {
+  width: 90%; 
+  background-color: #04AA6D;
+}
+
+.csharp {
+  width: 80%;
+  background-color: #04AA6D;
+}
+
+.java {
+  width: 80%;
+  background-color: #04AA6D;
+}
+
+.javascript {
+  width: 80%;
+  background-color: #04AA6D;
+}
+
+.html {
+  width: 80%;
+  background-color: #04AA6D;
+}
+
+.css {
+  width: 80%;
+  background-color: #04AA6D;
+}
+
+.matlab {
+  width: 80%;
+  background-color: #04AA6D;
+}
+
+.c\+\+ {
+  width: 80%;
+  background-color: #04AA6D;
+}
+
+.c {
+  width: 80%;
+  background-color: #04AA6D;
+}

@@ -107,4 +107,10 @@
       </div>
     `);
   });
+
+  $('#skillsPageButton').on('click', function() {
+    $('#pageContent').html(`
+      
+    `);
+  });
 });
