@@ -115,8 +115,9 @@ hr {
   margin-right: 15px;
 }
 
+/* Programming Languages Skills */
 .python {
-  width: 90%; 
+  width: 80%; 
   background-color: #04AA6D;
 }
 
@@ -126,42 +127,44 @@ hr {
 }
 
 .java {
-  width: 80%;
+  width: 75%;
   background-color: #04AA6D;
 }
 
 .javascript {
-  width: 80%;
-  background-color: #04AA6D;
-}
-
-.html {
-  width: 80%;
-  background-color: #04AA6D;
-}
-
-.css {
-  width: 80%;
-  background-color: #04AA6D;
-}
-
-.matlab {
-  width: 80%;
+  width: 75%;
   background-color: #04AA6D;
 }
 
 .c\+\+ {
-  width: 80%;
+  width: 70%;
   background-color: #04AA6D;
 }
 
 .c {
-  width: 80%;
+  width: 65%;
   background-color: #04AA6D;
 }
 
+.html {
+  width: 65%;
+  background-color: #04AA6D;
+}
+
+.css {
+  width: 65%;
+  background-color: #04AA6D;
+}
+
+.matlab {
+  width: 55%;
+  background-color: #04AA6D;
+}
+
+/* Tools Skills */
+
 .git {
-  width: 80%;
+  width: 85%;
   background-color: #04AA6D;
 }
 
@@ -175,47 +178,61 @@ hr {
   background-color: #04AA6D;
 }
 
+.docker {
+  width: 75%;
+  background-color: #04AA6D;
+}
+
 .eclipse {
-  width: 80%;
+  width: 70%;
   background-color: #04AA6D;
 }
 
 .blender {
-  width: 80%;
+  width: 40%;
   background-color: #04AA6D;
 }
 
-.docker {
-  width: 80%;
-  background-color: #04AA6D;
-}
+/* Frameworks & Engines Skills */
 
 .unity {
-  width: 80%;
-  background-color: #04AA6D;
-}
-
-.unrealEngine {
-  width: 80%;
-  background-color: #04AA6D;
-}
-
-.angular {
-  width: 80%;
-  background-color: #04AA6D;
-}
-
-.godot {
-  width: 80%;
-  background-color: #04AA6D;
-}
-
-.django {
-  width: 80%;
+  width: 75%;
   background-color: #04AA6D;
 }
 
 .springBoot {
-  width: 80%;
+  width: 75%;
+  background-color: #04AA6D;
+}
+
+.django {
+  width: 70%;
+  background-color: #04AA6D;
+}
+
+.angular {
+  width: 65%;
+  background-color: #04AA6D;
+}
+
+.unrealEngine {
+  width: 50%;
+  background-color: #04AA6D;
+}
+
+.godot {
+  width: 45%;
+  background-color: #04AA6D;
+}
+
+/* Spoken Languages Skills */
+
+.portuguese {
+  width: 95%;
+  background-color: #04AA6D;
+}
+
+.english {
+  width: 85%;
   background-color: #04AA6D;
 }
