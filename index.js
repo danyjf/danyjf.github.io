@@ -120,12 +120,12 @@
             <span class="skill">Python</span>
             <div class="skillPercentage">80</div>
           </div>
-          <div class="skillBar csharp">
-            <span class="skill">C#</span>
-            <div class="skillPercentage">80</div>
-          </div>
           <div class="skillBar java">
             <span class="skill">Java</span>
+            <div class="skillPercentage">80</div>
+          </div>
+          <div class="skillBar csharp">
+            <span class="skill">C#</span>
             <div class="skillPercentage">75</div>
           </div>
           <div class="skillBar javascript">
