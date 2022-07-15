@@ -14,6 +14,10 @@ a:hover {
   text-decoration: none;
 }
 
+.contacts {
+  margin: 0px 5px 0px 5px;
+}
+
 hr {
   border: 1px solid grey;
 }
@@ -30,6 +34,7 @@ hr {
 
 #picture {
   border-radius: 50%;
+  height: 25vh;
 }
 
 #contactsRow {
