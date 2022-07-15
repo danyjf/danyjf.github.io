@@ -10,6 +10,13 @@
       <div class="col">
         <h1 style="text-align: center;">Torus Forest</h1>
 
+        <a href="https://github.com/danyjf/icg-2022/tree/master/projeto-2/torus-forest" target="_blank">
+          <i style="margin: 10px 10px 25px 10px;" class="fa fa-github fa-3x" aria-hidden="true"></i>
+        </a>
+        <a href="https://torus-forest-2.herokuapp.com/" target="_blank">
+          <i style="margin: 10px 10px 25px 10px;" class="fa fa-file fa-3x" aria-hidden="true"></i>
+        </a>
+
         <p>Torus Forest was a project developed for the class of Introduction to Computer Graphics, obtaining a grade of 95%.</p>
         <p>Torus Forest is a simulation where plants grow when under the spotlight and die when under unlighted areas.</p>
         <p>
@@ -22,6 +29,10 @@
     <div class="row" style="margin-bottom: 75px;">
       <div class="col">
         <h1 style="text-align: center;">Avoid</h1>
+
+        <a href="https://github.com/danyjf/avoid-game" target="_blank">
+          <i style="margin: 10px 10px 25px 10px;" class="fa fa-github fa-3x" aria-hidden="true"></i>
+        </a>
 
         <p>Avoid was the first complete game I made without following a tutorial.</p>
         <p>Avoid is a mobile game where you control a spaceship and try to collect resources while shooting enemy spaceships and dodging bullets</p>
@@ -43,6 +54,13 @@
       <div class="col">
         <h1 style="text-align: center;">Break the Game</h1>
 
+        <a href="https://github.com/danyjf/break-the-game-game" target="_blank">
+          <i style="margin: 10px 10px 25px 10px;" class="fa fa-github fa-3x" aria-hidden="true"></i>
+        </a>
+        <a href="https://danyjf.itch.io/break-the-game" target="_blank">
+          <i style="margin: 10px 10px 25px 10px;" class="fa fa-file fa-3x" aria-hidden="true"></i>
+        </a>
+
         <p>
           Break the Game was a game developed for the game jam titled "Mini Jam 87: Break", the theme of this game jam was "break" and the limitation
           was "The player is a pacifist".
@@ -57,6 +75,10 @@
     <div class="row" style="margin-bottom: 75px;">
       <div class="col">
         <h1 style="text-align: center;">Antroid</h1>
+
+        <a href="https://github.com/danyjf/antroid-game" target="_blank">
+          <i style="margin: 10px 10px 25px 10px;" class="fa fa-github fa-3x" aria-hidden="true"></i>
+        </a>
 
         <p>Antroid was a project developed by following tutorials on Unity.</p>
         <p>
@@ -79,6 +101,10 @@
       </div>
       <div class="col">
         <h1 style="text-align: center;">Pathfind Algorithm Visualizer</h1>
+
+        <a href="https://github.com/danyjf/pathfind-algorithm-visualizer" target="_blank">
+          <i style="margin: 10px 10px 25px 10px;" class="fa fa-github fa-3x" aria-hidden="true"></i>
+        </a>
 
         <p>
           Pathfind Algorightm Visualizer is a program developed in java that allows the user to visualize different algorithms like the Dijkstra Algorithm
