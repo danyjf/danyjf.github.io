@@ -1,0 +1,255 @@
+﻿.container {
+  text-align: center;
+}
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.contacts {
+  margin: 0px 5px 0px 5px;
+}
+
+hr {
+  border: 1px solid grey;
+}
+
+#nameRow {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#pictureRow {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#picture {
+  border-radius: 50%;
+  height: 25vh;
+}
+
+#contactsRow {
+  margin-top: 15px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+#aboutMeRow {
+  text-align: center;
+}
+
+#aboutMeRow p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#pagesRow {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Page Buttons */
+.pageButton {
+  margin-left: 40px;
+  margin-right: 40px;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.pageButton:focus {
+  color: #171e29;
+}
+
+.pageButton:hover {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+.pageButton:active {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+@media (min-width: 768px) {
+  .pageButton {
+    min-width: 170px;
+  }
+}
+
+.projectImage {
+  height: 500px;
+  width: 400px;
+}
+
+.skillBar {
+  text-align: left;
+  padding-top: 10px; /* Add top padding */
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+  margin-bottom: 5px;
+}
+
+.skill {
+  margin-left: 15px;
+}
+
+.skillPercentage {
+  float: right;
+  margin-right: 15px;
+}
+
+/* Programming Languages Skills */
+.python {
+  width: 80%; 
+  background-color: #04AA6D;
+}
+
+.java {
+  width: 80%;
+  background-color: #04AA6D;
+}
+
+.csharp {
+  width: 75%;
+  background-color: #04AA6D;
+}
+
+.javascript {
+  width: 75%;
+  background-color: #04AA6D;
+}
+
+.c\+\+ {
+  width: 70%;
+  background-color: #04AA6D;
+}
+
+.c {
+  width: 65%;
+  background-color: #04AA6D;
+}
+
+.html {
+  width: 65%;
+  background-color: #04AA6D;
+}
+
+.css {
+  width: 65%;
+  background-color: #04AA6D;
+}
+
+.matlab {
+  width: 55%;
+  background-color: #04AA6D;
+}
+
+/* Tools Skills */
+
+.git {
+  width: 85%;
+  background-color: #04AA6D;
+}
+
+.visualStudio {
+  width: 80%;
+  background-color: #04AA6D;
+}
+
+.intellij {
+  width: 80%;
+  background-color: #04AA6D;
+}
+
+.docker {
+  width: 75%;
+  background-color: #04AA6D;
+}
+
+.eclipse {
+  width: 70%;
+  background-color: #04AA6D;
+}
+
+.blender {
+  width: 40%;
+  background-color: #04AA6D;
+}
+
+/* Frameworks & Engines Skills */
+
+.unity {
+  width: 75%;
+  background-color: #04AA6D;
+}
+
+.springBoot {
+  width: 75%;
+  background-color: #04AA6D;
+}
+
+.django {
+  width: 70%;
+  background-color: #04AA6D;
+}
+
+.angular {
+  width: 65%;
+  background-color: #04AA6D;
+}
+
+.unrealEngine {
+  width: 50%;
+  background-color: #04AA6D;
+}
+
+.godot {
+  width: 45%;
+  background-color: #04AA6D;
+}
+
+/* Spoken Languages Skills */
+
+.portuguese {
+  width: 95%;
+  background-color: #04AA6D;
+}
+
+.english {
+  width: 85%;
+  background-color: #04AA6D;
+}
