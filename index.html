@@ -67,7 +67,10 @@
 
   <script src="./lib/three.r119.min.js"></script>
   <script src="./lib/vanta.net.min.js"></script>
-  <script>
+  <script src="./lib/vanta.fog.min.js"></script>
+
+  <!-- Net -->
+  <!-- <script>
     VANTA.NET({
       el: "#background",
       mouseControls: true,
@@ -79,6 +82,24 @@
       scaleMobile: 1.00,
       color: 0xffffff,
       backgroundColor: 0x323252
+    })
+  </script> -->
+
+  <!-- Fog -->
+  <script>
+    VANTA.FOG({
+      el: "#background",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      highlightColor: 0x6272f7,
+      midtoneColor: 0x41c8f2,
+      lowlightColor: 0x38e2ed,
+      blurFactor: 0.19,
+      speed: 0.60,
+      zoom: 1.20
     })
   </script>
 </body>
