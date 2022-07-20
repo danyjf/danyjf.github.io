@@ -71,7 +71,6 @@ hr {
   text-align: center;
 }
 
-/* Page Buttons */
 .pageButton {
   margin-left: 40px;
   margin-right: 40px;
@@ -118,9 +117,11 @@ hr {
   text-align: left;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: white;
+  color: #212529;
   margin-bottom: 5px;
-  background-color: #04AA6D;
+  background-color: transparent;
+  border: 2px solid #212529;
+  border-radius: 5px;
 }
 
 .skill {
