@@ -10,10 +10,10 @@
       <div class="col">
         <h1 style="text-align: center;">Torus Forest</h1>
 
-        <a href="https://github.com/danyjf/icg-2022/tree/master/projeto-2/torus-forest" target="_blank">
+        <a class="projectLink" href="https://github.com/danyjf/icg-2022/tree/master/projeto-2/torus-forest" target="_blank">
           <i style="margin: 10px 10px 25px 10px;" class="fa fa-github fa-3x" aria-hidden="true"></i>
         </a>
-        <a href="https://torus-forest-2.herokuapp.com/" target="_blank">
+        <a class="projectLink" href="https://torus-forest-2.herokuapp.com/" target="_blank">
           <i style="margin: 10px 10px 25px 10px;" class="fa fa-file fa-3x" aria-hidden="true"></i>
         </a>
 
@@ -30,7 +30,7 @@
       <div class="col">
         <h1 style="text-align: center;">Avoid</h1>
 
-        <a href="https://github.com/danyjf/avoid-game" target="_blank">
+        <a class="projectLink" href="https://github.com/danyjf/avoid-game" target="_blank">
           <i style="margin: 10px 10px 25px 10px;" class="fa fa-github fa-3x" aria-hidden="true"></i>
         </a>
 
@@ -54,10 +54,10 @@
       <div class="col">
         <h1 style="text-align: center;">Break the Game</h1>
 
-        <a href="https://github.com/danyjf/break-the-game-game" target="_blank">
+        <a class="projectLink" href="https://github.com/danyjf/break-the-game-game" target="_blank">
           <i style="margin: 10px 10px 25px 10px;" class="fa fa-github fa-3x" aria-hidden="true"></i>
         </a>
-        <a href="https://danyjf.itch.io/break-the-game" target="_blank">
+        <a class="projectLink" href="https://danyjf.itch.io/break-the-game" target="_blank">
           <i style="margin: 10px 10px 25px 10px;" class="fa fa-file fa-3x" aria-hidden="true"></i>
         </a>
 
@@ -76,7 +76,7 @@
       <div class="col">
         <h1 style="text-align: center;">Antroid</h1>
 
-        <a href="https://github.com/danyjf/antroid-game" target="_blank">
+        <a class="projectLink" href="https://github.com/danyjf/antroid-game" target="_blank">
           <i style="margin: 10px 10px 25px 10px;" class="fa fa-github fa-3x" aria-hidden="true"></i>
         </a>
 
@@ -102,7 +102,7 @@
       <div class="col">
         <h1 style="text-align: center;">Pathfind Algorithm Visualizer</h1>
 
-        <a href="https://github.com/danyjf/pathfind-algorithm-visualizer" target="_blank">
+        <a class="projectLink" href="https://github.com/danyjf/pathfind-algorithm-visualizer" target="_blank">
           <i style="margin: 10px 10px 25px 10px;" class="fa fa-github fa-3x" aria-hidden="true"></i>
         </a>
 
