@@ -17,6 +17,7 @@ a:hover {
 .contacts {
   margin: 0px 5px 0px 5px;
   color: #212529;
+  transition: all .3s;
 }
 
 .contacts:hover {
@@ -25,6 +26,7 @@ a:hover {
 
 .projectLink {
   color: #212529;
+  transition: all .3s;
 }
 
 .projectLink:hover {
