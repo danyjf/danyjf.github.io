@@ -27,6 +27,12 @@ export default class Room {
                 child.material.transmission = 1;
                 child.material.opacity = 1;
             }
+
+            if (child.name === "Screen") {
+                child.material = new THREE.MeshBasicMaterial({
+                    map: this.resources.items.ScreenVideo
+                });
+            }
         });
 
         this.scene.add(this.room);

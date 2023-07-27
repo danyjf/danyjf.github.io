@@ -49,7 +49,7 @@ export default class Resources extends EventEmitter {
                     video.play();
 
                     let videoTexture = new THREE.VideoTexture(video);
-                    videoTexture.flipY = true;
+                    videoTexture.flipY = false;
                     videoTexture.minFilter = THREE.NearestFilter;
                     videoTexture.magFilter = THREE.NearestFilter;
                     videoTexture.generateMipmaps = false;
