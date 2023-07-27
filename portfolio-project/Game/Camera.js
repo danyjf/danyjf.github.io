@@ -1,14 +1,14 @@
 ﻿import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 
-import Experience from "./Experience";
+import Game from "./Game";
 
 export default class Camera {
     constructor() {
-        this.experience = new Experience();
-        this.sizes = this.experience.sizes;
-        this.scene = this.experience.scene;
-        this.canvas = this.experience.canvas;
+        this.game = new Game();
+        this.sizes = this.game.sizes;
+        this.scene = this.game.scene;
+        this.canvas = this.game.canvas;
 
         this.createGameCamera();
         this.createDebugCamera();

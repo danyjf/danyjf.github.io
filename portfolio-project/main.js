@@ -1,4 +1,4 @@
 import './style.css';
-import Experience from './Experience/Experience';
+import Game from './Game/Game';
 
-const experience = new Experience(document.querySelector(".experience-canvas"));
+const game = new Game(document.querySelector(".game-canvas"));

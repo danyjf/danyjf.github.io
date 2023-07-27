@@ -10,14 +10,14 @@ import Renderer from "./Renderer";
 
 import World from "./World/World";
 
-export default class Experience {
+export default class Game {
     static instance;
 
     constructor(canvas) {
-        if (Experience.instance) {
-            return Experience.instance;
+        if (Game.instance) {
+            return Game.instance;
         }
-        Experience.instance = this;
+        Game.instance = this;
 
         this.canvas = canvas;
         this.scene = new THREE.Scene();

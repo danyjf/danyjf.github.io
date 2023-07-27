@@ -1,12 +1,12 @@
 ﻿import * as THREE from "three";
 
-import Experience from "../Experience";
+import Game from "../Game";
 
 export default class Environment {
     constructor() {
-        this.experience = new Experience();
-        this.scene = this.experience.scene;
-        this.resources = this.experience.resources;
+        this.game = new Game();
+        this.scene = this.game.scene;
+        this.resources = this.game.resources;
         
         this.setAmbientLight();
         this.setSunLight();

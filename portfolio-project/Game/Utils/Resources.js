@@ -4,13 +4,13 @@ import { EventEmitter } from "events";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
-import Experience from "../Experience";
+import Game from "../Game";
 
 export default class Resources extends EventEmitter {
     constructor(assets) {
         super();
-        this.experience = new Experience();
-        this.renderer = this.experience.renderer;
+        this.game = new Game();
+        this.renderer = this.game.renderer;
         
         this.assets = assets;
 
