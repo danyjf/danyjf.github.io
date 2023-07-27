@@ -11,6 +11,13 @@ export default class Room {
     }
 
     setModel() {
+        this.room.traverse((child) => {
+            if (child.isMesh) {
+                child.castShadow = true;
+                child.receiveShadow = true;
+            }
+        });
+
         this.scene.add(this.room);
     }
 
