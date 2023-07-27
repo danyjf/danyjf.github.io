@@ -10,39 +10,40 @@ export default class Camera {
         this.scene = this.experience.scene;
         this.canvas = this.experience.canvas;
 
-        this.createPerspectiveCamera();
-        this.createOrthographicCamera();
+        this.createGameCamera();
+        this.createDebugCamera();
         this.setOrbitControls();
         
         this.setHelpers();
     }
 
-    createPerspectiveCamera() {
-        this.perspectiveCamera = new THREE.PerspectiveCamera(
-            35, 
+    createGameCamera() {
+        this.gameCamera = new THREE.PerspectiveCamera(
+            50, 
             this.sizes.aspect, 
             0.1, 
             1000
         );
-        this.scene.add(this.perspectiveCamera);
+        this.scene.add(this.gameCamera);
 
-        this.perspectiveCamera.position.z = 5;
+        this.gameCamera.position.set(1.983, 2.581, 0);
+        this.gameCamera.rotation.set(-1.571, 0.783, 1.571);
     }
 
-    createOrthographicCamera() {
-        this.orthographicCamera = new THREE.OrthographicCamera(
-            (-this.sizes.aspect * this.sizes.frustrum) / 2,
-            (this.sizes.aspect * this.sizes.frustrum) / 2,
-            this.sizes.frustrum / 2,
-            -this.sizes.frustrum / 2,
-            -50,
-            50
+    createDebugCamera() {
+        this.debugCamera = new THREE.PerspectiveCamera(
+            50, 
+            this.sizes.aspect, 
+            0.1, 
+            1000
         );
-        this.scene.add(this.orthographicCamera);
+        this.scene.add(this.debugCamera);
+
+        this.debugCamera.position.set(1.983, 2.581, 0);
     }
 
     setOrbitControls() {
-        this.controls = new OrbitControls(this.perspectiveCamera, this.canvas);
+        this.controls = new OrbitControls(this.debugCamera, this.canvas);
         this.controls.enableDamping = true;
         this.controls.enableZoom = true;
     }
@@ -59,14 +60,11 @@ export default class Camera {
     }
 
     resize() {
-        this.perspectiveCamera.aspect = this.sizes.aspect;
-        this.perspectiveCamera.updateProjectionMatrix();
+        this.gameCamera.aspect = this.sizes.aspect;
+        this.gameCamera.updateProjectionMatrix();
 
-        this.orthographicCamera.left = (-this.sizes.aspect * this.sizes.frustrum) / 2;
-        this.orthographicCamera.right = (this.sizes.aspect * this.sizes.frustrum) / 2;
-        this.orthographicCamera.top = this.sizes.frustrum / 2;
-        this.orthographicCamera.bottom = -this.sizes.frustrum / 2;
-        this.orthographicCamera.updateProjectionMatrix();
+        this.debugCamera.aspect = this.sizes.aspect;
+        this.debugCamera.updateProjectionMatrix();
     }
 
     update() {
