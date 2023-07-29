@@ -1,4 +1,10 @@
 ﻿import * as THREE from "three";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer"
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
+import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass";
+import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
+import { FXAAShader } from "three/examples/jsm/shaders/FXAAShader";
+import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass";
 
 import Game from "./Game";
 
@@ -7,7 +13,6 @@ export default class Renderer {
         this.game = new Game();
         this.sizes = this.game.sizes;
         this.scene = this.game.scene;
-        this.outlines = this.game.outlines;
         this.canvas = this.game.canvas;
         this.camera = this.game.camera;
 
@@ -17,18 +22,34 @@ export default class Renderer {
     setRenderer() {
         this.renderer = new THREE.WebGLRenderer({
             canvas: this.canvas,
-            antialias: true
+            // antialias: true
         });
 
         this.renderer.useLegacyLights = false;
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
-        this.renderer.toneMapping = THREE.CineonToneMapping;
-        this.renderer.toneMappingExposure = 1.75;
+        // this.renderer.toneMapping = THREE.CineonToneMapping;
+        // this.renderer.toneMappingExposure = 1.75;
         this.renderer.shadowMap.enabled = true;
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
         this.renderer.setSize(this.sizes.width, this.sizes.height);
         this.renderer.setPixelRatio(this.sizes.pixelRatio);
+
+        this.composer = new EffectComposer(this.renderer);
+        
+        let renderPass = new RenderPass(this.scene, this.camera.debugCamera);
+        this.composer.addPass(renderPass);
+        
+        this.outlinePass = new OutlinePass(new THREE.Vector2(this.sizes.width, this.sizes.height), this.scene, this.camera.debugCamera);
+        this.composer.addPass(this.outlinePass);
+
+        let fxaaPass = new ShaderPass(FXAAShader);
+        fxaaPass.material.uniforms['resolution'].value.x = 1 / (this.sizes.width * this.sizes.pixelRatio);
+		fxaaPass.material.uniforms['resolution'].value.y = 1 / (this.sizes.height * this.sizes.pixelRatio);
+        this.composer.addPass(fxaaPass);
+
+        let outputPass = new OutputPass();
+        this.composer.addPass(outputPass);
     }
 
     resize() {
@@ -38,33 +59,26 @@ export default class Renderer {
 
     update() {
         // render the scene with the debug camera that has the orbit controls
-        this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
-        this.renderer.autoClear = true;
-        this.renderer.render(this.scene, this.camera.debugCamera);
-        
-        // render the outlines
-        this.renderer.autoClear = false;
-        this.renderer.render(this.outlines, this.camera.debugCamera);
+        // this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
+        // this.renderer.render(this.scene, this.camera.debugCamera);
+        this.composer.render();
         
         // render the scene with the game camera on the top right corner 
         // occupying 1/3 of the screen 
-        this.renderer.setScissorTest(true);
-        this.renderer.setViewport(
-            this.sizes.width - this.sizes.width / 3, 
-            this.sizes.height - this.sizes.height / 3, 
-            this.sizes.width / 3, 
-            this.sizes.height / 3
-        );
-        this.renderer.setScissor(
-            this.sizes.width - this.sizes.width / 3, 
-            this.sizes.height - this.sizes.height / 3, 
-            this.sizes.width / 3, 
-            this.sizes.height / 3
-        );
-        this.renderer.autoClear = true;
-        this.renderer.render(this.scene, this.camera.gameCamera)
-        this.renderer.autoClear = false;
-        this.renderer.render(this.outlines, this.camera.gameCamera);
-        this.renderer.setScissorTest(false);
+        // this.renderer.setScissorTest(true);
+        // this.renderer.setViewport(
+        //     this.sizes.width - this.sizes.width / 3, 
+        //     this.sizes.height - this.sizes.height / 3, 
+        //     this.sizes.width / 3, 
+        //     this.sizes.height / 3
+        // );
+        // this.renderer.setScissor(
+        //     this.sizes.width - this.sizes.width / 3, 
+        //     this.sizes.height - this.sizes.height / 3, 
+        //     this.sizes.width / 3, 
+        //     this.sizes.height / 3
+        // );
+        // this.renderer.render(this.scene, this.camera.gameCamera)
+        // this.renderer.setScissorTest(false);
     }
 }
