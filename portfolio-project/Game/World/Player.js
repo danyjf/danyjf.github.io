@@ -6,9 +6,11 @@ export default class Player {
     constructor() {
         this.game = new Game();
         this.scene = this.game.scene;
-        this.speed = 0.1;
+        this.speed = 0.02;
+        this.direction = new THREE.Vector3(0, 0, 0);
     
-        document.addEventListener("keydown", this.onDocumentKeyDown.bind(this), false);
+        document.addEventListener("keydown", this.onKeyDown.bind(this), false);
+        document.addEventListener("keyup", this.onKeyUp.bind(this), false);
 
         this.setModel();
     }
@@ -21,28 +23,55 @@ export default class Player {
         this.scene.add(this.player);
     }
 
-    onDocumentKeyDown(event) {
+    onKeyDown(event) {
+        if (event.repeat)
+            return;
+        
         switch (event.code) {
             case "KeyW":
             case "ArrowUp":
-                this.player.position.x -= this.speed;
+                this.direction.x -= 1;
                 break;
             case "KeyS":
             case "ArrowDown":
-                this.player.position.x += this.speed;
+                this.direction.x += 1;
                 break;
             case "KeyA":
             case "ArrowLeft":
-                this.player.position.z += this.speed;
+                this.direction.z += 1;
                 break;
             case "KeyD":
             case "ArrowRight":
-                this.player.position.z -= this.speed;
+                this.direction.z -= 1;
+                break;
+        }
+    }
+
+    onKeyUp(event) {
+        switch (event.code) {
+            case "KeyW":
+            case "ArrowUp":
+                this.direction.x += 1;
+                break;
+            case "KeyS":
+            case "ArrowDown":
+                this.direction.x -= 1;
+                break;
+            case "KeyA":
+            case "ArrowLeft":
+                this.direction.z -= 1;
+                break;
+            case "KeyD":
+            case "ArrowRight":
+                this.direction.z += 1;
                 break;
         }
     }
 
     update() {
-        
+        const normalizedDir = this.direction.clone();
+        normalizedDir.normalize();
+        this.player.position.x += normalizedDir.x * this.speed;
+        this.player.position.z += normalizedDir.z * this.speed;
     }
 }
