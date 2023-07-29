@@ -7,6 +7,7 @@ export default class Renderer {
         this.game = new Game();
         this.sizes = this.game.sizes;
         this.scene = this.game.scene;
+        this.outlines = this.game.outlines;
         this.canvas = this.game.canvas;
         this.camera = this.game.camera;
 
@@ -38,7 +39,12 @@ export default class Renderer {
     update() {
         // render the scene with the debug camera that has the orbit controls
         this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
+        this.renderer.autoClear = true;
         this.renderer.render(this.scene, this.camera.debugCamera);
+        
+        // render the outlines
+        this.renderer.autoClear = false;
+        this.renderer.render(this.outlines, this.camera.debugCamera);
         
         // render the scene with the game camera on the top right corner 
         // occupying 1/3 of the screen 
@@ -55,7 +61,10 @@ export default class Renderer {
             this.sizes.width / 3, 
             this.sizes.height / 3
         );
+        this.renderer.autoClear = true;
         this.renderer.render(this.scene, this.camera.gameCamera)
+        this.renderer.autoClear = false;
+        this.renderer.render(this.outlines, this.camera.gameCamera);
         this.renderer.setScissorTest(false);
     }
 }
