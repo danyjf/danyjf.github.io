@@ -8,6 +8,7 @@ export default class Room {
         this.scene = this.game.scene;
         this.resources = this.game.resources;
         this.room = this.resources.items.Room.scene;
+        this.outlineEffect = this.game.outlineEffect;
         
         this.setModel();
     }
@@ -35,7 +36,7 @@ export default class Room {
             }
 
             if (child.name === "Monitor") {
-                this.game.renderer.outlinePass.selectedObjects = [child];
+                this.outlineEffect.addOutline(child);
             };
         });
 
