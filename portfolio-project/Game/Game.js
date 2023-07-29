@@ -10,6 +10,7 @@ import Camera from "./Camera";
 import Renderer from "./Renderer";
 
 import World from "./World/World";
+import Player from "./Player";
 
 export default class Game {
     static instance;
@@ -29,6 +30,7 @@ export default class Game {
         this.resources = new Resources(Assets);
         this.world = new World();
         this.outlineEffect = new OutlineEffect();
+        this.player = new Player();
 
         this.time.on("update", () => this.update());
         this.sizes.on("resize", () => this.resize());
@@ -40,6 +42,7 @@ export default class Game {
     }
 
     update() {
+        this.player.update();
         this.camera.update();
         this.renderer.update();
     }
