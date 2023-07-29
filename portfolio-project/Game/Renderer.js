@@ -17,30 +17,29 @@ export default class Renderer {
         this.camera = this.game.camera;
 
         this.setRenderer();
+        this.setComposer();
     }
 
     setRenderer() {
         this.renderer = new THREE.WebGLRenderer({
-            canvas: this.canvas,
-            // antialias: true
+            canvas: this.canvas
         });
 
         this.renderer.useLegacyLights = false;
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
-        // this.renderer.toneMapping = THREE.CineonToneMapping;
-        // this.renderer.toneMappingExposure = 1.75;
         this.renderer.shadowMap.enabled = true;
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-
         this.renderer.setSize(this.sizes.width, this.sizes.height);
         this.renderer.setPixelRatio(this.sizes.pixelRatio);
+    }
 
+    setComposer() {
         this.composer = new EffectComposer(this.renderer);
         
-        let renderPass = new RenderPass(this.scene, this.camera.debugCamera);
+        let renderPass = new RenderPass(this.scene, this.camera.gameCamera);
         this.composer.addPass(renderPass);
         
-        this.outlinePass = new OutlinePass(new THREE.Vector2(this.sizes.width, this.sizes.height), this.scene, this.camera.debugCamera);
+        this.outlinePass = new OutlinePass(new THREE.Vector2(this.sizes.width, this.sizes.height), this.scene, this.camera.gameCamera);
         this.composer.addPass(this.outlinePass);
 
         let fxaaPass = new ShaderPass(FXAAShader);
@@ -59,26 +58,25 @@ export default class Renderer {
 
     update() {
         // render the scene with the debug camera that has the orbit controls
-        // this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
-        // this.renderer.render(this.scene, this.camera.debugCamera);
-        this.composer.render();
+        this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
+        this.renderer.render(this.scene, this.camera.debugCamera)
         
         // render the scene with the game camera on the top right corner 
         // occupying 1/3 of the screen 
-        // this.renderer.setScissorTest(true);
-        // this.renderer.setViewport(
-        //     this.sizes.width - this.sizes.width / 3, 
-        //     this.sizes.height - this.sizes.height / 3, 
-        //     this.sizes.width / 3, 
-        //     this.sizes.height / 3
-        // );
-        // this.renderer.setScissor(
-        //     this.sizes.width - this.sizes.width / 3, 
-        //     this.sizes.height - this.sizes.height / 3, 
-        //     this.sizes.width / 3, 
-        //     this.sizes.height / 3
-        // );
-        // this.renderer.render(this.scene, this.camera.gameCamera)
-        // this.renderer.setScissorTest(false);
+        this.renderer.setScissorTest(true);
+        this.renderer.setViewport(
+            this.sizes.width - this.sizes.width / 3, 
+            this.sizes.height - this.sizes.height / 3, 
+            this.sizes.width / 3, 
+            this.sizes.height / 3
+        );
+        this.renderer.setScissor(
+            this.sizes.width - this.sizes.width / 3, 
+            this.sizes.height - this.sizes.height / 3, 
+            this.sizes.width / 3, 
+            this.sizes.height / 3
+        );
+        this.composer.render();
+        this.renderer.setScissorTest(false);
     }
 }
