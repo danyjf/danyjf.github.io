@@ -16,9 +16,13 @@ export default class World {
             
             this.colliders = [
                 this.room.leftWallCollider,
-                this.room.rightWallCollider,
+                this.room.rightWallTopCollider,
+                this.room.rightWallBottomCollider,
+                // this.room.hallwayWallTopCollider,
+                // this.room.hallwayWallBottomCollider,
                 this.room.topWallCollider,
-                this.room.bottomWallCollider
+                this.room.bottomWallCollider,
+                this.room.deskCollider
             ];
             this.player = new Player();
             this.worldLoaded = true;
