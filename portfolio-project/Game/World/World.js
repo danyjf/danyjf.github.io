@@ -13,6 +13,13 @@ export default class World {
         this.resources.on("ready", () => {
             this.environment = new Environment();
             this.room = new Room();
+            
+            this.colliders = [
+                this.room.leftWallCollider,
+                this.room.rightWallCollider,
+                this.room.topWallCollider,
+                this.room.bottomWallCollider
+            ];
             this.player = new Player();
             this.worldLoaded = true;
         });

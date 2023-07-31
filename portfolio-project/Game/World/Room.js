@@ -1,5 +1,7 @@
 ﻿import * as THREE from "three";
 
+import SquareCollider from "../Utils/SquareCollider";
+
 import Game from "../Game";
 
 export default class Room {
@@ -9,6 +11,10 @@ export default class Room {
         this.resources = this.game.resources;
         this.room = this.resources.items.Room.scene;
         this.outlineEffect = this.game.outlineEffect;
+        this.leftWallCollider = new SquareCollider(1.2, 1, -1, 1);
+        this.rightWallCollider = new SquareCollider(-1, -1.2, -1, 1);
+        this.topWallCollider = new SquareCollider(1, -1, -1.2, -1);
+        this.bottomWallCollider = new SquareCollider(1, -1, 1, 1.2);
         
         this.setModel();
     }
