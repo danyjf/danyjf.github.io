@@ -18,8 +18,6 @@ export default class World {
                 this.room.leftWallCollider,
                 this.room.rightWallTopCollider,
                 this.room.rightWallBottomCollider,
-                // this.room.hallwayWallTopCollider,
-                // this.room.hallwayWallBottomCollider,
                 this.room.topWallCollider,
                 this.room.bottomWallCollider,
                 this.room.deskCollider
