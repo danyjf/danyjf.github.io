@@ -9,8 +9,8 @@ export default class Room {
         this.game = new Game();
         this.scene = this.game.scene;
         this.resources = this.game.resources;
+        this.outlineEffect = this.game.world.outlineEffect;
         this.room = this.resources.items.Room.scene;
-        this.outlineEffect = this.game.outlineEffect;
         this.leftWallCollider = new SquareCollider(1.2, 1, -1.5, 1.5);
         this.rightWallTopCollider = new SquareCollider(-1, -2, -1.5, -0.26);
         this.rightWallBottomCollider = new SquareCollider(-1, -2, 0.26, 1.5);
@@ -44,7 +44,7 @@ export default class Room {
             }
 
             if (child.name === "Monitor") {
-                this.outlineEffect.addOutline(child);
+                this.outlineEffect.addSelectable(child);
             };
         });
 

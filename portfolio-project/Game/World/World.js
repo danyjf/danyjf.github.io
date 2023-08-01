@@ -3,6 +3,7 @@
 import Environment from "./Environment";
 import Room from "./Room";
 import Player from "./Player";
+import OutlineEffect from "../Utils/OutlineEffect";
 
 export default class World {
     constructor() {
@@ -12,6 +13,7 @@ export default class World {
 
         this.resources.on("ready", () => {
             this.environment = new Environment();
+            this.outlineEffect = new OutlineEffect();
             this.room = new Room();
             
             this.colliders = [
@@ -22,7 +24,9 @@ export default class World {
                 this.room.bottomWallCollider,
                 this.room.deskCollider
             ];
+
             this.player = new Player();
+            this.outlineEffect.addPlayer(this.player);
             this.worldLoaded = true;
         });
     }
@@ -30,6 +34,7 @@ export default class World {
     update() {
         if (this.worldLoaded) {
             this.player.update();
+            this.outlineEffect.update();
         }
     }
 }
