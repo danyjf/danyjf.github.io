@@ -15,15 +15,6 @@ export default class World {
             this.environment = new Environment();
             this.outlineEffect = new OutlineEffect();
             this.room = new Room();
-            
-            // this.colliders = [
-            //     this.room.leftWallCollider,
-            //     this.room.rightWallTopCollider,
-            //     this.room.rightWallBottomCollider,
-            //     this.room.topWallCollider,
-            //     this.room.bottomWallCollider,
-            //     this.room.deskCollider
-            // ];
 
             this.player = new Player();
             this.outlineEffect.addPlayer(this.player);
