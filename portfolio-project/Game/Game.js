@@ -20,6 +20,7 @@ export default class Game {
         }
         Game.instance = this;
 
+        // create game objects
         this.canvas = canvas;
         this.scene = new THREE.Scene();
         this.time = new Time();
@@ -29,6 +30,7 @@ export default class Game {
         this.resources = new Resources(Assets);
         this.world = new World();
 
+        // register events
         this.time.on("update", () => this.update());
         this.sizes.on("resize", () => this.resize());
     }

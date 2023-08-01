@@ -7,7 +7,7 @@ export default class Player {
     constructor() {
         this.game = new Game();
         this.worldColliders = this.game.world.colliders;
-        this.collider = new SquareCollider(0.075, -0.075, -0.075, 0.075);
+        this.collider = new SquareCollider(this, 0.075, -0.075, -0.075, 0.075);
         this.scene = this.game.scene;
         this.speed = 0.02;
         this.direction = new THREE.Vector3(0, 0, 0);
@@ -71,41 +71,6 @@ export default class Player {
         }
     }
 
-    checkCollisions() {
-        for (const squareCollider of this.worldColliders) {
-            const intersection = squareCollider.intersect(this.collider);
-            if (intersection) {
-                if (intersection.width < intersection.height) {
-                    if (this.collider.left > squareCollider.right && this.collider.left < squareCollider.left) {
-                        this.player.position.z -= intersection.width;
-                        this.updateCollider(0, -intersection.width);
-                    }
-                    else {
-                        this.player.position.z += intersection.width;
-                        this.updateCollider(0, intersection.width);
-                    }
-                }
-                else {
-                    if (this.collider.top > squareCollider.top && this.collider.top < squareCollider.bottom) {
-                        this.player.position.x += intersection.height;
-                        this.updateCollider(intersection.height, 0);
-                    }
-                    else {
-                        this.player.position.x -= intersection.height;
-                        this.updateCollider(-intersection.height, 0);
-                    }
-                }
-            }
-        }
-    }
-
-    updateCollider(x, z) {
-        this.collider.left += z;
-        this.collider.right += z;
-        this.collider.top += x;
-        this.collider.bottom += x;
-    }
-
     update() {
         const normalizedDir = this.direction.clone();
         normalizedDir.normalize();
@@ -115,7 +80,6 @@ export default class Player {
         this.player.position.x += moveX;
         this.player.position.z += moveZ;
 
-        this.updateCollider(moveX, moveZ);
-        this.checkCollisions();
+        this.collider.updateCollider(moveZ, moveX);
     }
 }

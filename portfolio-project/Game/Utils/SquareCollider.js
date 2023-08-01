@@ -1,5 +1,6 @@
 ﻿export default class SquareCollider {
-    constructor(left, right, top, bottom) {
+    constructor(owner, left, right, top, bottom) {
+        this.owner = owner;
         this.left = left;
         this.right = right;
         this.top = top;
@@ -20,5 +21,45 @@
         }
 
         return undefined;
+    }
+
+    handleCollision(other) {
+        const intersection = this.intersect(other);
+        if (!intersection)
+            return;
+
+        this.resolveCollision(intersection, other);
+    }
+
+    resolveCollision(intersection, other) {
+        if (intersection.width < intersection.height) {
+            if (this.left > other.right && this.left < other.left) {
+                this.resolvePositions(-intersection.width, 0);
+            }
+            else {
+                this.resolvePositions(intersection.width, 0);
+            }
+        }
+        else {
+            if (this.top > other.top && this.top < other.bottom) {
+                this.resolvePositions(0, intersection.height);
+            }
+            else {
+                this.resolvePositions(0, -intersection.height);
+            }
+        }
+    }
+
+    resolvePositions(w, h) {
+        this.owner.player.position.z += w;
+        this.owner.player.position.x += h;
+        this.updateCollider(w, h);
+    }
+
+    updateCollider(w, h) {
+        this.left += w;
+        this.right += w;
+        this.top += h;
+        this.bottom += h;
     }
 }

@@ -7,7 +7,9 @@ export default class Environment {
         this.game = new Game();
         this.scene = this.game.scene;
         this.resources = this.game.resources;
-        
+    }
+
+    start() {
         this.setAmbientLight();
         this.setSunLight();
     }
@@ -26,8 +28,4 @@ export default class Environment {
         this.sunLight.position.set(1.5, 7, 3);
         this.scene.add(this.sunLight);
     }
-
-    resize() {}
-
-    update() {}
 }
