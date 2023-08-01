@@ -1,6 +1,4 @@
-﻿import * as THREE from "three";
-
-import Game from "../Game";
+﻿import Game from "../Game";
 
 export default class OutlineEffect {
     constructor() {
@@ -13,23 +11,15 @@ export default class OutlineEffect {
         this.selectableObjects = [];
         this.distancesToPlayer = [];
         this.currentlySelectedIndex = null;
+        this.selectionRadius = 0.6;
     }
 
     addSelectable(obj) {
         this.selectableObjects.push(obj);
-        if (this.player) {
-            this.distancesToPlayer.push(this.getDistanceToPlayer(obj));
-        }
+        this.distancesToPlayer.push(this.distanceToPlayer(obj));
     }
 
-    addPlayer(player) {
-        this.player = player;
-        for (const obj of this.selectableObjects) {
-            this.distancesToPlayer.push(this.getDistanceToPlayer(obj));
-        }
-    }
-
-    getDistanceToPlayer(obj) {
+    distanceToPlayer(obj) {
         return this.player.playerObject.position.distanceTo(obj.position);
     }
 
@@ -42,7 +32,7 @@ export default class OutlineEffect {
         }
     }
 
-    removeOutline(obj) {
+    removeOutline() {
         if (this.outlinedObjects.length === 1) {
             this.outlinedObjects.pop();
         }
@@ -54,25 +44,49 @@ export default class OutlineEffect {
         }
     }
 
-    update() {
-        // update distances of the selectable objects
+    updateDistances() {
         for (let i = 0; i < this.selectableObjects.length; i++) {
-            this.distancesToPlayer[i] = this.getDistanceToPlayer(this.selectableObjects[i]);
+            this.distancesToPlayer[i] = this.distanceToPlayer(this.selectableObjects[i]);
         }
+    }
 
-        // if one of the distances is less than a minimum value outline that object
-        if (this.currentlySelectedIndex == null)
-            for (let i = 0; i < this.distancesToPlayer.length; i++) {
-                if (this.distancesToPlayer[i] < 0.6) {
-                    this.outlineObject(this.selectableObjects[i]);
-                    this.currentlySelectedIndex = i;
-                    break;
-                }
+    objectsInRadius() {
+        let objectsInRadius = [];
+        for (let i = 0; i < this.distancesToPlayer.length; i++) {
+            if (this.distancesToPlayer[i] < this.selectionRadius) {
+                objectsInRadius.push(i)
             }
-        else
-            if (this.distancesToPlayer[this.currentlySelectedIndex] > 0.6) {
-                this.removeOutline(this.selectableObjects[this.currentlySelectedIndex]);
+        }
+        return objectsInRadius;
+    }
+
+    closestObjectIndex(objects) {
+        let closestObject = objects[0];
+        for (const objectIndex of objects) {
+            if (this.distancesToPlayer[objectIndex] < this.distancesToPlayer[closestObject]) {
+                closestObject = objectIndex;
+            }
+        }
+        return closestObject;
+    }
+
+    update() {
+        this.updateDistances();
+
+        const objectsInRadius = this.objectsInRadius();
+        if (objectsInRadius.length > 0) {
+            let closestObject = this.closestObjectIndex(objectsInRadius);
+
+            if (closestObject != this.currentlySelectedIndex) {
+                this.outlineObject(this.selectableObjects[closestObject]);
+                this.currentlySelectedIndex = closestObject;
+            }
+        }
+        else {
+            if (this.currentlySelectedIndex != null) {
+                this.removeOutline();
                 this.currentlySelectedIndex = null;
             }
+        }
     }
 }
