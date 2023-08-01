@@ -7,16 +7,21 @@ export default class Player {
     constructor() {
         this.game = new Game();
         this.scene = this.game.scene;
+    }
     
+    start() {
         document.addEventListener("keydown", this.onKeyDown.bind(this), false);
         document.addEventListener("keyup", this.onKeyUp.bind(this), false);
-    }
-
-    start() {
         this.worldColliders = this.game.world.colliders;
         this.collider = new SquareCollider(this, 0.075, -0.075, -0.075, 0.075);
         this.speed = 0.02;
         this.direction = new THREE.Vector3(0, 0, 0);
+        this.keysState = {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+        };
         this.setModel();
     }
 
@@ -29,25 +34,22 @@ export default class Player {
     }
 
     onKeyDown(event) {
-        if (event.repeat)
-            return;
-        
         switch (event.code) {
             case "KeyW":
             case "ArrowUp":
-                this.direction.x -= 1;
+                this.keysState.up = true;
                 break;
             case "KeyS":
             case "ArrowDown":
-                this.direction.x += 1;
+                this.keysState.down = true;
                 break;
             case "KeyA":
             case "ArrowLeft":
-                this.direction.z += 1;
+                this.keysState.left = true;
                 break;
             case "KeyD":
             case "ArrowRight":
-                this.direction.z -= 1;
+                this.keysState.right = true;
                 break;
         }
     }
@@ -56,29 +58,37 @@ export default class Player {
         switch (event.code) {
             case "KeyW":
             case "ArrowUp":
-                this.direction.x += 1;
+                this.keysState.up = false;
                 break;
             case "KeyS":
             case "ArrowDown":
-                this.direction.x -= 1;
+                this.keysState.down = false;
                 break;
             case "KeyA":
             case "ArrowLeft":
-                this.direction.z -= 1;
+                this.keysState.left = false;
                 break;
             case "KeyD":
             case "ArrowRight":
-                this.direction.z += 1;
+                this.keysState.right = false;
                 break;
         }
     }
 
     update() {
-        const normalizedDir = this.direction.clone();
-        normalizedDir.normalize();
+        this.direction.set(0, 0, 0);
+        if (this.keysState.up)
+            this.direction.x -= 1;
+        if (this.keysState.down)
+            this.direction.x += 1;
+        if (this.keysState.left)
+            this.direction.z += 1;
+        if (this.keysState.right)
+            this.direction.z -= 1;
+        this.direction.normalize();
 
-        const moveX = normalizedDir.x * this.speed;
-        const moveZ = normalizedDir.z * this.speed;
+        const moveX = this.direction.x * this.speed;
+        const moveZ = this.direction.z * this.speed;
         this.playerObject.position.x += moveX;
         this.playerObject.position.z += moveZ;
 
