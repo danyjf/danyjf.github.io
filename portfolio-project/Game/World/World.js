@@ -15,9 +15,7 @@ export default class World {
             this.environment = new Environment();
             this.outlineEffect = new OutlineEffect();
             this.room = new Room();
-
             this.player = new Player();
-            this.outlineEffect.addPlayer(this.player);
             this.worldLoaded = true;
 
             this.start();
@@ -26,6 +24,9 @@ export default class World {
 
     start() {
         this.environment.start();
+        this.player.start();
+        this.outlineEffect.start();
+        this.room.start();
     }
 
     update() {

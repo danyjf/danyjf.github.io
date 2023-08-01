@@ -51,8 +51,8 @@
     }
 
     resolvePositions(w, h) {
-        this.owner.player.position.z += w;
-        this.owner.player.position.x += h;
+        this.owner.playerObject.position.z += w;
+        this.owner.playerObject.position.x += h;
         this.updateCollider(w, h);
     }
 

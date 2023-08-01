@@ -6,24 +6,26 @@ import SquareCollider from "../Utils/SquareCollider";
 export default class Player {
     constructor() {
         this.game = new Game();
-        this.worldColliders = this.game.world.colliders;
-        this.collider = new SquareCollider(this, 0.075, -0.075, -0.075, 0.075);
         this.scene = this.game.scene;
-        this.speed = 0.02;
-        this.direction = new THREE.Vector3(0, 0, 0);
     
         document.addEventListener("keydown", this.onKeyDown.bind(this), false);
         document.addEventListener("keyup", this.onKeyUp.bind(this), false);
+    }
 
+    start() {
+        this.worldColliders = this.game.world.colliders;
+        this.collider = new SquareCollider(this, 0.075, -0.075, -0.075, 0.075);
+        this.speed = 0.02;
+        this.direction = new THREE.Vector3(0, 0, 0);
         this.setModel();
     }
 
     setModel() {
         const geometry = new THREE.BoxGeometry(0.15, 0.15, 0.15); 
         const material = new THREE.MeshStandardMaterial({color: 0xcccccc}); 
-        this.player = new THREE.Mesh(geometry, material); 
-        this.player.position.y = 0.075;
-        this.scene.add(this.player);
+        this.playerObject = new THREE.Mesh(geometry, material); 
+        this.playerObject.position.y = 0.075;
+        this.scene.add(this.playerObject);
     }
 
     onKeyDown(event) {
@@ -77,8 +79,8 @@ export default class Player {
 
         const moveX = normalizedDir.x * this.speed;
         const moveZ = normalizedDir.z * this.speed;
-        this.player.position.x += moveX;
-        this.player.position.z += moveZ;
+        this.playerObject.position.x += moveX;
+        this.playerObject.position.z += moveZ;
 
         this.collider.updateCollider(moveZ, moveX);
     }

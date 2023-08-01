@@ -9,8 +9,11 @@ export default class Room {
         this.game = new Game();
         this.scene = this.game.scene;
         this.resources = this.game.resources;
+    }
+    
+    start() {
         this.outlineEffect = this.game.world.outlineEffect;
-        this.room = this.resources.items.Room.scene;
+        this.roomObject = this.resources.items.Room.scene;
         this.colliders = [
             new SquareCollider(this, 1.2, 1, -1.5, 1.5),      // left wall collider
             new SquareCollider(this, -1, -2, -1.5, -0.26),    // right top wall collider
@@ -19,12 +22,11 @@ export default class Room {
             new SquareCollider(this, 1, -1, 1, 1.2),          // bottom wall collider
             new SquareCollider(this, 0.4, -0.4, -1, -0.6)     // desk collider
         ];
-        
         this.setModel();
     }
 
     setModel() {
-        this.room.traverse((child) => {
+        this.roomObject.traverse((child) => {
             if (child.isMesh) {
                 child.castShadow = true;
                 child.receiveShadow = true;
@@ -50,7 +52,7 @@ export default class Room {
             };
         });
 
-        this.scene.add(this.room);
+        this.scene.add(this.roomObject);
     }
 
     resize() {}

@@ -5,8 +5,11 @@ import Game from "../Game";
 export default class OutlineEffect {
     constructor() {
         this.game = new Game();
+    }
+    
+    start() {
         this.outlinedObjects = this.game.renderer.outlinePass.selectedObjects;
-        this.player = null;
+        this.player = this.game.world.player;
         this.selectableObjects = [];
         this.distancesToPlayer = [];
         this.currentlySelectedIndex = null;
@@ -27,7 +30,7 @@ export default class OutlineEffect {
     }
 
     getDistanceToPlayer(obj) {
-        return this.player.player.position.distanceTo(obj.position);
+        return this.player.playerObject.position.distanceTo(obj.position);
     }
 
     outlineObject(obj) {
