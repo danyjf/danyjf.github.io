@@ -4,9 +4,9 @@
         type: "glbModel",
         path: "/models/Room.glb"
     },
-    {
-        name: "ScreenVideo",
-        type: "videoTexture",
-        path: "/textures/Screen.mp4"
-    }
+    // {
+    //     name: "ScreenVideo",
+    //     type: "videoTexture",
+    //     path: "/textures/Screen.mp4"
+    // }
 ];

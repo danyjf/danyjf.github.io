@@ -42,9 +42,10 @@ export default class Room {
             }
 
             if (child.name === "Screen") {
-                child.material = new THREE.MeshBasicMaterial({
-                    map: this.resources.items.ScreenVideo
-                });
+                // playing video causes a memory leak on firefox
+                // child.material = new THREE.MeshBasicMaterial({
+                //     map: this.resources.items.ScreenVideo
+                // });
             }
 
             if (child.name === "Monitor") {
