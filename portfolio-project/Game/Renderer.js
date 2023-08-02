@@ -25,7 +25,6 @@ export default class Renderer {
             canvas: this.canvas
         });
 
-        this.renderer.useLegacyLights = false;
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
         this.renderer.shadowMap.enabled = true;
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
