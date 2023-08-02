@@ -7,6 +7,7 @@ export default class Player {
     constructor() {
         this.game = new Game();
         this.scene = this.game.scene;
+        this.time = this.game.time;
     }
     
     start() {
@@ -14,7 +15,7 @@ export default class Player {
         document.addEventListener("keyup", this.onKeyUp.bind(this), false);
         this.worldColliders = this.game.world.colliders;
         this.collider = new SquareCollider(this, 0.075, -0.075, -0.075, 0.075);
-        this.speed = 0.02;
+        this.speed = 1.25;
         this.direction = new THREE.Vector3(0, 0, 0);
         this.keysState = {
             "up": false,
@@ -87,8 +88,8 @@ export default class Player {
             this.direction.z -= 1;
         this.direction.normalize();
 
-        const moveX = this.direction.x * this.speed;
-        const moveZ = this.direction.z * this.speed;
+        const moveX = this.direction.x * this.speed * this.time.delta;
+        const moveZ = this.direction.z * this.speed * this.time.delta;
         this.playerObject.position.x += moveX;
         this.playerObject.position.z += moveZ;
 
