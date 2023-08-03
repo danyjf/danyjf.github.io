@@ -75,8 +75,11 @@ export default class Camera {
             this.gameCamera.quaternion.z, 
             this.gameCamera.quaternion.w
         );
-        this.targetPosition.set(-0.32, 0.524, 0);
-        this.targetRotation.set(0, 0.7071067811865476, 0, 0.7071067811865476);
+        // this.targetPosition.set(-0.32, 0.524, 0);
+        // this.targetRotation.set(0, 0.7071067811865476, 0, 0.7071067811865476);
+        this.targetPosition.set(-0.495, 0.5925, 0.066);
+        this.targetRotation.set(0, 0.8829479983710051, 0, 0.4694708001277986);
+
         this.startAnimationTime = this.time.current;
         this.elapsedAnimationTime = 0;
         this.animationDuration = 1;

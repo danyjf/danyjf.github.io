@@ -46,6 +46,21 @@ export default class Room {
                 // child.material = new THREE.MeshBasicMaterial({
                 //     map: this.resources.items.ScreenVideo
                 // });
+                this.resources.items.TorusForestProject.magFilter = THREE.NearestFilter;
+                this.resources.items.TorusForestProject.minFilter = THREE.NearestFilter;
+                this.resources.items.TorusForestProject.anisotropy = 1;
+                child.material = new THREE.MeshBasicMaterial({
+                    map: this.resources.items.TorusForestProject
+                });
+            }
+
+            if (child.name === "VerticalScreen") {
+                this.resources.items.TorusForestVerticalProject.magFilter = THREE.NearestFilter;
+                this.resources.items.TorusForestVerticalProject.minFilter = THREE.NearestFilter;
+                this.resources.items.TorusForestVerticalProject.anisotropy = 1;
+                child.material = new THREE.MeshBasicMaterial({
+                    map: this.resources.items.TorusForestVerticalProject
+                });
             }
 
             if (child.name === "Monitor") {
