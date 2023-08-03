@@ -46,11 +46,8 @@ export default class Room {
                 // child.material = new THREE.MeshBasicMaterial({
                 //     map: this.resources.items.ScreenVideo
                 // });
-                this.resources.items.TorusForestProject.magFilter = THREE.NearestFilter;
-                this.resources.items.TorusForestProject.minFilter = THREE.NearestFilter;
-                this.resources.items.TorusForestProject.anisotropy = 1;
                 child.material = new THREE.MeshBasicMaterial({
-                    map: this.resources.items.TorusForestProject
+                    map: this.resources.items.CodeScreen
                 });
             }
 
@@ -63,7 +60,7 @@ export default class Room {
                 });
             }
 
-            if (child.name === "Monitor") {
+            if (child.name === "VerticalMonitor") {
                 this.outlineEffect.addSelectable(child);
             };
         });

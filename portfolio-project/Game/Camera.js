@@ -75,8 +75,12 @@ export default class Camera {
             this.gameCamera.quaternion.z, 
             this.gameCamera.quaternion.w
         );
+
+        // transform for horizontal monitor
         // this.targetPosition.set(-0.32, 0.524, 0);
         // this.targetRotation.set(0, 0.7071067811865476, 0, 0.7071067811865476);
+
+        // transform for vertical monitor
         this.targetPosition.set(-0.495, 0.5925, 0.066);
         this.targetRotation.set(0, 0.8829479983710051, 0, 0.4694708001277986);
 

@@ -39,7 +39,7 @@ export default class Player {
 
             const selectedObject = this.outlineEffect.getSelectedObject();
             switch (selectedObject.name) {
-                case "Monitor":
+                case "VerticalMonitor":
                     this.camera.moveToComputer();
                     break;
             }

@@ -13,6 +13,11 @@
         name: "TorusForestVerticalProject",
         type: "imageTexture",
         path: "/textures/TorusForestVertical.png"
+    },
+    {
+        name: "CodeScreen",
+        type: "imageTexture",
+        path: "/textures/CodeScreen.png"
     }
     // {
     //     name: "ScreenVideo",
