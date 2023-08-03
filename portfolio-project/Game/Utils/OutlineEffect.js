@@ -70,6 +70,12 @@ export default class OutlineEffect {
         return closestObject;
     }
 
+    getSelectedObject() {
+        if (this.outlinedObjects.length == 0)
+            return null;
+        return this.outlinedObjects[0];
+    }
+
     update() {
         this.updateDistances();
 

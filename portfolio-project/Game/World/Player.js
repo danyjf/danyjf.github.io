@@ -12,10 +12,12 @@ export default class Player {
     }
     
     start() {
+        this.outlineEffect = this.game.world.outlineEffect;
         this.worldColliders = this.game.world.colliders;
         this.collider = new SquareCollider(this, 0.075, -0.075, -0.075, 0.075);
         this.speed = 1.25;
         this.direction = new THREE.Vector3(0, 0, 0);
+        this.isBlocked = false;
         this.setModel();
     }
 
@@ -28,6 +30,20 @@ export default class Player {
     }
 
     update() {
+        if (this.isBlocked)
+            return;
+
+        if (this.inputHandler.keys.interact) {
+            this.isBlocked = true;
+
+            const selectedObject = this.outlineEffect.getSelectedObject();
+            switch (selectedObject.name) {
+                case "Monitor":
+                    // TODO: move camera to computer screen
+                    break;
+            }
+        }
+
         this.direction.set(0, 0, 0);
         if (this.inputHandler.keys.up)
             this.direction.x -= 1;
@@ -38,12 +54,6 @@ export default class Player {
         if (this.inputHandler.keys.right)
             this.direction.z -= 1;
         this.direction.normalize();
-
-        if (this.inputHandler.keys.interact) {
-            // TODO: stop moving player
-
-
-        }
 
         const moveX = this.direction.x * this.speed * this.time.delta;
         const moveZ = this.direction.z * this.speed * this.time.delta;
