@@ -1,9 +1,10 @@
 ﻿import Game from "../Game";
 
+import OutlineEffect from "../Utils/OutlineEffect";
+
 import Environment from "./Environment";
 import Room from "./Room";
 import Player from "./Player";
-import OutlineEffect from "../Utils/OutlineEffect";
 
 export default class World {
     constructor() {

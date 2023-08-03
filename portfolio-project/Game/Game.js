@@ -4,7 +4,7 @@ import Sizes from "./Utils/Sizes";
 import Time from "./Utils/Time";
 import Resources from "./Utils/Resources";
 import Assets from "./Utils/Assets";
-import OutlineEffect from "./Utils/OutlineEffect";
+import InputHandler from "./Utils/InputHandler";
 
 import Camera from "./Camera";
 import Renderer from "./Renderer";
@@ -25,6 +25,7 @@ export default class Game {
         this.scene = new THREE.Scene();
         this.time = new Time();
         this.sizes = new Sizes();
+        this.inputHandler = new InputHandler();
         this.camera = new Camera();
         this.renderer = new Renderer();
         this.resources = new Resources(Assets);
