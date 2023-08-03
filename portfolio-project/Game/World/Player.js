@@ -40,7 +40,6 @@ export default class Player {
             const selectedObject = this.outlineEffect.getSelectedObject();
             switch (selectedObject.name) {
                 case "Monitor":
-                    // TODO: move camera to computer screen
                     this.camera.moveToComputer();
                     break;
             }

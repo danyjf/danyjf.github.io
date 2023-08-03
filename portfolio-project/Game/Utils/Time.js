@@ -6,7 +6,7 @@ export default class Time extends EventEmitter {
         this.start = Date.now() / 1000;
         this.current = this.start;
         this.elapsed = 0;           // time since the beginning of the program 
-        this.delta = 0.016;       // time since the last frame
+        this.delta = 0.016;         // time since the last frame
         
         this.update();
     }
