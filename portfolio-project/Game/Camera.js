@@ -48,6 +48,11 @@ export default class Camera {
         this.controls.enableZoom = true;
     }
 
+    moveToComputer() {
+        this.gameCamera.position.set(-0.32, 0.524, 0);
+        this.gameCamera.rotation.set(0, Math.PI / 2, 0);
+    }
+
     setHelpers() {
         const size = 10;
         const divisions = 10;

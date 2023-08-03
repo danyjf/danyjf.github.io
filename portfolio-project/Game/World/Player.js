@@ -9,6 +9,7 @@ export default class Player {
         this.scene = this.game.scene;
         this.time = this.game.time;
         this.inputHandler = this.game.inputHandler;
+        this.camera = this.game.camera;
     }
     
     start() {
@@ -40,6 +41,7 @@ export default class Player {
             switch (selectedObject.name) {
                 case "Monitor":
                     // TODO: move camera to computer screen
+                    this.camera.moveToComputer();
                     break;
             }
         }
