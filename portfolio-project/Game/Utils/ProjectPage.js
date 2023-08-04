@@ -1,5 +1,6 @@
 ﻿export default class ProjectPage {
-    constructor(imageBannerDiv, descriptionDiv, visitDiv, codeDiv) {
+    constructor(nameDiv, imageBannerDiv, descriptionDiv, visitDiv, codeDiv) {
+        this.nameDiv = nameDiv;
         this.imageBannerDiv = imageBannerDiv;
         this.descriptionDiv = descriptionDiv;
         this.visitDiv = visitDiv;
@@ -7,6 +8,7 @@
     }
 
     hide() {
+        this.nameDiv.style.visibility = "hidden";
         this.imageBannerDiv.style.visibility = "hidden";
         this.descriptionDiv.style.visibility = "hidden";
         this.visitDiv.style.visibility = "hidden";
@@ -14,6 +16,7 @@
     }
 
     show() {
+        this.nameDiv.style.visibility = "visible";
         this.imageBannerDiv.style.visibility = "visible";
         this.descriptionDiv.style.visibility = "visible";
         this.visitDiv.style.visibility = "visible";

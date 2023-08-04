@@ -19,11 +19,12 @@ export default class VerticalScreenDisplay {
         this.rightArrowDiv = this.addRightArrow(this.backgroundDiv);
         
         for (const project of this.projects) {
+            let nameDiv = this.addProjectName(this.backgroundDiv, project.name);
             let imageBannerDiv = this.addImageBanner(this.backgroundDiv, project.imageBannerPath);
             let descriptionDiv = this.addDescription(this.backgroundDiv, project.description);
             let visitDiv = this.addVisitButton(this.backgroundDiv, project.visitLink);
             let codeDiv = this.addCodeButton(this.backgroundDiv, project.codeLink);
-            this.projectPages.push(new ProjectPage(imageBannerDiv, descriptionDiv, visitDiv, codeDiv));
+            this.projectPages.push(new ProjectPage(nameDiv, imageBannerDiv, descriptionDiv, visitDiv, codeDiv));
         }
         
         this.projectPages[this.currentProject].show();
@@ -37,6 +38,15 @@ export default class VerticalScreenDisplay {
         const backgroundDiv = document.createElement("div");
         backgroundDiv.className = "project-background";
         return backgroundDiv;
+    }
+
+    addProjectName(backgroundDiv, name) {
+        const nameDiv = document.createElement("div");
+        nameDiv.className = "project-name";
+        nameDiv.textContent = name;
+        backgroundDiv.appendChild(nameDiv);
+
+        return nameDiv;
     }
 
     addImageBanner(backgroundDiv, path) {
