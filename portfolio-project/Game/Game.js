@@ -23,6 +23,7 @@ export default class Game {
         // create game objects
         this.canvas = canvas;
         this.scene = new THREE.Scene();
+        this.cssScene = new THREE.Scene();
         this.time = new Time();
         this.sizes = new Sizes();
         this.inputHandler = new InputHandler();

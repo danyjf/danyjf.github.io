@@ -1,4 +1,5 @@
 ﻿import * as THREE from "three";
+import { CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer"
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass";
@@ -13,6 +14,7 @@ export default class Renderer {
         this.game = new Game();
         this.sizes = this.game.sizes;
         this.scene = this.game.scene;
+        this.cssScene = this.game.cssScene;
         this.canvas = this.game.canvas;
         this.camera = this.game.camera;
 
@@ -30,6 +32,10 @@ export default class Renderer {
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         this.renderer.setSize(this.sizes.width, this.sizes.height);
         this.renderer.setPixelRatio(this.sizes.pixelRatio);
+
+        this.cssRenderer = new CSS3DRenderer();
+        this.cssRenderer.setSize(this.sizes.width, this.sizes.height);
+        document.body.appendChild(this.cssRenderer.domElement);
     }
 
     setComposer() {
@@ -53,6 +59,8 @@ export default class Renderer {
     resize() {
         this.renderer.setSize(this.sizes.width, this.sizes.height);
         this.renderer.setPixelRatio(this.sizes.pixelRatio);
+        
+        this.cssRenderer.setSize(this.sizes.width, this.sizes.height);
     }
 
     update() {
@@ -60,6 +68,7 @@ export default class Renderer {
         // this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
         // this.renderer.render(this.scene, this.camera.debugCamera)
         this.composer.render();
+        this.cssRenderer.render(this.cssScene, this.camera.gameCamera);
         
         // render the scene with the game camera on the top right corner 
         // occupying 1/3 of the screen 
