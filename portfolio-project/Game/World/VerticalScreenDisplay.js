@@ -24,6 +24,7 @@ export default class VerticalScreenDisplay {
         this.backgroundDiv = this.createBackground();
         this.leftArrowDiv = this.addLeftArrow(this.backgroundDiv);
         this.rightArrowDiv = this.addRightArrow(this.backgroundDiv);
+        this.exitDiv = this.addExitButton(this.backgroundDiv);
         
         for (const project of this.projects) {
             let nameDiv = this.addProjectName(this.backgroundDiv, project.name);
@@ -167,6 +168,23 @@ export default class VerticalScreenDisplay {
         this.leftArrowDiv.style.visibility = "visible";
     }
 
+    addExitButton(backgroundDiv) {
+        const exitDiv = document.createElement("div");
+        exitDiv.className = "project-exit";
+        exitDiv.textContent = "Exit"
+        backgroundDiv.appendChild(exitDiv);
+
+        exitDiv.addEventListener("click", this.pressExit.bind(this));
+
+        return exitDiv;
+    }
+
+    pressExit() {
+        this.onFocus = false;
+        this.camera.moveToDefault();
+        this.player.isBlocked = false;
+    }
+
     createBackgroundObject(backgroundDiv, verticalScreen) {
         const backgroundObject = new CSS3DObject(backgroundDiv);
         backgroundObject.position.x = verticalScreen.position.x;
@@ -185,9 +203,7 @@ export default class VerticalScreenDisplay {
             return;
 
         if (!this.camera.isAnimating && this.inputHandler.keys.escape) {
-            this.onFocus = false;
-            this.camera.moveToDefault();
-            this.player.isBlocked = false;
+            this.pressExit();
         }
     }
 }

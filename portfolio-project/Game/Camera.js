@@ -42,7 +42,6 @@ export default class Camera {
 
         this.gameCamera.position.copy(this.defaultPosition);
         this.gameCamera.quaternion.copy(this.defaultRotation);
-        console.log(this.gameCamera.quaternion)
     }
 
     createDebugCamera() {
