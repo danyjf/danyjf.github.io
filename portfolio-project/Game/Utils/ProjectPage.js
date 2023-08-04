@@ -7,7 +7,10 @@
     }
 
     hide() {
-
+        this.imageBannerDiv.style.visibility = "hidden";
+        this.descriptionDiv.style.visibility = "hidden";
+        this.visitDiv.style.visibility = "hidden";
+        this.codeDiv.style.visibility = "hidden";
     }
 
     show() {
