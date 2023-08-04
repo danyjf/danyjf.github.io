@@ -2,21 +2,30 @@
 import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 
 import Game from "../Game";
+import ProjectPage from "./ProjectPage";
 
 export default class VerticalScreenDisplay {
-    constructor() {
+    constructor(projects) {
         this.game = new Game();
         this.cssScene = this.game.cssScene;
+        this.projects = projects;
+        this.projectPages = [];
     }
 
-    setDisplay(verticalScreen) {
+    createDisplay(verticalScreen) {
         const backgroundDiv = this.createBackground();
-        this.addBannerImage(backgroundDiv, "textures/TorusForest.png");
-        this.addDescription(backgroundDiv);
-        this.addVisitButton(backgroundDiv);
-        this.addCodeButton(backgroundDiv);
         this.addLeftArrow(backgroundDiv);
         this.addRightArrow(backgroundDiv);
+        
+        for (const project of this.projects) {
+            let imageBannerDiv = this.addImageBanner(backgroundDiv, project.imageBannerPath);
+            let descriptionDiv = this.addDescription(backgroundDiv, project.description);
+            let visitDiv = this.addVisitButton(backgroundDiv, project.visitLink);
+            let codeDiv = this.addCodeButton(backgroundDiv, project.codeLink);
+            this.projectPages.push(new ProjectPage(imageBannerDiv, descriptionDiv, visitDiv, codeDiv));
+        }
+
+        this.projectPages[0].show();
 
         const backgroundObject = this.createBackgroundObject(backgroundDiv, verticalScreen);
         this.cssScene.add(backgroundObject);
@@ -30,7 +39,7 @@ export default class VerticalScreenDisplay {
         return backgroundDiv;
     }
 
-    addBannerImage(backgroundDiv, path) {
+    addImageBanner(backgroundDiv, path) {
         const imageDiv = document.createElement("div");
         imageDiv.style.position = "absolute";
         imageDiv.style.marginLeft = "auto";
@@ -40,6 +49,7 @@ export default class VerticalScreenDisplay {
         imageDiv.style.top = "5%"
         imageDiv.style.width = "540px";
         imageDiv.style.height = "304px";
+        imageDiv.style.visibility = "hidden";
         backgroundDiv.appendChild(imageDiv);
 
         const image = document.createElement("img");
@@ -50,9 +60,11 @@ export default class VerticalScreenDisplay {
         image.style.marginRight = "auto";
         image.style.display = "block";
         imageDiv.appendChild(image);
+
+        return imageDiv;
     }
 
-    addDescription(backgroundDiv) {
+    addDescription(backgroundDiv, description) {
         const descriptionDiv = document.createElement("div");
         descriptionDiv.style.position = "absolute";
         descriptionDiv.style.marginLeft = "auto";
@@ -63,34 +75,22 @@ export default class VerticalScreenDisplay {
         descriptionDiv.style.width = "75%";
         descriptionDiv.style.height = "40%";
         descriptionDiv.style.color = new THREE.Color(0x3C5B66).getStyle();
-        descriptionDiv.style.fontSize = "32px";
+        descriptionDiv.style.fontSize = "27px";
+        descriptionDiv.style.visibility = "hidden";
         backgroundDiv.appendChild(descriptionDiv);
 
-        const descriptionP1 = document.createElement("p");
-        descriptionP1.textContent = `Torus Forest was a project developed for the 
-        class of Introduction to Computer Graphics, 
-        obtaining a grade of 95%.`
-        descriptionDiv.appendChild(descriptionP1);
+        for (const paragraph of description) {
+            const descriptionP = document.createElement("p");
+            descriptionP.textContent = paragraph;
+            descriptionDiv.appendChild(descriptionP);
 
-        descriptionDiv.appendChild(document.createElement("br"));
+            descriptionDiv.appendChild(document.createElement("br"));
+        }
 
-        const descriptionP2 = document.createElement("p");
-        descriptionP2.textContent = `Torus Forest is a simulation where plants 
-        grow when under the spotlight and die when 
-        under unlighted areas.`
-        descriptionDiv.appendChild(descriptionP2);
-
-        descriptionDiv.appendChild(document.createElement("br"));
-
-        const descriptionP3 = document.createElement("p");
-        descriptionP3.textContent = `This project was developed using three.js, 
-        making use of different illumination types, 
-        loading 3D models, applying textures and 
-        normal maps and by creating animations.`
-        descriptionDiv.appendChild(descriptionP3);
+        return descriptionDiv;
     }
 
-    addVisitButton(backgroundDiv) {
+    addVisitButton(backgroundDiv, visitLink) {
         const visitHereDiv = document.createElement("div");
         visitHereDiv.style.position = "absolute";
         visitHereDiv.style.width = "25%";
@@ -105,10 +105,12 @@ export default class VerticalScreenDisplay {
         visitHereDiv.style.fontSize = "30px";
         visitHereDiv.style.fontWeight = "bold";
         visitHereDiv.style.color = new THREE.Color(0x3C5B66).getStyle();
+        visitHereDiv.style.visibility = "hidden";
         backgroundDiv.appendChild(visitHereDiv);
+        return visitHereDiv;
     }
 
-    addCodeButton(backgroundDiv) {
+    addCodeButton(backgroundDiv, codeLink) {
         const viewCodeDiv = document.createElement("div");
         viewCodeDiv.style.position = "absolute";
         viewCodeDiv.style.width = "25%";
@@ -123,7 +125,9 @@ export default class VerticalScreenDisplay {
         viewCodeDiv.style.fontSize = "30px";
         viewCodeDiv.style.fontWeight = "bold";
         viewCodeDiv.style.color = new THREE.Color(0x3C5B66).getStyle();
+        viewCodeDiv.style.visibility = "hidden";
         backgroundDiv.appendChild(viewCodeDiv);
+        return viewCodeDiv;
     }
 
     addLeftArrow(backgroundDiv) {

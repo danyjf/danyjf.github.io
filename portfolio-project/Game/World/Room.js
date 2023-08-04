@@ -1,8 +1,8 @@
 ﻿import * as THREE from "three";
-import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 
 import SquareCollider from "../Utils/SquareCollider";
 import VerticalScreenDisplay from "../Utils/VerticalScreenDisplay";
+import Projects from "../Utils/Projects";
 
 import Game from "../Game";
 
@@ -16,7 +16,7 @@ export default class Room {
     
     start() {
         this.outlineEffect = this.game.world.outlineEffect;
-        this.verticalScreenDisplay = new VerticalScreenDisplay();
+        this.verticalScreenDisplay = new VerticalScreenDisplay(Projects);
         this.roomObject = this.resources.items.Room.scene;
         this.colliders = [
             new SquareCollider(this, 1.2, 1, -1.5, 1.5),      // left wall collider
@@ -56,7 +56,7 @@ export default class Room {
             }
 
             if (child.name === "VerticalScreen") {
-                this.verticalScreenDisplay.setDisplay(child);
+                this.verticalScreenDisplay.createDisplay(child);
             }
 
             if (child.name === "VerticalMonitor") {
