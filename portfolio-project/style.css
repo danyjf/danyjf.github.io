@@ -70,6 +70,11 @@ div.project-visit-here {
     font-weight: bold;
     color: #3C5B66;
     visibility: hidden;
+    transition: transform .2s;
+}
+
+div.project-visit-here:hover {
+    transform: scale(1.1);
 }
 
 div.project-view-code {
@@ -86,6 +91,11 @@ div.project-view-code {
     font-weight: bold;
     color: #3C5B66;
     visibility: hidden;
+    transition: transform .2s;
+}
+
+div.project-view-code:hover {
+    transform: scale(1.1);
 }
 
 div.project-left-arrow {

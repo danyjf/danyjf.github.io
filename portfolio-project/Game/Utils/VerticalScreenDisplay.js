@@ -67,18 +67,30 @@ export default class VerticalScreenDisplay {
     }
 
     addVisitButton(backgroundDiv, visitLink) {
+        const visitHereA = document.createElement("a");
+        visitHereA.href = visitLink;
+        visitHereA.target = "_blank";
+
         const visitHereDiv = document.createElement("div");
         visitHereDiv.className = "project-visit-here";
         visitHereDiv.textContent = "Visit Here";
-        backgroundDiv.appendChild(visitHereDiv);
+        visitHereA.appendChild(visitHereDiv);
+        backgroundDiv.appendChild(visitHereA);
+
         return visitHereDiv;
     }
 
     addCodeButton(backgroundDiv, codeLink) {
+        const viewCodeA = document.createElement("a");
+        viewCodeA.href = codeLink;
+        viewCodeA.target = "_blank";
+        
         const viewCodeDiv = document.createElement("div");
         viewCodeDiv.className = "project-view-code";
         viewCodeDiv.textContent = "View Code";
-        backgroundDiv.appendChild(viewCodeDiv);
+        viewCodeA.append(viewCodeDiv);
+        backgroundDiv.appendChild(viewCodeA);
+
         return viewCodeDiv;
     }
 
