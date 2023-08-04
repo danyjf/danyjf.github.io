@@ -10,24 +10,26 @@ export default class VerticalScreenDisplay {
         this.cssScene = this.game.cssScene;
         this.projects = projects;
         this.projectPages = [];
+        this.currentProject = 0;
     }
 
     createDisplay(verticalScreen) {
-        const backgroundDiv = this.createBackground();
-        this.addLeftArrow(backgroundDiv);
-        this.addRightArrow(backgroundDiv);
+        this.backgroundDiv = this.createBackground();
+        this.leftArrowDiv = this.addLeftArrow(this.backgroundDiv);
+        this.rightArrowDiv = this.addRightArrow(this.backgroundDiv);
         
         for (const project of this.projects) {
-            let imageBannerDiv = this.addImageBanner(backgroundDiv, project.imageBannerPath);
-            let descriptionDiv = this.addDescription(backgroundDiv, project.description);
-            let visitDiv = this.addVisitButton(backgroundDiv, project.visitLink);
-            let codeDiv = this.addCodeButton(backgroundDiv, project.codeLink);
+            let imageBannerDiv = this.addImageBanner(this.backgroundDiv, project.imageBannerPath);
+            let descriptionDiv = this.addDescription(this.backgroundDiv, project.description);
+            let visitDiv = this.addVisitButton(this.backgroundDiv, project.visitLink);
+            let codeDiv = this.addCodeButton(this.backgroundDiv, project.codeLink);
             this.projectPages.push(new ProjectPage(imageBannerDiv, descriptionDiv, visitDiv, codeDiv));
         }
+        
+        this.projectPages[this.currentProject].show();
+        this.leftArrowDiv.style.visibility = "hidden";
 
-        this.projectPages[0].show();
-
-        const backgroundObject = this.createBackgroundObject(backgroundDiv, verticalScreen);
+        const backgroundObject = this.createBackgroundObject(this.backgroundDiv, verticalScreen);
         this.cssScene.add(backgroundObject);
     }
 
@@ -103,6 +105,22 @@ export default class VerticalScreenDisplay {
         leftArrowImg.className = "project-left-arrow";
         leftArrowImg.src = "textures/Arrow.png";
         leftArrowDiv.appendChild(leftArrowImg);
+
+        leftArrowDiv.addEventListener("click", this.pressLeftArrow.bind(this));
+
+        return leftArrowDiv;
+    }
+
+    pressLeftArrow() {
+        this.projectPages[this.currentProject].hide();
+        this.currentProject--;
+        this.projectPages[this.currentProject].show();
+
+        if (this.currentProject == 0) {
+            this.leftArrowDiv.style.visibility = "hidden";
+        }
+
+        this.rightArrowDiv.style.visibility = "visible";
     }
 
     addRightArrow(backgroundDiv) {
@@ -114,6 +132,22 @@ export default class VerticalScreenDisplay {
         rightArrowImg.className = "project-right-arrow";
         rightArrowImg.src = "textures/Arrow.png";
         rightArrowDiv.appendChild(rightArrowImg);
+
+        rightArrowDiv.addEventListener("click", this.pressRightArrow.bind(this));
+
+        return rightArrowDiv;
+    }
+
+    pressRightArrow() {
+        this.projectPages[this.currentProject].hide();
+        this.currentProject++;
+        this.projectPages[this.currentProject].show();
+
+        if (this.currentProject == this.projectPages.length - 1) {
+            this.rightArrowDiv.style.visibility = "hidden";
+        }
+
+        this.leftArrowDiv.style.visibility = "visible";
     }
 
     createBackgroundObject(backgroundDiv, verticalScreen) {

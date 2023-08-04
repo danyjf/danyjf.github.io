@@ -105,6 +105,12 @@ div.project-left-arrow {
     background: #D7A151;
     bottom: 40px;
     left: 80px;
+    transition: transform .2s;
+}
+
+div.project-left-arrow:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 img.project-left-arrow {
@@ -120,6 +126,12 @@ div.project-right-arrow {
     background: #D7A151;
     bottom: 40px;
     right: 80px;
+    transition: transform .2s;
+}
+
+div.project-right-arrow:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 img.project-right-arrow {

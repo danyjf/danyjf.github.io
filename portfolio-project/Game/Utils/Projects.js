@@ -1,5 +1,6 @@
 ﻿export default [
     {
+        name: "Torus Forest",
         imageBannerPath: "/textures/TorusForest.png",
         description: [
             "Torus Forest was a project developed for the class of Introduction to Computer Graphics, obtaining a grade of 95%.",
@@ -10,6 +11,7 @@
         codeLink: "https://github.com/danyjf/icg-2022/tree/master/projeto-2/torus-forest"
     },
     {
+        name: "Avoid",
         imageBannerPath: "/textures/Avoid.jpg",
         description: [
             "Avoid was a game developed before college. It was the first complete game I made without following a tutorial.",
@@ -18,5 +20,15 @@
         ],
         visitLink: "",
         codeLink: "https://github.com/danyjf/avoid-game"
+    },
+    {
+        name: "Break The Game",
+        imageBannerPath: "/textures/BreakTheGame.jpg",
+        description: [
+            'Break the Game was a game developed for the game jam titled "Mini Jam 87: Break", the theme of this game jam was "break" and the limitation was "The player is a pacifist".',
+            'Break the Game is a 2D puzzle game developed with Unity, where the player has to find a "bug" in the level in order to reach the goal without killing the enemy.'
+        ],
+        visitLink: "https://danyjf.itch.io/break-the-game",
+        codeLink: "https://github.com/danyjf/break-the-game-game"
     }
 ];
