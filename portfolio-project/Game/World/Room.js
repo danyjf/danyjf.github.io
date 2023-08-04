@@ -54,7 +54,7 @@ export default class Room {
             if (child.name === "VerticalScreen") {
                 this.resources.items.TorusForestVerticalProject.magFilter = THREE.NearestFilter;
                 this.resources.items.TorusForestVerticalProject.minFilter = THREE.NearestFilter;
-                this.resources.items.TorusForestVerticalProject.anisotropy = 1;
+                this.resources.items.TorusForestVerticalProject.generateMipmaps = false;
                 child.material = new THREE.MeshBasicMaterial({
                     map: this.resources.items.TorusForestVerticalProject
                 });

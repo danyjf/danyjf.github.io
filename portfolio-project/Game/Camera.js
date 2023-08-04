@@ -81,7 +81,7 @@ export default class Camera {
         // this.targetRotation.set(0, 0.7071067811865476, 0, 0.7071067811865476);
 
         // transform for vertical monitor
-        this.targetPosition.set(-0.495, 0.5925, 0.066);
+        this.targetPosition.set(-0.495, 0.593, 0.066);
         this.targetRotation.set(0, 0.8829479983710051, 0, 0.4694708001277986);
 
         this.startAnimationTime = this.time.current;
@@ -103,6 +103,7 @@ export default class Camera {
                 this.targetRotation.z, 
                 this.targetRotation.w
             );
+            return;
         }
 
         this.gameCamera.position.lerpVectors(this.startPosition, this.targetPosition, percentage);
