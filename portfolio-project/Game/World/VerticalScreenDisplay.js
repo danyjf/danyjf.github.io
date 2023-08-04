@@ -1,16 +1,23 @@
-﻿import * as THREE from "three";
-import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
+﻿import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
+
+import ProjectPage from "../Utils/ProjectPage";
 
 import Game from "../Game";
-import ProjectPage from "./ProjectPage";
 
 export default class VerticalScreenDisplay {
     constructor(projects) {
         this.game = new Game();
         this.cssScene = this.game.cssScene;
+        this.inputHandler = this.game.inputHandler;
+        this.camera = this.game.camera;
         this.projects = projects;
+    }
+
+    start() {
+        this.player = this.game.world.player;
         this.projectPages = [];
         this.currentProject = 0;
+        this.onFocus = false;
     }
 
     createDisplay(verticalScreen) {
@@ -171,5 +178,16 @@ export default class VerticalScreenDisplay {
         backgroundObject.scale.x = 0.00025;
         backgroundObject.scale.y = 0.00025;
         return backgroundObject;
+    }
+
+    update() {
+        if (!this.onFocus)
+            return;
+
+        if (!this.camera.isAnimating && this.inputHandler.keys.escape) {
+            this.onFocus = false;
+            this.camera.moveToDefault();
+            this.player.isBlocked = false;
+        }
     }
 }

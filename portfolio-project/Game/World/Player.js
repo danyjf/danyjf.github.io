@@ -15,6 +15,7 @@ export default class Player {
     start() {
         this.outlineEffect = this.game.world.outlineEffect;
         this.worldColliders = this.game.world.colliders;
+        this.verticalScreenDisplay = this.game.world.verticalScreenDisplay;
         this.collider = new SquareCollider(this, 0.075, -0.075, -0.075, 0.075);
         this.speed = 1.25;
         this.direction = new THREE.Vector3(0, 0, 0);
@@ -34,14 +35,16 @@ export default class Player {
         if (this.isBlocked)
             return;
 
-        if (this.inputHandler.keys.interact) {
-            this.isBlocked = true;
-
+        if (this.inputHandler.keys.interact && !this.camera.isAnimating) {
             const selectedObject = this.outlineEffect.getSelectedObject();
-            switch (selectedObject.name) {
-                case "VerticalMonitor":
-                    this.camera.moveToComputer();
-                    break;
+            if (selectedObject) {
+                this.isBlocked = true;
+                switch (selectedObject.name) {
+                    case "VerticalMonitor":
+                        this.camera.moveToComputer();
+                        this.verticalScreenDisplay.onFocus = true;
+                        break;
+                }
             }
         }
 

@@ -10,6 +10,8 @@ export default class Camera {
         this.scene = this.game.scene;
         this.canvas = this.game.canvas;
         this.time = this.game.time;
+        this.defaultPosition = new THREE.Vector3(1.983, 2.581, 0);
+        this.defaultRotation = new THREE.Quaternion(-0.27138118759377144, 0.6530118167804394, 0.27138118759377144, 0.6529012706263468);
 
         // animation variables
         this.isAnimating = false;
@@ -38,8 +40,9 @@ export default class Camera {
         );
         this.scene.add(this.gameCamera);
 
-        this.gameCamera.position.set(1.983, 2.581, 0);
-        this.gameCamera.rotation.set(-1.571, 0.783, 1.571);
+        this.gameCamera.position.copy(this.defaultPosition);
+        this.gameCamera.quaternion.copy(this.defaultRotation);
+        console.log(this.gameCamera.quaternion)
     }
 
     createDebugCamera() {
@@ -83,6 +86,30 @@ export default class Camera {
         // transform for vertical monitor
         this.targetPosition.set(-0.495, 0.593, 0.066);
         this.targetRotation.set(0, 0.8829479983710051, 0, 0.4694708001277986);
+
+        this.startAnimationTime = this.time.current;
+        this.elapsedAnimationTime = 0;
+        this.animationDuration = 1;
+    }
+
+    moveToDefault() {
+        if (this.isAnimating)
+            return;
+        this.isAnimating = true;
+        this.startPosition.set(
+            this.gameCamera.position.x, 
+            this.gameCamera.position.y, 
+            this.gameCamera.position.z
+        );
+        this.startRotation.set(
+            this.gameCamera.quaternion.x, 
+            this.gameCamera.quaternion.y, 
+            this.gameCamera.quaternion.z, 
+            this.gameCamera.quaternion.w
+        );
+
+        this.targetPosition.copy(this.defaultPosition);
+        this.targetRotation.copy(this.defaultRotation);
 
         this.startAnimationTime = this.time.current;
         this.elapsedAnimationTime = 0;

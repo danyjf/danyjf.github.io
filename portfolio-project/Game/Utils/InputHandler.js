@@ -5,7 +5,8 @@
             "down": false,
             "left": false,
             "right": false,
-            "interact": false
+            "interact": false,
+            "escape": false
         };
 
         document.addEventListener("keydown", this.onKeyDown.bind(this), false);
@@ -33,6 +34,9 @@
             case "Enter":
                 this.keys.interact = true;
                 break;
+            case "Escape":
+                this.keys.escape = true;
+                break;
         }
     }
 
@@ -56,6 +60,9 @@
                 break;
             case "Enter":
                 this.keys.interact = false;
+                break;
+            case "Escape":
+                this.keys.escape = false;
                 break;
         }
     }
