@@ -13,6 +13,14 @@ export default class Computer {
         this.outlineEffect = this.game.world.outlineEffect;
         this.verticalScreenDisplay = this.game.world.verticalScreenDisplay;
         this.computerObject = this.resources.items.Computer.scene;
+        
+        // interactable variables
+        this.interactPosition = new THREE.Vector3(-0.83, 0, 0);
+        this.interactRadius = 0.6;
+        this.interactable = this.computerObject;
+        this.interactableName = "Computer";
+        this.outlineEffect.addSelectable(this);
+        
         this.setModel();
     }
 
@@ -45,10 +53,6 @@ export default class Computer {
             if (child.name === "VerticalScreen") {
                 this.verticalScreenDisplay.createDisplay(child);
             }
-
-            if (child.name === "VerticalMonitor") {
-                this.outlineEffect.addSelectable(child);
-            };
         });
 
         this.scene.add(this.computerObject);

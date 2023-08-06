@@ -39,8 +39,8 @@ export default class Player {
             const selectedObject = this.outlineEffect.getSelectedObject();
             if (selectedObject) {
                 this.isBlocked = true;
-                switch (selectedObject.name) {
-                    case "VerticalMonitor":
+                switch (selectedObject.interactableName) {
+                    case "Computer":
                         this.camera.moveToComputer();
                         this.verticalScreenDisplay.onFocus = true;
                         break;

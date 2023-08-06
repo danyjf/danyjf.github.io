@@ -11,7 +11,6 @@ export default class OutlineEffect {
         this.selectableObjects = [];
         this.distancesToPlayer = [];
         this.currentlySelectedIndex = null;
-        this.selectionRadius = 0.6;
     }
 
     addSelectable(obj) {
@@ -20,12 +19,12 @@ export default class OutlineEffect {
     }
 
     distanceToPlayer(obj) {
-        return this.player.playerObject.position.distanceTo(obj.position);
+        return this.player.playerObject.position.distanceTo(obj.interactPosition);
     }
 
     outlineObject(obj) {
         if (this.outlinedObjects.length === 0) {
-            this.outlinedObjects.push(obj);
+            this.outlinedObjects.push(obj.interactable);
         }
         else {
             console.error("Outlined objects list has more than one element");
@@ -53,7 +52,7 @@ export default class OutlineEffect {
     objectsInRadius() {
         let objectsInRadius = [];
         for (let i = 0; i < this.distancesToPlayer.length; i++) {
-            if (this.distancesToPlayer[i] < this.selectionRadius) {
+            if (this.distancesToPlayer[i] < this.selectableObjects[i].interactRadius) {
                 objectsInRadius.push(i)
             }
         }
@@ -71,9 +70,9 @@ export default class OutlineEffect {
     }
 
     getSelectedObject() {
-        if (this.outlinedObjects.length == 0)
+        if (this.currentlySelectedIndex == null)
             return null;
-        return this.outlinedObjects[0];
+        return this.selectableObjects[this.currentlySelectedIndex];
     }
 
     update() {
