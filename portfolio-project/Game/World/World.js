@@ -55,6 +55,5 @@ export default class World {
         for (const collider of this.room.colliders) {
             this.player.collider.handleCollision(collider);
         }
-        this.player.collider.handleCollision(this.skate.collider);
     }
 }

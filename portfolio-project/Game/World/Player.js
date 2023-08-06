@@ -44,6 +44,9 @@ export default class Player {
                         this.camera.moveToComputer();
                         this.verticalScreenDisplay.onFocus = true;
                         break;
+                    case "Skate":
+                        this.camera.moveToSkate();
+                        break;
                 }
             }
         }

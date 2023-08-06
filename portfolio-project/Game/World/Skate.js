@@ -13,11 +13,10 @@ export default class Skate {
 
     start() {
         this.skateObject = this.resources.items.Skate.scene;
-        this.collider = new SquareCollider(this, -0.82, -1, 0.56, 0.75);
         this.outlineEffect = this.game.world.outlineEffect;
 
         // interactable variables
-        this.interactPosition = new THREE.Vector3(0.684, 0.222, -0.907);
+        this.interactPosition = new THREE.Vector3(0.592, 0, -0.966);
         this.interactRadius = 0.4;
         this.interactable = this.skateObject;
         this.interactableName = "Skate";

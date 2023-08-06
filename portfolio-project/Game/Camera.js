@@ -62,7 +62,7 @@ export default class Camera {
         this.controls.enableZoom = true;
     }
 
-    moveToComputer() {
+    setupAnimationSettings(duration) {
         if (this.isAnimating)
             return;
         this.isAnimating = true;
@@ -77,6 +77,19 @@ export default class Camera {
             this.gameCamera.quaternion.z, 
             this.gameCamera.quaternion.w
         );
+        this.startAnimationTime = this.time.current;
+        this.elapsedAnimationTime = 0;
+        this.animationDuration = 1;
+    }
+
+    moveToDefault() {
+        this.setupAnimationSettings(1);
+        this.targetPosition.copy(this.defaultPosition);
+        this.targetRotation.copy(this.defaultRotation);
+    }
+
+    moveToComputer() {
+        this.setupAnimationSettings(1);
 
         // transform for horizontal monitor
         // this.targetPosition.set(-0.32, 0.524, 0);
@@ -85,34 +98,12 @@ export default class Camera {
         // transform for vertical monitor
         this.targetPosition.set(-0.495, 0.593, 0.066);
         this.targetRotation.set(0, 0.8829479983710051, 0, 0.4694708001277986);
-
-        this.startAnimationTime = this.time.current;
-        this.elapsedAnimationTime = 0;
-        this.animationDuration = 1;
     }
 
-    moveToDefault() {
-        if (this.isAnimating)
-            return;
-        this.isAnimating = true;
-        this.startPosition.set(
-            this.gameCamera.position.x, 
-            this.gameCamera.position.y, 
-            this.gameCamera.position.z
-        );
-        this.startRotation.set(
-            this.gameCamera.quaternion.x, 
-            this.gameCamera.quaternion.y, 
-            this.gameCamera.quaternion.z, 
-            this.gameCamera.quaternion.w
-        );
-
-        this.targetPosition.copy(this.defaultPosition);
-        this.targetRotation.copy(this.defaultRotation);
-
-        this.startAnimationTime = this.time.current;
-        this.elapsedAnimationTime = 0;
-        this.animationDuration = 1;
+    moveToSkate() {
+        this.setupAnimationSettings(1);
+        this.targetPosition.set(0.592, 0.7558, -0.67);
+        this.targetRotation.set(0, 0, 0, 1);
     }
 
     animateTransformToTarget(percentage) {
