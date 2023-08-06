@@ -8,6 +8,7 @@ import Room from "./Room";
 import Player from "./Player";
 import VerticalScreenDisplay from "./VerticalScreenDisplay";
 import Skate from "./Skate";
+import Computer from "./Computer";
 
 export default class World {
     constructor() {
@@ -21,6 +22,7 @@ export default class World {
             this.verticalScreenDisplay = new VerticalScreenDisplay(Projects);
             this.room = new Room();
             this.skate = new Skate();
+            this.computer = new Computer();
             this.player = new Player();
             this.worldLoaded = true;
 
@@ -35,6 +37,7 @@ export default class World {
         this.outlineEffect.start();
         this.room.start();
         this.skate.start();
+        this.computer.start();
     }
 
     update() {

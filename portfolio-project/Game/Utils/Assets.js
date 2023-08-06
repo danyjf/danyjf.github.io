@@ -6,6 +6,11 @@
         path: "/models/Room.glb"
     },
     {
+        name: "Computer",
+        type: "glbModel",
+        path: "/models/Computer.glb"
+    },
+    {
         name: "Skate",
         type: "glbModel",
         path: "/models/Skate.glb"

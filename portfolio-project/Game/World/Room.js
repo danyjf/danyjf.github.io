@@ -1,6 +1,4 @@
-﻿import * as THREE from "three";
-
-import SquareCollider from "../Utils/SquareCollider";
+﻿import SquareCollider from "../Utils/SquareCollider";
 
 import Game from "../Game";
 
@@ -8,7 +6,6 @@ export default class Room {
     constructor() {
         this.game = new Game();
         this.scene = this.game.scene;
-        this.cssScene = this.game.cssScene;
         this.resources = this.game.resources;
     }
     
@@ -33,33 +30,6 @@ export default class Room {
                 child.castShadow = true;
                 child.receiveShadow = true;
             }
-
-            if (child.name === "ComputerCaseGlass") {
-                child.material = new THREE.MeshPhysicalMaterial();
-                child.material.roughness = 0;
-                child.material.color.set(0xffffff);
-                child.material.ior = 1;
-                child.material.transmission = 1;
-                child.material.opacity = 1;
-            }
-
-            if (child.name === "Screen") {
-                // playing video causes a memory leak on firefox
-                // child.material = new THREE.MeshBasicMaterial({
-                //     map: this.resources.items.ScreenVideo
-                // });
-                child.material = new THREE.MeshBasicMaterial({
-                    map: this.resources.items.CodeScreen
-                });
-            }
-
-            if (child.name === "VerticalScreen") {
-                this.verticalScreenDisplay.createDisplay(child);
-            }
-
-            if (child.name === "VerticalMonitor") {
-                this.outlineEffect.addSelectable(child);
-            };
         });
 
         this.scene.add(this.roomObject);
