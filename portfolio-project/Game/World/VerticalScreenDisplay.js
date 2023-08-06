@@ -8,13 +8,10 @@ export default class VerticalScreenDisplay {
     constructor(projects) {
         this.game = new Game();
         this.cssScene = this.game.cssScene;
-        this.inputHandler = this.game.inputHandler;
         this.camera = this.game.camera;
+        this.inputHandler = this.game.inputHandler;
+        
         this.projects = projects;
-    }
-
-    start() {
-        this.player = this.game.world.player;
         this.projectPages = [];
         this.currentProject = 0;
         this.onFocus = false;
@@ -182,7 +179,7 @@ export default class VerticalScreenDisplay {
     pressExit() {
         this.onFocus = false;
         this.camera.moveToDefault();
-        this.player.isBlocked = false;
+        this.game.world.player.isBlocked = false;
     }
 
     createBackgroundObject(backgroundDiv, verticalScreen) {
@@ -201,7 +198,7 @@ export default class VerticalScreenDisplay {
     update() {
         if (!this.onFocus)
             return;
-
+        
         if (!this.camera.isAnimating && this.inputHandler.keys.escape) {
             this.pressExit();
         }

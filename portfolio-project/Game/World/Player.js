@@ -42,7 +42,7 @@ export default class Player {
                 switch (selectedObject.interactableName) {
                     case "Computer":
                         this.camera.moveToComputer();
-                        this.verticalScreenDisplay.onFocus = true;
+                        this.game.world.computer.verticalScreenDisplay.onFocus = true;
                         break;
                     case "Skate":
                         this.camera.moveToSkate();

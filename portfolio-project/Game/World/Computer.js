@@ -1,6 +1,9 @@
 ﻿import * as THREE from "three";
 
+import Projects from "../Utils/Projects";
+
 import Game from "../Game";
+import VerticalScreenDisplay from "./VerticalScreenDisplay";
 
 export default class Computer {
     constructor() {
@@ -10,9 +13,9 @@ export default class Computer {
     }
 
     start() {
-        this.outlineEffect = this.game.world.outlineEffect;
-        this.verticalScreenDisplay = this.game.world.verticalScreenDisplay;
         this.computerObject = this.resources.items.Computer.scene;
+        this.outlineEffect = this.game.world.outlineEffect;
+        this.verticalScreenDisplay = new VerticalScreenDisplay(Projects);
         
         // interactable variables
         this.interactPosition = new THREE.Vector3(-0.83, 0, 0);
@@ -56,5 +59,9 @@ export default class Computer {
         });
 
         this.scene.add(this.computerObject);
+    }
+
+    update() {
+        this.verticalScreenDisplay.update();
     }
 }

@@ -1,12 +1,10 @@
 ﻿import Game from "../Game";
 
 import OutlineEffect from "../Utils/OutlineEffect";
-import Projects from "../Utils/Projects";
 
 import Environment from "./Environment";
 import Room from "./Room";
 import Player from "./Player";
-import VerticalScreenDisplay from "./VerticalScreenDisplay";
 import Skate from "./Skate";
 import Computer from "./Computer";
 
@@ -19,7 +17,6 @@ export default class World {
         this.resources.on("ready", () => {
             this.environment = new Environment();
             this.outlineEffect = new OutlineEffect();
-            this.verticalScreenDisplay = new VerticalScreenDisplay(Projects);
             this.room = new Room();
             this.skate = new Skate();
             this.computer = new Computer();
@@ -32,7 +29,6 @@ export default class World {
 
     start() {
         this.environment.start();
-        this.verticalScreenDisplay.start();
         this.player.start();
         this.outlineEffect.start();
         this.room.start();
@@ -45,7 +41,7 @@ export default class World {
             this.player.update();
             this.outlineEffect.update();
             this.room.update();
-            this.verticalScreenDisplay.update();
+            this.computer.update();
             this.skate.update();
 
             this.handleCollisions();
