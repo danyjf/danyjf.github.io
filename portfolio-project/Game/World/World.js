@@ -46,6 +46,7 @@ export default class World {
             this.outlineEffect.update();
             this.room.update();
             this.verticalScreenDisplay.update();
+            this.skate.update();
 
             this.handleCollisions();
         }

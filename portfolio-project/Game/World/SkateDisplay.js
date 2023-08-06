@@ -6,6 +6,8 @@ export default class SkateDisplay {
     constructor(skills) {
         this.game = new Game();
         this.cssScene = this.game.cssScene;
+        this.camera = this.game.camera;
+        this.inputHandler = this.game.inputHandler;
         
         this.skills = skills;
         this.onFocus = false;
@@ -70,5 +72,20 @@ export default class SkateDisplay {
         containerObject.scale.x = 0.00015;
         containerObject.scale.y = 0.00015;
         return containerObject;
+    }
+
+    pressExit() {
+        this.onFocus = false;
+        this.camera.moveToDefault();
+        this.game.world.player.isBlocked = false;
+    }
+
+    update() {
+        if (!this.onFocus) 
+            return;
+
+        if (!this.camera.isAnimating && this.inputHandler.keys.escape) {
+            this.pressExit();
+        }
     }
 }

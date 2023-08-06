@@ -41,4 +41,8 @@ export default class Skate {
 
         this.scene.add(this.skateObject);
     }
+
+    update() {
+        this.skateDisplay.update();
+    }
 }

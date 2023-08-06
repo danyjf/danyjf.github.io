@@ -46,6 +46,7 @@ export default class Player {
                         break;
                     case "Skate":
                         this.camera.moveToSkate();
+                        this.game.world.skate.skateDisplay.onFocus = true;
                         break;
                 }
             }
