@@ -176,3 +176,39 @@ div.project-exit:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
+
+.skills-container {
+    width: 720px;
+    height: 1280px;
+    color: #540B0E;
+    /* background: #FEF2B8; */
+}
+
+.skills-header {
+    position: relative;
+    text-align: center;
+    font-size: 35px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.skill-bar {
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #212529;
+    margin-bottom: 5px;
+    background-color: transparent;
+    border: 5px solid #212529;
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+.skill-name {
+    margin-left: 15px;
+}
+
+.skill-percentage {
+    float: right;
+    margin-right: 15px;
+}

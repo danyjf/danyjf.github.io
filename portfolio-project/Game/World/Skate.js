@@ -1,8 +1,9 @@
 ﻿import * as THREE from "three";
 
-import SquareCollider from "../Utils/SquareCollider";
+import Skills from "../Utils/Skills";
 
 import Game from "../Game";
+import SkateDisplay from "./SkateDisplay";
 
 export default class Skate {
     constructor() {
@@ -14,6 +15,7 @@ export default class Skate {
     start() {
         this.skateObject = this.resources.items.Skate.scene;
         this.outlineEffect = this.game.world.outlineEffect;
+        this.skateDisplay = new SkateDisplay(Skills);
 
         // interactable variables
         this.interactPosition = new THREE.Vector3(0.592, 0, -0.966);
@@ -30,6 +32,10 @@ export default class Skate {
             if (child.isMesh) {
                 child.castShadow = true;
                 child.receiveShadow = true;
+            }
+
+            if (child.name === "SkateBoard") {
+                this.skateDisplay.createDisplay(child);
             }
         });
 
