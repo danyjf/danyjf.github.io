@@ -212,3 +212,28 @@ div.project-exit:hover {
     float: right;
     margin-right: 15px;
 }
+
+div.skills-exit {
+    position: absolute;
+    width: 25%;
+    height: 7%;
+    bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    transition: transform .2s;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #212529;
+}
+
+div.skills-exit:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}

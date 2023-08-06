@@ -23,6 +23,7 @@ export default class SkateDisplay {
         this.addSkills(containerDiv, this.skills.frameworks);
         this.addHeader(containerDiv, "Engines");
         this.addSkills(containerDiv, this.skills.engines);
+        this.addExitButton(containerDiv);
 
         const containerObject = this.createContainerObject(skate, containerDiv);
         this.cssScene.add(containerObject);
@@ -59,6 +60,17 @@ export default class SkateDisplay {
 
             containerDiv.appendChild(skillDiv);
         }
+    }
+
+    addExitButton(containerDiv) {
+        const exitDiv = document.createElement("div");
+        exitDiv.className = "skills-exit";
+        exitDiv.textContent = "Exit"
+        containerDiv.appendChild(exitDiv);
+
+        exitDiv.addEventListener("click", this.pressExit.bind(this));
+
+        return exitDiv;
     }
 
     createContainerObject(skate, containerDiv) {
