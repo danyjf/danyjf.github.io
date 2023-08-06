@@ -12,6 +12,7 @@ export default class Skate {
     start() {
         this.skateObject = this.resources.items.Skate.scene;
         this.collider = new SquareCollider(this, -0.82, -1, 0.56, 0.75);
+        this.outlineEffect = this.game.world.outlineEffect;
         this.setModel();
     }
 
@@ -20,6 +21,10 @@ export default class Skate {
             if (child.isMesh) {
                 child.castShadow = true;
                 child.receiveShadow = true;
+            }
+
+            if (child.name === "SkateBoard") {
+                this.outlineEffect.addSelectable(child);
             }
         });
 
