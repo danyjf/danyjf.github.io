@@ -47,10 +47,10 @@ export default class Renderer {
         this.outlinePass = new OutlinePass(new THREE.Vector2(this.sizes.width, this.sizes.height), this.scene, this.camera.gameCamera);
         this.composer.addPass(this.outlinePass);
 
-        let fxaaPass = new ShaderPass(FXAAShader);
-        fxaaPass.material.uniforms['resolution'].value.x = 1 / (this.sizes.width * this.sizes.pixelRatio);
-		fxaaPass.material.uniforms['resolution'].value.y = 1 / (this.sizes.height * this.sizes.pixelRatio);
-        this.composer.addPass(fxaaPass);
+        this.fxaaPass = new ShaderPass(FXAAShader);
+        this.fxaaPass.material.uniforms['resolution'].value.x = 1 / (this.sizes.width * this.sizes.pixelRatio);
+		this.fxaaPass.material.uniforms['resolution'].value.y = 1 / (this.sizes.height * this.sizes.pixelRatio);
+        this.composer.addPass(this.fxaaPass);
 
         let outputPass = new OutputPass();
         this.composer.addPass(outputPass);
@@ -59,8 +59,15 @@ export default class Renderer {
     resize() {
         this.renderer.setSize(this.sizes.width, this.sizes.height);
         this.renderer.setPixelRatio(this.sizes.pixelRatio);
-        
+
+        this.composer.setSize(this.sizes.width, this.sizes.height);
+        this.composer.setPixelRatio(this.sizes.pixelRatio);
+
+        this.fxaaPass.material.uniforms['resolution'].value.x = 1 / (this.sizes.width * this.sizes.pixelRatio);
+		this.fxaaPass.material.uniforms['resolution'].value.y = 1 / (this.sizes.height * this.sizes.pixelRatio);
+
         this.cssRenderer.setSize(this.sizes.width, this.sizes.height);
+        this.cssRenderer.setPixelRatio(this.sizes.pixelRatio);
     }
 
     update() {
