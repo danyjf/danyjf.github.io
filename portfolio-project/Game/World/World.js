@@ -1,6 +1,6 @@
 ﻿import Game from "../Game";
 
-import OutlineEffect from "../Utils/OutlineEffect";
+import OutlineEffectManager from "../Utils/OutlineEffectManager";
 
 import Environment from "./Environment";
 import Room from "./Room";
@@ -16,7 +16,7 @@ export default class World {
 
         this.resources.on("ready", () => {
             this.environment = new Environment();
-            this.outlineEffect = new OutlineEffect();
+            this.outlineEffectManager = new OutlineEffectManager();
             this.room = new Room();
             this.skate = new Skate();
             this.computer = new Computer();
@@ -30,7 +30,7 @@ export default class World {
     start() {
         this.environment.start();
         this.player.start();
-        this.outlineEffect.start();
+        this.outlineEffectManager.start();
         this.room.start();
         this.skate.start();
         this.computer.start();
@@ -39,7 +39,7 @@ export default class World {
     update() {
         if (this.worldLoaded) {
             this.player.update();
-            this.outlineEffect.update();
+            this.outlineEffectManager.update();
             this.room.update();
             this.computer.update();
             this.skate.update();

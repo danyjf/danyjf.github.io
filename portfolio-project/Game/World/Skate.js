@@ -14,15 +14,15 @@ export default class Skate {
 
     start() {
         this.skateObject = this.resources.items.Skate.scene;
-        this.outlineEffect = this.game.world.outlineEffect;
+        this.outlineEffectManager = this.game.world.outlineEffectManager;
         this.skateDisplay = new SkateDisplay(Skills);
 
         // interactable variables
         this.interactPosition = new THREE.Vector3(0.592, 0, -0.966);
         this.interactRadius = 0.4;
-        this.interactable = this.skateObject;
+        this.interactable = this.skateObject.clone();
         this.interactableName = "Skate";
-        this.outlineEffect.addSelectable(this);
+        this.outlineEffectManager.addSelectable(this);
 
         this.setModel();
     }
@@ -38,7 +38,7 @@ export default class Skate {
                 this.skateDisplay.createDisplay(child);
             }
         });
-
+        
         this.scene.add(this.skateObject);
     }
 

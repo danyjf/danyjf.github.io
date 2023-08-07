@@ -1,12 +1,12 @@
 ﻿import Game from "../Game";
 
-export default class OutlineEffect {
+export default class OutlineEffectManager {
     constructor() {
         this.game = new Game();
     }
     
     start() {
-        this.outlinedObjects = this.game.renderer.outlinePass.selectedObjects;
+        this.outlinedObjects = [];
         this.player = this.game.world.player;
         this.selectableObjects = [];
         this.distancesToPlayer = [];
@@ -14,6 +14,9 @@ export default class OutlineEffect {
     }
 
     addSelectable(obj) {
+        this.game.outlineScene.add(obj.interactable);
+        obj.interactable.visible = false;
+        console.log(this.game.outlineScene);
         this.selectableObjects.push(obj);
         this.distancesToPlayer.push(this.distanceToPlayer(obj));
     }
@@ -25,15 +28,17 @@ export default class OutlineEffect {
     outlineObject(obj) {
         if (this.outlinedObjects.length === 0) {
             this.outlinedObjects.push(obj.interactable);
+            obj.interactable.visible = true;
         }
         else {
             console.error("Outlined objects list has more than one element");
         }
     }
 
-    removeOutline() {
+    removeOutline(obj) {
         if (this.outlinedObjects.length === 1) {
             this.outlinedObjects.pop();
+            (obj.interactable.visible = false);
         }
         else if (this.outlinedObjects.length === 0) {
             console.error("Removing object from empty outlined objects list");
@@ -89,9 +94,13 @@ export default class OutlineEffect {
         }
         else {
             if (this.currentlySelectedIndex != null) {
-                this.removeOutline();
+                this.removeOutline(this.selectableObjects[this.currentlySelectedIndex]);
                 this.currentlySelectedIndex = null;
             }
         }
+    }
+
+    render() {
+
     }
 }

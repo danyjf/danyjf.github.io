@@ -14,15 +14,18 @@ export default class Computer {
 
     start() {
         this.computerObject = this.resources.items.Computer.scene;
-        this.outlineEffect = this.game.world.outlineEffect;
+        this.outlineEffectManager = this.game.world.outlineEffectManager;
         this.verticalScreenDisplay = new VerticalScreenDisplay(Projects);
         
         // interactable variables
         this.interactPosition = new THREE.Vector3(-0.83, 0, 0);
         this.interactRadius = 0.6;
-        this.interactable = this.computerObject;
+        this.interactable = this.computerObject.clone();
+        this.interactable.remove(this.interactable.getObjectByName("ComputerCaseGlass"));
+        this.interactable.remove(this.interactable.getObjectByName("Screen"));
+        this.interactable.remove(this.interactable.getObjectByName("VerticalScreen"));
         this.interactableName = "Computer";
-        this.outlineEffect.addSelectable(this);
+        this.outlineEffectManager.addSelectable(this);
         
         this.setModel();
     }
@@ -57,7 +60,7 @@ export default class Computer {
                 this.verticalScreenDisplay.createDisplay(child);
             }
         });
-
+        
         this.scene.add(this.computerObject);
     }
 

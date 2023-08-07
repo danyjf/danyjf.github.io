@@ -24,6 +24,7 @@ export default class Game {
         this.canvas = canvas;
         this.scene = new THREE.Scene();
         this.cssScene = new THREE.Scene();
+        this.outlineScene = new THREE.Scene();
         this.time = new Time();
         this.sizes = new Sizes();
         this.inputHandler = new InputHandler();

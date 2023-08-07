@@ -1,4 +1,5 @@
 ﻿import * as THREE from "three";
+import { OutlineEffect } from "three/examples/jsm/effects/OutlineEffect"
 import { CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer"
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
@@ -15,6 +16,7 @@ export default class Renderer {
         this.sizes = this.game.sizes;
         this.scene = this.game.scene;
         this.cssScene = this.game.cssScene;
+        this.outlineScene = this.game.outlineScene;
         this.canvas = this.game.canvas;
         this.camera = this.game.camera;
 
@@ -24,14 +26,26 @@ export default class Renderer {
 
     setRenderer() {
         this.renderer = new THREE.WebGLRenderer({
-            canvas: this.canvas
+            canvas: this.canvas,
+            antialias: true
         });
 
+        this.renderer.autoClear = false;
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
+        this.renderer.toneMapping = THREE.CineonToneMapping;
+        this.renderer.toneMappingExposure = 1.3;
         this.renderer.shadowMap.enabled = true;
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
         this.renderer.setSize(this.sizes.width, this.sizes.height);
         this.renderer.setPixelRatio(this.sizes.pixelRatio);
+
+        this.outlineEffect = new OutlineEffect(this.renderer, {
+            defaultThickness: 0.005,
+            defaultColor: [1, 1, 1],
+            defaultAlpha: 1,
+            defaultKeepAlive: true // keeps outline material in cache even if material is removed from scene
+        });
 
         this.cssRenderer = new CSS3DRenderer();
         this.cssRenderer.setSize(this.sizes.width, this.sizes.height);
@@ -67,14 +81,17 @@ export default class Renderer {
 		this.fxaaPass.material.uniforms['resolution'].value.y = 1 / (this.sizes.height * this.sizes.pixelRatio);
 
         this.cssRenderer.setSize(this.sizes.width, this.sizes.height);
-        this.cssRenderer.setPixelRatio(this.sizes.pixelRatio);
     }
 
     update() {
-        // render the scene with the debug camera that has the orbit controls
-        // this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
-        // this.renderer.render(this.scene, this.camera.debugCamera)
-        this.composer.render();
+        // this.composer.render();
+        this.renderer.clear();
+
+        this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
+        this.renderer.render(this.scene, this.camera.gameCamera);
+
+        this.outlineEffect.render(this.outlineScene, this.camera.gameCamera);
+        
         this.cssRenderer.render(this.cssScene, this.camera.gameCamera);
         
         // render the scene with the game camera on the top right corner 

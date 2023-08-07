@@ -10,7 +10,6 @@ export default class Room {
     }
     
     start() {
-        this.outlineEffect = this.game.world.outlineEffect;
         this.roomObject = this.resources.items.Room.scene;
         this.colliders = [
             new SquareCollider(this, 1.2, 1, -1.5, 1.5),      // left wall collider

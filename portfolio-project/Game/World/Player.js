@@ -13,7 +13,7 @@ export default class Player {
     }
     
     start() {
-        this.outlineEffect = this.game.world.outlineEffect;
+        this.outlineEffectManager = this.game.world.outlineEffectManager;
         this.worldColliders = this.game.world.colliders;
         this.verticalScreenDisplay = this.game.world.verticalScreenDisplay;
         this.collider = new SquareCollider(this, 0.075, -0.075, -0.075, 0.075);
@@ -36,7 +36,7 @@ export default class Player {
             return;
 
         if (this.inputHandler.keys.interact && !this.camera.isAnimating) {
-            const selectedObject = this.outlineEffect.getSelectedObject();
+            const selectedObject = this.outlineEffectManager.getSelectedObject();
             if (selectedObject) {
                 this.isBlocked = true;
                 switch (selectedObject.interactableName) {
