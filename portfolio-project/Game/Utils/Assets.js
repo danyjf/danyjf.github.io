@@ -15,6 +15,11 @@
         type: "glbModel",
         path: "/models/Skate.glb"
     },
+    {
+        name: "Outside",
+        type: "glbModel",
+        path: "/models/Outside.glb"
+    },
 
     // image textures
     {

@@ -7,6 +7,7 @@ import Room from "./Room";
 import Player from "./Player";
 import Skate from "./Skate";
 import Computer from "./Computer";
+import Outside from "./Outside";
 
 export default class World {
     constructor() {
@@ -20,6 +21,7 @@ export default class World {
             this.room = new Room();
             this.skate = new Skate();
             this.computer = new Computer();
+            this.outside = new Outside();
             this.player = new Player();
             this.worldLoaded = true;
 
@@ -34,13 +36,13 @@ export default class World {
         this.room.start();
         this.skate.start();
         this.computer.start();
+        this.outside.start();
     }
 
     update() {
         if (this.worldLoaded) {
             this.player.update();
             this.outlineEffect.update();
-            this.room.update();
             this.computer.update();
             this.skate.update();
 
