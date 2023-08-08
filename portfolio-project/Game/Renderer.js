@@ -67,7 +67,6 @@ export default class Renderer {
 		this.fxaaPass.material.uniforms['resolution'].value.y = 1 / (this.sizes.height * this.sizes.pixelRatio);
 
         this.cssRenderer.setSize(this.sizes.width, this.sizes.height);
-        this.cssRenderer.setPixelRatio(this.sizes.pixelRatio);
     }
 
     update() {

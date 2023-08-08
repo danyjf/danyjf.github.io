@@ -13,12 +13,13 @@ export default class Room {
         this.outlineEffect = this.game.world.outlineEffect;
         this.roomObject = this.resources.items.Room.scene;
         this.colliders = [
-            new SquareCollider(this, 1.2, 1, -1.5, 1.5),      // left wall collider
-            new SquareCollider(this, -1, -2, -1.5, -0.26),    // right top wall collider
-            new SquareCollider(this, -1, -2, 0.26, 1.5),      // right bottom wall collider
-            new SquareCollider(this, 1, -1, -1.2, -1),        // top wall collider
-            new SquareCollider(this, 1, -1, 1, 1.2),          // bottom wall collider
-            new SquareCollider(this, 0.4, -0.4, -1, -0.6)     // desk collider
+            new SquareCollider(this, 1.2, 1, -1.5, 1.5),            // left wall collider
+            new SquareCollider(this, -1, -2, -1.5, -0.26),          // right top wall collider
+            new SquareCollider(this, -1, -2, 0.26, 1.5),            // right bottom wall collider
+            new SquareCollider(this, 1, -1, -1.2, -1),              // top wall collider
+            new SquareCollider(this, 1, -1, 1, 1.2),                // bottom wall collider
+            new SquareCollider(this, 0.4, -0.4, -1, -0.6),          // desk collider
+            new SquareCollider(this, -1.3, -2, -0.26, 0.26, true)   // door trigger
         ];
         this.setModel();
     }

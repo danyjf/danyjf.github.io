@@ -31,6 +31,10 @@ export default class Player {
         this.scene.add(this.playerObject);
     }
 
+    insideTrigger() {
+        console.log("here");
+    }
+
     update() {
         if (this.isBlocked)
             return;

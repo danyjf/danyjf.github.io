@@ -1,10 +1,11 @@
 ﻿export default class SquareCollider {
-    constructor(owner, left, right, top, bottom) {
+    constructor(owner, left, right, top, bottom, isTrigger = false) {
         this.owner = owner;
         this.left = left;
         this.right = right;
         this.top = top;
         this.bottom = bottom;
+        this.isTrigger = isTrigger;
     }
 
     intersect(other) {
@@ -28,6 +29,11 @@
         if (!intersection)
             return;
 
+        if (other.isTrigger) {
+            this.owner.insideTrigger();
+            return;
+        }
+    
         this.resolveCollision(intersection, other);
     }
 
