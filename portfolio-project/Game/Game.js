@@ -14,7 +14,7 @@ import World from "./World/World";
 export default class Game {
     static instance;
 
-    constructor(canvas) {
+    constructor(canvas, uiDiv, transitionDiv) {
         if (Game.instance) {
             return Game.instance;
         }
@@ -22,6 +22,8 @@ export default class Game {
 
         // create game objects
         this.canvas = canvas;
+        this.uiDiv = uiDiv;
+        this.transitionDiv = transitionDiv;
         this.scene = new THREE.Scene();
         this.cssScene = new THREE.Scene();
         this.time = new Time();

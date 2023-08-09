@@ -16,6 +16,7 @@ export default class Renderer {
         this.scene = this.game.scene;
         this.cssScene = this.game.cssScene;
         this.canvas = this.game.canvas;
+        this.uiDiv = this.game.uiDiv;
         this.camera = this.game.camera;
 
         this.setRenderer();
@@ -33,7 +34,9 @@ export default class Renderer {
         this.renderer.setSize(this.sizes.width, this.sizes.height);
         this.renderer.setPixelRatio(this.sizes.pixelRatio);
 
-        this.cssRenderer = new CSS3DRenderer();
+        this.cssRenderer = new CSS3DRenderer({
+            element: this.uiDiv
+        });
         this.cssRenderer.setSize(this.sizes.width, this.sizes.height);
         document.body.appendChild(this.cssRenderer.domElement);
     }

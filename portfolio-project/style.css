@@ -16,6 +16,21 @@
     height: 100%;
 }
 
+.ui {
+    position: fixed;
+}
+
+.transition {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+
+    visibility: hidden;
+    background-color: #1d1d1d;
+    opacity: 0;
+}
+
 .project-background {
     width: 720px;
     height: 1280px;

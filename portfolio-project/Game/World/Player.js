@@ -4,11 +4,13 @@ import Game from "../Game";
 import SquareCollider from "../Utils/SquareCollider";
 import Room from "./Room";
 import Outside from "./Outside";
+import { CSS3DObject } from "three/examples/jsm/renderers/CSS3DRenderer";
 
 export default class Player {
     constructor() {
         this.game = new Game();
         this.scene = this.game.scene;
+        this.transitionDiv = this.game.transitionDiv;
         this.time = this.game.time;
         this.inputHandler = this.game.inputHandler;
         this.camera = this.game.camera;
@@ -23,6 +25,7 @@ export default class Player {
         this.speed = 1.25;
         this.direction = new THREE.Vector3(0, 0, 0);
         this.isBlocked = false;
+        this.isTransitioning = false;
         this.setModel();
     }
 
@@ -56,14 +59,47 @@ export default class Player {
         );
     }
 
+    fadeOut(other) {
+        var op = 0; // initial opacity
+        var timer = setInterval(function () {
+            if (op >= 1) {
+                if (other.owner instanceof Room) {
+                    this.moveToOutside();
+                    this.camera.moveToOutside();
+                }
+                else if (other.owner instanceof Outside) {
+                    this.moveToInside();
+                    this.camera.moveToInside();
+                }
+
+                this.fadeIn();
+
+                clearInterval(timer);
+            }
+            this.transitionDiv.style.opacity = op;
+            op += 0.1;
+        }.bind(this), 50);
+    }
+
+    fadeIn() {
+        var op = 1; // initial opacity
+        var timer = setInterval(function () {
+            if (op <= 0) {
+                this.isTransitioning = false;
+                this.transitionDiv.style.visibility = "hidden";
+
+                clearInterval(timer);
+            }
+            this.transitionDiv.style.opacity = op;
+            op -= 0.1;
+        }.bind(this), 50);
+    }
+
     insideTrigger(other) {
-        if (other.owner instanceof Room) {
-            this.moveToOutside();
-            this.camera.moveToOutside();
-        }
-        else if (other.owner instanceof Outside) {
-            this.moveToInside();
-            this.camera.moveToInside();
+        if (!this.isTransitioning) {
+            this.isTransitioning = true;
+            this.transitionDiv.style.visibility = "visible";
+            this.fadeOut(other);
         }
     }
 
@@ -103,7 +139,6 @@ export default class Player {
         const moveZ = this.direction.z * this.speed * this.time.delta;
         this.playerObject.position.x += moveX;
         this.playerObject.position.z += moveZ;
-        console.log(this.playerObject.position);
 
         this.collider.updateCollider(moveZ, moveX);
     }
