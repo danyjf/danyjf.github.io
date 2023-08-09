@@ -16,7 +16,8 @@ export default class Player {
         this.outlineEffect = this.game.world.outlineEffect;
         this.worldColliders = this.game.world.colliders;
         this.verticalScreenDisplay = this.game.world.verticalScreenDisplay;
-        this.collider = new SquareCollider(this, 0.075, -0.075, -0.075, 0.075);
+        this.width = 0.075;
+        this.collider = new SquareCollider(this, this.width, -this.width, -this.width, this.width);
         this.speed = 1.25;
         this.direction = new THREE.Vector3(0, 0, 0);
         this.isBlocked = false;
@@ -32,7 +33,16 @@ export default class Player {
     }
 
     insideTrigger() {
-        console.log("here");
+        this.playerObject.position.x = 0;
+        this.playerObject.position.z = -15;
+        this.collider.setColliderPosition(
+            this.playerObject.position.z + this.width,
+            this.playerObject.position.z - this.width,
+            this.playerObject.position.x - this.width,
+            this.playerObject.position.x + this.width,
+        );
+
+        this.camera.gameCamera.position.z = -15;
     }
 
     update() {
