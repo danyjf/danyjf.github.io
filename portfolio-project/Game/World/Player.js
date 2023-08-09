@@ -2,6 +2,8 @@
 
 import Game from "../Game";
 import SquareCollider from "../Utils/SquareCollider";
+import Room from "./Room";
+import Outside from "./Outside";
 
 export default class Player {
     constructor() {
@@ -32,17 +34,37 @@ export default class Player {
         this.scene.add(this.playerObject);
     }
 
-    insideTrigger() {
+    moveToOutside() {
         this.playerObject.position.x = 0;
-        this.playerObject.position.z = -15;
+        this.playerObject.position.z = -13.46;
         this.collider.setColliderPosition(
             this.playerObject.position.z + this.width,
             this.playerObject.position.z - this.width,
             this.playerObject.position.x - this.width,
             this.playerObject.position.x + this.width,
         );
+    }
 
-        this.camera.moveToOutside();
+    moveToInside() {
+        this.playerObject.position.x = 0;
+        this.playerObject.position.z = -1.13;
+        this.collider.setColliderPosition(
+            this.playerObject.position.z + this.width,
+            this.playerObject.position.z - this.width,
+            this.playerObject.position.x - this.width,
+            this.playerObject.position.x + this.width,
+        );
+    }
+
+    insideTrigger(other) {
+        if (other.owner instanceof Room) {
+            this.moveToOutside();
+            this.camera.moveToOutside();
+        }
+        else if (other.owner instanceof Outside) {
+            this.moveToInside();
+            this.camera.moveToInside();
+        }
     }
 
     update() {

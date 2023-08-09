@@ -107,7 +107,12 @@ export default class Camera {
 
     moveToOutside() {
         this.isFollowingPlayer = true;
-        this.gameCamera.position.z = -15;
+        this.gameCamera.position.z = -13.46;
+    }
+
+    moveToInside() {
+        this.isFollowingPlayer = false;
+        this.gameCamera.position.copy(this.defaultPosition);
     }
 
     animateTransformToTarget(t) {

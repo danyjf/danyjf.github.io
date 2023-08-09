@@ -30,7 +30,7 @@
             return;
 
         if (other.isTrigger) {
-            this.owner.insideTrigger();
+            this.owner.insideTrigger(other);
             return;
         }
     
