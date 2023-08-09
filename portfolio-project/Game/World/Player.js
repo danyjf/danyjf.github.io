@@ -42,7 +42,7 @@ export default class Player {
             this.playerObject.position.x + this.width,
         );
 
-        this.camera.gameCamera.position.z = -15;
+        this.camera.moveToOutside();
     }
 
     update() {

@@ -12,6 +12,7 @@ export default class Camera {
         this.time = this.game.time;
         this.defaultPosition = new THREE.Vector3(1.983, 2.581, 0);
         this.defaultRotation = new THREE.Quaternion(-0.27138118759377144, 0.6530118167804394, 0.27138118759377144, 0.6529012706263468);
+        this.isFollowingPlayer = false;
 
         // animation variables
         this.isAnimating = false;
@@ -19,7 +20,6 @@ export default class Camera {
         this.startRotation = new THREE.Quaternion();
         this.targetPosition = new THREE.Vector3();
         this.targetRotation = new THREE.Quaternion();
-        this.startAnimationTime = 0;
         this.elapsedAnimationTime = 0;
         this.animationDuration = 0;
 
@@ -77,7 +77,6 @@ export default class Camera {
             this.gameCamera.quaternion.z, 
             this.gameCamera.quaternion.w
         );
-        this.startAnimationTime = this.time.current;
         this.elapsedAnimationTime = 0;
         this.animationDuration = 1;
     }
@@ -106,8 +105,18 @@ export default class Camera {
         this.targetRotation.set(0, 0, 0, 1);
     }
 
-    animateTransformToTarget(percentage) {
-        if (percentage >= 1) {
+    moveToOutside() {
+        this.isFollowingPlayer = true;
+        this.gameCamera.position.z = -15;
+    }
+
+    animateTransformToTarget(t) {
+        // manipulate the value of percentage to make it smooth in and out
+        // maybe something like this:
+        // float t = time / duration;
+        // t = t * t * (3f - 2f * t);
+
+        if (t >= 1) {
             this.isAnimating = false;
             this.gameCamera.position.set(
                 this.targetPosition.x, 
@@ -123,8 +132,8 @@ export default class Camera {
             return;
         }
 
-        this.gameCamera.position.lerpVectors(this.startPosition, this.targetPosition, percentage);
-        this.gameCamera.quaternion.slerpQuaternions(this.startRotation, this.targetRotation, percentage);
+        this.gameCamera.position.lerpVectors(this.startPosition, this.targetPosition, t);
+        this.gameCamera.quaternion.slerpQuaternions(this.startRotation, this.targetRotation, t);
     }
 
     setHelpers() {
@@ -148,9 +157,19 @@ export default class Camera {
 
     update() {
         if (this.isAnimating) {
-            this.elapsedAnimationTime = this.time.current - this.startAnimationTime;
             const percentage = this.elapsedAnimationTime / this.animationDuration;
+            this.elapsedAnimationTime += this.time.delta;
             this.animateTransformToTarget(percentage);
+        }
+
+        if (this.isFollowingPlayer) {
+            const smoothing = 3;
+            this.gameCamera.position.z = THREE.MathUtils.damp(
+                this.gameCamera.position.z, 
+                this.game.world.player.playerObject.position.z, 
+                smoothing, 
+                this.time.delta
+            );
         }
 
         this.controls.update();
