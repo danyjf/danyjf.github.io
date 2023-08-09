@@ -86,6 +86,7 @@ export default class Player {
         var timer = setInterval(function () {
             if (op <= 0) {
                 this.isTransitioning = false;
+                this.isBlocked = false;
                 this.transitionDiv.style.visibility = "hidden";
 
                 clearInterval(timer);
@@ -98,6 +99,7 @@ export default class Player {
     insideTrigger(other) {
         if (!this.isTransitioning) {
             this.isTransitioning = true;
+            this.isBlocked = true;
             this.transitionDiv.style.visibility = "visible";
             this.fadeOut(other);
         }

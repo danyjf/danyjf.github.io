@@ -78,7 +78,7 @@ export default class Camera {
             this.gameCamera.quaternion.w
         );
         this.elapsedAnimationTime = 0;
-        this.animationDuration = 1;
+        this.animationDuration = duration;
     }
 
     moveToDefault() {
@@ -89,10 +89,6 @@ export default class Camera {
 
     moveToComputer() {
         this.setupAnimationSettings(1);
-
-        // transform for horizontal monitor
-        // this.targetPosition.set(-0.32, 0.524, 0);
-        // this.targetRotation.set(0, 0.7071067811865476, 0, 0.7071067811865476);
 
         // transform for vertical monitor
         this.targetPosition.set(-0.495, 0.593, 0.066);
@@ -118,10 +114,7 @@ export default class Camera {
     animateTransformToTarget(t) {
         // manipulate the value of percentage to make it smooth in and out
         // maybe something like this:
-        // float t = time / duration;
-        // t = t * t * (3f - 2f * t);
-
-        if (t >= 1) {
+        if (this.elapsedAnimationTime >= this.animationDuration) {
             this.isAnimating = false;
             this.gameCamera.position.set(
                 this.targetPosition.x, 
@@ -137,6 +130,7 @@ export default class Camera {
             return;
         }
 
+        t = t * t * (3 - 2 * t);
         this.gameCamera.position.lerpVectors(this.startPosition, this.targetPosition, t);
         this.gameCamera.quaternion.slerpQuaternions(this.startRotation, this.targetRotation, t);
     }
