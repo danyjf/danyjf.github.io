@@ -54,5 +54,8 @@ export default class World {
         for (const collider of this.room.colliders) {
             this.player.collider.handleCollision(collider);
         }
+        for (const collider of this.outside.colliders) {
+            this.player.collider.handleCollision(collider);
+        }
     }
 }

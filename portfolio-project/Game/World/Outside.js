@@ -1,4 +1,6 @@
-﻿import Game from "../Game";
+﻿import SquareCollider from "../Utils/SquareCollider";
+
+import Game from "../Game";
 
 export default class Outside {
     constructor() {
@@ -10,11 +12,10 @@ export default class Outside {
     start() {
         this.outlineEffect = this.game.world.outlineEffect;
         this.outsideObject = this.resources.items.Outside.scene;
-        // TODO: add colliders in the future
-        // this.colliders = [
-        //     new SquareCollider(this, 1.2, 1, -1.5, 1.5),      // left wall collider
-        //     new SquareCollider(this, -1, -2, -1.5, -0.26),    // right top wall collider
-        // ];
+        this.colliders = [
+            new SquareCollider(this, -13.36, -21.12, -5, -0.5),      // top wall collider
+            new SquareCollider(this, -13.36, -21.12, 0.5, 5),    // bottom wall collider
+        ];
         this.setModel();
     }
 

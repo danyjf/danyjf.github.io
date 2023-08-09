@@ -81,6 +81,7 @@ export default class Player {
         const moveZ = this.direction.z * this.speed * this.time.delta;
         this.playerObject.position.x += moveX;
         this.playerObject.position.z += moveZ;
+        console.log(this.playerObject.position);
 
         this.collider.updateCollider(moveZ, moveX);
     }
