@@ -196,7 +196,6 @@ div.project-exit:hover {
     width: 720px;
     height: 1280px;
     color: #540B0E;
-    /* background: #FEF2B8; */
 }
 
 .skills-header {
@@ -251,4 +250,20 @@ div.skills-exit {
 div.skills-exit:hover {
     transform: scale(1.1);
     cursor: pointer;
+}
+
+.laptop-container {
+    width: 1280px;
+    height: 900px;
+    /* background-color: #212529; */
+    color: #ffffff;
+    font-size: 70px;
+}
+
+.controller-container {
+    width: 1280px;
+    height: 900px;
+    /* background-color: #212529; */
+    color: #ffffff;
+    font-size: 70px;
 }
