@@ -51,6 +51,7 @@ export default class World {
             this.outlineEffect.update();
             this.computer.update();
             this.skate.update();
+            this.outside.update();
 
             this.handleCollisions();
         }
