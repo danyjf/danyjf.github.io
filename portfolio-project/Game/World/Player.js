@@ -26,6 +26,7 @@ export default class Player {
         this.direction = new THREE.Vector3(0, 0, 0);
         this.isBlocked = false;
         this.isTransitioning = false;
+        this.holdingEnter = false;
         this.setModel();
     }
 
@@ -109,18 +110,31 @@ export default class Player {
         if (this.isBlocked)
             return;
 
-        if (this.inputHandler.keys.interact && !this.camera.isAnimating) {
+        if (!this.inputHandler.keys.interact)
+            this.holdingEnter = false;
+
+        if (this.inputHandler.keys.interact && !this.camera.isAnimating && !this.holdingEnter) {
+            this.holdingEnter = true;
             const selectedObject = this.outlineEffect.getSelectedObject();
             if (selectedObject) {
-                this.isBlocked = true;
                 switch (selectedObject.interactableName) {
                     case "Computer":
+                        this.isBlocked = true;
                         this.camera.moveToComputer();
                         this.game.world.computer.verticalScreenDisplay.onFocus = true;
                         break;
                     case "Skate":
+                        this.isBlocked = true;
                         this.camera.moveToSkate();
                         this.game.world.skate.skateDisplay.onFocus = true;
+                        break;
+                    case "Github":
+                        this.inputHandler.keys.interact = false;
+                        window.open("https://github.com/danyjf", "_blank");
+                        break;
+                    case "Mail":
+                        this.inputHandler.keys.interact = false;
+                        window.location.href = "mailto:deny.jo@hotmail.com";
                         break;
                 }
             }
