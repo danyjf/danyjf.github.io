@@ -169,6 +169,12 @@ export default class Camera {
                 smoothing, 
                 this.time.delta
             );
+            this.gameCamera.position.x = THREE.MathUtils.damp(
+                this.gameCamera.position.x,
+                this.game.world.player.playerObject.position.x + 2,
+                smoothing,
+                this.time.delta
+            );
         }
 
         this.controls.update();
