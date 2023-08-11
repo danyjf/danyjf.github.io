@@ -20,6 +20,16 @@
         type: "glbModel",
         path: "/models/Outside.glb"
     },
+    {
+        name: "Github",
+        type: "glbModel",
+        path: "/models/Github.glb"
+    },
+    {
+        name: "Mail",
+        type: "glbModel",
+        path: "/models/Mail.glb"
+    },
 
     // image textures
     {

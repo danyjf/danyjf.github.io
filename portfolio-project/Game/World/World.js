@@ -8,6 +8,8 @@ import Player from "./Player";
 import Skate from "./Skate";
 import Computer from "./Computer";
 import Outside from "./Outside";
+import Github from "./Github";
+import Mail from "./Mail";
 
 export default class World {
     constructor() {
@@ -22,6 +24,8 @@ export default class World {
             this.skate = new Skate();
             this.computer = new Computer();
             this.outside = new Outside();
+            this.github = new Github();
+            this.mail = new Mail();
             this.player = new Player();
             this.worldLoaded = true;
 
@@ -37,6 +41,8 @@ export default class World {
         this.skate.start();
         this.computer.start();
         this.outside.start();
+        this.github.start();
+        this.mail.start();
     }
 
     update() {

@@ -83,6 +83,9 @@ export default class OutlineEffect {
             let closestObject = this.closestObjectIndex(objectsInRadius);
 
             if (closestObject != this.currentlySelectedIndex) {
+                if (this.currentlySelectedIndex != null)
+                    this.removeOutline();
+
                 this.outlineObject(this.selectableObjects[closestObject]);
                 this.currentlySelectedIndex = closestObject;
             }
