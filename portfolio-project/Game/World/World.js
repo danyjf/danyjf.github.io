@@ -5,11 +5,11 @@ import OutlineEffect from "../Utils/OutlineEffect";
 import Environment from "./Environment";
 import Room from "./Room";
 import Player from "./Player";
-import Skate from "./Skate";
-import Computer from "./Computer";
+import Skate from "./Interactables/Skate";
+import Computer from "./Interactables/Computer";
 import Outside from "./Outside";
-import Github from "./Github";
-import Mail from "./Mail";
+import Github from "./Interactables/Github";
+import Mail from "./Interactables/Mail";
 
 export default class World {
     constructor() {

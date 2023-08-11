@@ -1,9 +1,10 @@
 ﻿import * as THREE from "three";
 
+import Assets from "./Configs/Assets";
+
 import Sizes from "./Utils/Sizes";
 import Time from "./Utils/Time";
 import Resources from "./Utils/Resources";
-import Assets from "./Utils/Assets";
 import InputHandler from "./Utils/InputHandler";
 
 import Camera from "./Camera";

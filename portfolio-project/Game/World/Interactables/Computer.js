@@ -1,9 +1,9 @@
 ﻿import * as THREE from "three";
 
-import Projects from "../Utils/Projects";
+import Projects from "../../Configs/Projects";
 
-import Game from "../Game";
-import VerticalScreenDisplay from "./VerticalScreenDisplay";
+import Game from "../../Game";
+import VerticalScreenDisplay from "../Displays/VerticalScreenDisplay";
 
 export default class Computer {
     constructor() {

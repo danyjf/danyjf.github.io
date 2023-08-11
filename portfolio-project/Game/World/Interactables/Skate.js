@@ -1,9 +1,9 @@
 ﻿import * as THREE from "three";
 
-import Skills from "../Utils/Skills";
+import Skills from "../../Configs/Skills";
 
-import Game from "../Game";
-import SkateDisplay from "./SkateDisplay";
+import Game from "../../Game";
+import SkateDisplay from "../Displays/SkateDisplay";
 
 export default class Skate {
     constructor() {

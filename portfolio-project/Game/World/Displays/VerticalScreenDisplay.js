@@ -1,8 +1,8 @@
 ﻿import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 
-import ProjectPage from "../Utils/ProjectPage";
+import ProjectPage from "../../Utils/ProjectPage";
 
-import Game from "../Game";
+import Game from "../../Game";
 
 export default class VerticalScreenDisplay {
     constructor(projects) {
