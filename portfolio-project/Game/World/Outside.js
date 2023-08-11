@@ -14,7 +14,8 @@ export default class Outside {
         this.outsideObject = this.resources.items.Outside.scene;
         this.colliders = [
             new SquareCollider(this, -13.36, -21.12, -5, -0.5),     // top wall collider
-            new SquareCollider(this, -13.36, -21.12, 0.5, 5),       // bottom wall collider
+            new SquareCollider(this, -13.36, -17.62, 0.5, 5),       // bottom wall collider
+            new SquareCollider(this, -18.612, -25, -0.5, 5),       // right wall collider
             new SquareCollider(this, -10, -13.36, -0.5, 0.5, true)  // door trigger
         ];
         this.setModel();
