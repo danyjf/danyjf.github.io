@@ -22,9 +22,9 @@ export default class Outside {
         this.colliders = [
             new SquareCollider(this, 1.64, -6.12, 35, 39.5),        // top wall collider
             new SquareCollider(this, 1.64, -2.62, 40.5, 45),        // bottom wall collider
-            new SquareCollider(this, -2.62, -3.612, 42.938, 45),    // end of road wall collider
+            new SquareCollider(this, -2.62, -3.612, 41.75, 45),    // end of road wall collider
             new SquareCollider(this, -3.612, -10, 39.5, 45),        // right wall collider
-            new SquareCollider(this, 5, 2.1, 39.5, 40.5, true)   // door trigger
+            new SquareCollider(this, 5, 2.1, 39.5, 40.5, true)      // door trigger
         ];
         this.setModel();
     }
