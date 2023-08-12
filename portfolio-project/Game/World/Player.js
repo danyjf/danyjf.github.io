@@ -40,7 +40,7 @@ export default class Player {
 
     moveToOutside() {
         this.playerObject.position.x = 0;
-        this.playerObject.position.z = -13.46;
+        this.playerObject.position.z = -13.15;
         this.collider.setColliderPosition(
             this.playerObject.position.z + this.width,
             this.playerObject.position.z - this.width,

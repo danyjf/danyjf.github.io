@@ -103,7 +103,7 @@ export default class Camera {
 
     moveToOutside() {
         this.isFollowingPlayer = true;
-        this.gameCamera.position.z = -13.46;
+        this.gameCamera.position.z = -14.5;
     }
 
     moveToInside() {
@@ -163,9 +163,13 @@ export default class Camera {
 
         if (this.isFollowingPlayer) {
             const smoothing = 3;
+            let targetZ = this.game.world.player.playerObject.position.z
+            if (targetZ > -14.5) {
+                targetZ = -14.5;
+            }
             this.gameCamera.position.z = THREE.MathUtils.damp(
                 this.gameCamera.position.z, 
-                this.game.world.player.playerObject.position.z, 
+                targetZ, 
                 smoothing, 
                 this.time.delta
             );

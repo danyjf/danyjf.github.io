@@ -19,7 +19,7 @@ export default class Room {
             new SquareCollider(this, 1, -1, -1.2, -1),              // top wall collider
             new SquareCollider(this, 1, -1, 1, 1.2),                // bottom wall collider
             new SquareCollider(this, 0.4, -0.4, -1, -0.6),          // desk collider
-            new SquareCollider(this, -1.3, -2, -0.26, 0.26, true)   // door trigger
+            new SquareCollider(this, -1.4, -2, -0.26, 0.26, true)   // door trigger
         ];
         this.setModel();
     }
