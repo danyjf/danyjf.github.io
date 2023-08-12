@@ -14,7 +14,7 @@ export default class Mail {
         this.outlineEffect = this.game.world.outlineEffect;
 
         // interactable variables
-        this.interactPosition = new THREE.Vector3(1.04001, 0, -18.89086);
+        this.interactPosition = new THREE.Vector3(41.04001, 0, -3.89086);
         this.interactRadius = 0.9;
         this.interactable = this.mailObject;
         this.interactableName = "Mail";

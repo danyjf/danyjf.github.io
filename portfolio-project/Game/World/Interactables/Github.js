@@ -14,7 +14,7 @@ export default class Github {
         this.outlineEffect = this.game.world.outlineEffect;
 
         // interactable variables
-        this.interactPosition = new THREE.Vector3(-0.01718, 0, -19.04251);
+        this.interactPosition = new THREE.Vector3(39.98282, 0, -4.04251);
         this.interactRadius = 0.9;
         this.interactable = this.githubObject;
         this.interactableName = "Github";

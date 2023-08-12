@@ -20,11 +20,11 @@ export default class Outside {
         this.mastersDisplay = new MastersDisplay();
 
         this.colliders = [
-            new SquareCollider(this, -13.36, -21.12, -5, -0.5),     // top wall collider
-            new SquareCollider(this, -13.36, -17.62, 0.5, 5),       // bottom wall collider
-            new SquareCollider(this, -17.62, -18.612, 2.938, 5),    // end of road wall collider
-            new SquareCollider(this, -18.612, -25, -0.5, 5),        // right wall collider
-            new SquareCollider(this, -10, -12.9, -0.5, 0.5, true)  // door trigger
+            new SquareCollider(this, 1.64, -6.12, 35, 39.5),        // top wall collider
+            new SquareCollider(this, 1.64, -2.62, 40.5, 45),        // bottom wall collider
+            new SquareCollider(this, -2.62, -3.612, 42.938, 45),    // end of road wall collider
+            new SquareCollider(this, -3.612, -10, 39.5, 45),        // right wall collider
+            new SquareCollider(this, 5, 2.1, 39.5, 40.5, true)   // door trigger
         ];
         this.setModel();
     }

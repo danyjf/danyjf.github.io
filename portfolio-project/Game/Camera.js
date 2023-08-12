@@ -28,7 +28,7 @@ export default class Camera {
         this.createDebugCamera();
         this.setOrbitControls();
         
-        this.setHelpers();
+        // this.setHelpers();
     }
 
     createGameCamera() {
@@ -103,7 +103,8 @@ export default class Camera {
 
     moveToOutside() {
         this.isFollowingPlayer = true;
-        this.gameCamera.position.z = -14.5;
+        this.gameCamera.position.z = 0.5;
+        this.gameCamera.position.x = 42;
     }
 
     moveToInside() {
@@ -164,8 +165,8 @@ export default class Camera {
         if (this.isFollowingPlayer) {
             const smoothing = 3;
             let targetZ = this.game.world.player.playerObject.position.z
-            if (targetZ > -14.5) {
-                targetZ = -14.5;
+            if (targetZ > 0.5) {
+                targetZ = 0.5;
             }
             this.gameCamera.position.z = THREE.MathUtils.damp(
                 this.gameCamera.position.z, 
