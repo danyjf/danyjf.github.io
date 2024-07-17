@@ -1,1 +1,93 @@
-﻿
+﻿@use '../size';
+@use '../color';
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.header__menu {
+    display: none;
+}
+
+.header__bars {
+    display: block;
+    color: color.$text;
+    width: size.$xl2;
+    height: size.$xl2;
+}
+
+// xs
+//@media (min-width: 475px) {}
+
+// sm 
+//@media (min-width: 640px) {}
+
+// md
+@media (min-width: 768px) {
+    .header__menu {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        gap: 2em;
+    }
+
+    .header__link {
+        font-size: size.$xs;
+        text-decoration: none;
+        font-weight: 600;
+        color: color.$accent;
+        letter-spacing: -0.05em;
+        transition: color 0.3s;
+
+        &:hover {
+            color: color.$primary;
+        }
+    }
+
+    .header__line {
+        border: 1px solid color.$accent;
+        padding-top: 1.5em;
+    }
+
+    .header__sun {
+        display: block;
+        color: color.$accent;
+        width: size.$base;
+        height: size.$base;
+    }
+
+    .header__resume {
+        font-size: size.$xs;
+    }
+
+    .header__bars {
+        display: none;
+    }
+}
+
+// lg
+@media (min-width: 1024px) {
+    .header__link {
+        font-size: size.$sm;
+    }
+
+    .header__sun {
+        width: size.$xl;
+        height: size.$xl;
+    }
+
+    .header__resume {
+        font-size: size.$sm;
+    }
+}
+
+// xl
+//@media (min-width: 1280px) {}
+
+// 2xl
+//@media (min-width: 1536px) {}
