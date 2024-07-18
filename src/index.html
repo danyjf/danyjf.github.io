@@ -37,12 +37,36 @@
             </button>
         </nav>
     </header>
-    <!-- <main>
-        <section>Hero</section>
-        <section>About</section>
-        <section>Projects</section>
-        <section>Contact</section>
+    <main>
+        <section class="hero container">
+            <img class="hero__img" src="<%= require('./assets/images/hero.jpg') %>" alt="Profile picture">
+            <h2 class="hero__subtitle">Hi, I'm Daniel 👋</h2>
+            <h1 class="hero__title">Software Developer.</h1>
+            <p class="hero__description">A passionate <strong>software developer</strong> specialized in <strong>video game development</strong>.</p>
+            <a class="hero__btn btn" href="#">Reach out</a>
+        </section>
+        <section class="about container section">
+            <div>
+                <h2>About</h2>
+                <p>Hello there! I'm Daniel, a <strong>software developer</strong> based in Portugal. I wake up in the morning grab a cup of coffee, open up my laptop and build things.</p>
+                <p>People who know me say I'm obsessed, that's fair, I am very driven and love learning new things.</p>
+                <hr>
+                <h3>Technologies</h3>
+                <ul>
+                    <li>C#</li>
+                    <li>C++</li>
+                    <li>Unity</li>
+                    <li>Unreal</li>
+                    <li>Godot</li>
+                </ul>
+            </div>
+            <div>
+                <img src="<%= require('./assets/images/hero.jpg') %>" alt="Profile picture">
+            </div>
+        </section>
+        <!-- <section>Projects</section> -->
+        <!-- <section>Contact</section> -->
     </main>
-    <footer></footer> -->
+    <footer></footer> 
 </body>
 </html>
