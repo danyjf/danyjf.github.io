@@ -24,6 +24,8 @@
 
 .projects__img-wrapper {
     position: relative;
+    width: 100% !important;
+    height: 100% !important;
 
     &::after {
         content: '';
@@ -40,6 +42,10 @@
     &:hover::after {
         background-color: rgba(230, 72, 51, 0.3);
     }
+}
+
+.projects__project-img {
+    width: 100%;
 }
 
 .projects__project:not(:last-child) {
