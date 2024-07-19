@@ -1,0 +1,55 @@
+﻿@use '../color';
+@use '../size';
+
+.mobile-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: color.$background;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mobile-nav__menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mobile-nav__link {
+    font-size: size.$sm;
+    text-decoration: none;
+    font-weight: 600;
+    color: color.$accent;
+    letter-spacing: -0.05em;
+    transition: color 0.3s;
+
+    &:hover {
+        color: color.$primary;
+    }
+}
+
+.mobile-nav__line {
+    border: 1px solid color.$accent;
+    padding-right: 1.5em;
+}
+
+.mobile-nav__sun {
+    display: block;
+    color: color.$accent;
+    width: size.$xl;
+    height: size.$xl;
+}
+
+.mobile-nav__resume {
+    font-size: size.$sm;
+}

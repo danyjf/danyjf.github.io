@@ -6,4 +6,9 @@ import './styles/components/about.scss';
 import './styles/components/projects.scss';
 import './styles/components/contact.scss';
 import './styles/components/footer.scss';
+import './styles/components/mobile-nav.scss';
 import './styles/utils.scss';
+
+import mobileNav from './utils/mobile-nav';
+
+mobileNav();
