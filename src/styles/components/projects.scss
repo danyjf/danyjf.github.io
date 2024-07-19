@@ -1,0 +1,107 @@
+﻿@use '../color';
+@use '../size';
+
+.projects {
+    text-align: center;
+}
+
+.projects__title {
+    font-size: size.$xl2;
+    color: color.$text;
+}
+
+.projects__description {
+    max-width: 60ch;
+    font-size: size.$sm;
+    color: color.$accent;
+    margin: 1rem auto;
+}
+
+.projects__project-title {
+    font-size: size.$base;
+    margin-bottom: 1rem;
+}
+
+.projects__img-wrapper {
+    position: relative;
+
+    &::after {
+        content: '';
+        background-color: rgba(230, 72, 51, 0.4);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transition: background-color 0.3s;
+    }
+
+    &:hover::after {
+        background-color: rgba(230, 72, 51, 0.3);
+    }
+}
+
+.projects__project:not(:last-child) {
+    margin-bottom: 5rem;
+}
+
+.projects__project-description1 {
+    font-size: size.$sm;
+    color: color.$accent;
+    margin: 1rem 0;
+}
+
+.projects__project-description2 {
+    font-size: size.$sm;
+    color: color.$text;
+    margin-bottom: 1rem;
+}
+
+.projects__project-btn {
+    font-size: size.$sm;
+}
+
+// xs
+@media (min-width: 475px) {
+    .projects__title {
+        font-size: size.$xl3;
+    }
+
+    .projects__description {
+        font-size: size.$base;
+        margin: 1.5rem auto;
+    }
+}
+
+// sm 
+//@media (min-width: 640px) {}
+
+// md
+//@media (min-width: 768px) {}
+
+// lg
+@media (min-width: 1024px) {
+    .projects__title {
+        font-size: size.$xl4;
+    }
+
+    .projects__description {
+        font-size: size.$lg;
+    }
+}
+
+// xl
+@media (min-width: 1280px) {
+    .projects__title {
+        font-size: size.$xl5;
+    }
+
+    .projects__description {
+        font-size: size.$xl;
+        margin: 2rem auto;
+    }
+}
+
+// 2xl
+//@media (min-width: 1536px) {}
