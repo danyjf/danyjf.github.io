@@ -24,13 +24,11 @@
 }
 
 .project-details__container {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 2rem;
+    padding: 2rem 2rem;
 }
 
 .project-details__title {
@@ -71,7 +69,31 @@
 }
 
 // xs
-//@media (min-width: 475px) {}
+@media (min-width: 475px) {
+    .project-details__close-btn {
+        width: size.$xl3;
+        height: size.$xl3;
+    }
+
+    .project-details__title {
+        font-size: size.$xl3;
+        margin-bottom: 1rem;
+    }
+
+    .project-details__description {
+        font-size: size.$base;
+        margin-bottom: 2rem;
+    }
+
+    .project-details__subtitle {
+        font-size: size.$xl;
+        margin-bottom: 1rem;
+    }
+
+    .project-details__list {
+        font-size: size.$base;
+    }
+}
 
 // sm 
 //@media (min-width: 640px) {}
@@ -80,10 +102,72 @@
 //@media (min-width: 768px) {}
 
 // lg
-//@media (min-width: 1024px) {}
+@media (min-width: 1024px) {
+    .project-details__close-btn {
+        width: size.$xl4;
+        height: size.$xl4;
+        margin-top: 4rem;
+        margin-right: 4rem;
+    }
+
+    .project-details__container {
+        flex: 1;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        align-self: stretch;
+        padding: 0 4rem;
+    }
+
+    .project-details__content {
+        flex: 1;
+    }
+
+    .project-details__imgs-container {
+        flex: 1;
+    }
+
+    .project-details__img {
+        margin: 0 auto;
+    }
+
+    .project-details__title {
+        font-size: size.$xl4;
+        margin-bottom: 1rem;
+    }
+
+    .project-details__description {
+        font-size: size.$lg;
+        margin-bottom: 2rem;
+    }
+
+    .project-details__subtitle {
+        font-size: size.$xl2;
+        margin-bottom: 1rem;
+    }
+
+    .project-details__list {
+        font-size: size.$lg;
+    }
+}
 
 // xl
-//@media (min-width: 1280px) {}
+@media (min-width: 1280px) {
+    .project-details__container {
+        padding: 0 8rem;
+    }
+}
 
 // 2xl
-//@media (min-width: 1536px) {}
+@media (min-width: 1536px) {
+    .project-details__close-btn {
+        width: size.$xl5;
+        height: size.$xl5;
+        margin-top: 5rem;
+        margin-right: 5rem;
+    }
+
+    .project-details__container {
+        padding: 0 10rem;
+    }
+}
