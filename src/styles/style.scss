@@ -1,5 +1,12 @@
-﻿@use 'color';
-@use 'font-face';
+﻿@use 'font-face';
+
+:root {
+    --clr-text: #fbe9d0;         // rgb(251, 233, 208)
+    --clr-background: #254956;   // rgb(37, 73, 86)
+    --clr-primary: #e64833;      // rgb(230, 72, 51)
+    --clr-secondary: #864f41;    // rgb(134, 79, 65)
+    --clr-accent: #8faead;       // rgb(143, 174, 173)
+}
 
 *,
 *::before,
@@ -16,10 +23,18 @@ html {
     scroll-behavior: smooth;
 }
 
+.light-mode {
+    --clr-text: #2f1d04;         // rgb(251, 233, 208)
+    --clr-background: #a9cdda;   // rgb(37, 73, 86)
+    --clr-primary: #cc2e19;      // rgb(230, 72, 51)
+    --clr-secondary: #be8779;    // rgb(134, 79, 65)
+    --clr-accent: #51706f;       // rgb(143, 174, 173)
+}
+
 body {
     font-family: 'General Sans', sans-serif;
-    background-color: color.$background;
-    color: color.$text;
+    background-color: var(--clr-background);
+    color: var(--clr-text);
 }
 
 img,
@@ -42,9 +57,9 @@ button {
 }
 
 a {
-    color: color.$primary;
+    color: var(--clr-primary);
 }
 
 strong {
-    color: color.$accent;
+    color: var(--clr-secondary);
 }

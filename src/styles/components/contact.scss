@@ -1,5 +1,4 @@
-﻿@use '../color';
-@use '../size';
+﻿@use '../size';
 
 .contact {
     display: flex;
@@ -12,13 +11,13 @@
 
 .contact__title {
     font-size: size.$xl2;
-    color: color.$text;
+    color: var(--clr-text);
     text-transform: capitalize;
 }
 
 .contact__description {
     font-size: size.$sm;
-    color: color.$accent;
+    color: var(--clr-accent);
     max-width: 60ch;
 }
 

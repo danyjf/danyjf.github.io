@@ -1,5 +1,4 @@
 ﻿@use '../size';
-@use '../color';
 
 .about {
     display: flex;
@@ -15,22 +14,22 @@
 
 .about__title {
     font-size: size.$xl2;
-    color: color.$text;
+    color: var(--clr-text);
 }
 
 .about__description {
     max-width: 60ch;
     font-size: size.$sm;
-    color: color.$accent;
+    color: var(--clr-accent);
 }
 
 .about__hr {
-    border-color: color.$secondary;
+    border-color: var(--clr-secondary);
 }
 
 .about__subtitle {
     font-size: size.$sm;
-    color: color.$text;
+    color: var(--clr-text);
 }
 
 .about__ul-container {
@@ -48,7 +47,7 @@
 
 .about__list {
     font-size: size.$sm;
-    color: color.$accent;
+    color: var(--clr-accent);
 
     &::before {
         content: '';

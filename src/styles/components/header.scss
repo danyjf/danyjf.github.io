@@ -1,5 +1,4 @@
 ﻿@use '../size';
-@use '../color';
 
 .header {
     display: flex;
@@ -17,7 +16,7 @@
 
 .header__bars {
     display: block;
-    color: color.$text;
+    color: var(--clr-text);
     width: size.$xl2;
     height: size.$xl2;
 }
@@ -42,23 +41,23 @@
         font-size: size.$xs;
         text-decoration: none;
         font-weight: 600;
-        color: color.$accent;
+        color: var(--clr-accent);
         letter-spacing: -0.05em;
         transition: color 0.3s;
 
         &:hover {
-            color: color.$primary;
+            color: var(--clr-primary);
         }
     }
 
     .header__line {
-        border: 1px solid color.$accent;
+        border: 1px solid var(--clr-accent);
         padding-top: 1.5em;
     }
 
     .header__sun {
         display: block;
-        color: color.$accent;
+        color: var(--clr-accent);
         width: size.$base;
         height: size.$base;
     }

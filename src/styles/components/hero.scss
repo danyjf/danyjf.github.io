@@ -1,5 +1,4 @@
-﻿@use '../color';
-@use '../size';
+﻿@use '../size';
 
 .hero {
     display: flex;
@@ -18,13 +17,13 @@
 }
 
 .hero__subtitle {
-    color: color.$accent;
+    color: var(--clr-accent);
     font-size: size.$base;
     line-height: 0.9;
 }
 
 .hero__title {
-    color: color.$primary;
+    color: var(--clr-primary);
     text-transform: uppercase;
     font-size: size.$xl4;
     letter-spacing: -0.05em;
@@ -33,7 +32,7 @@
 
 .hero__description {
     max-width: 60ch;
-    color: color.$accent;
+    color: var(--clr-accent);
     font-size: size.$sm;
 }
 

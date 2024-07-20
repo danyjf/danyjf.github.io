@@ -1,5 +1,4 @@
-﻿@use '../color';
-@use '../size';
+﻿@use '../size';
 
 .projects {
     text-align: center;
@@ -7,13 +6,13 @@
 
 .projects__title {
     font-size: size.$xl2;
-    color: color.$text;
+    color: var(--clr-text);
 }
 
 .projects__description {
     max-width: 60ch;
     font-size: size.$sm;
-    color: color.$accent;
+    color: var(--clr-accent);
     margin: 1rem auto;
 }
 
@@ -54,13 +53,13 @@
 
 .projects__project-description1 {
     font-size: size.$sm;
-    color: color.$accent;
+    color: var(--clr-accent);
     margin: 1rem 0;
 }
 
 .projects__project-description2 {
     font-size: size.$sm;
-    color: color.$text;
+    color: var(--clr-text);
     margin-bottom: 1rem;
 }
 
