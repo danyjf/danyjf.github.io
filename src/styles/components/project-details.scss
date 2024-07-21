@@ -68,6 +68,18 @@
     }
 }
 
+.project-details__imgs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.project-details__img-small-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 // xs
 @media (min-width: 475px) {
     .project-details__close-btn {
@@ -125,6 +137,17 @@
 
     .project-details__imgs-container {
         flex: 1;
+    }
+
+    .project-details__img-small-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .project-details__img-small {
+        width: 100%;
     }
 
     .project-details__img {

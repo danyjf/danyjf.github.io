@@ -67,7 +67,7 @@
     <!-- End of Mobile Navigation -->
     <main>
         <section class="hero container">
-            <img class="hero__img" src="<%= require('./assets/images/hero.jpg') %>" alt="Profile picture">
+            <img class="hero__img" src="hero.jpg" alt="Profile picture">
             <h2 class="hero__subtitle">Hi, I'm Daniel 👋</h2>
             <h1 class="hero__title">Software Developer.</h1>
             <p class="hero__description">A passionate <strong>software developer</strong> specialized in <strong>video game development</strong>.</p>
@@ -99,8 +99,8 @@
             <div class="about__img-wrapper">
                 <img 
                     class="about__img lazy loading" 
-                    src="<%= require('./assets/images/placeholder_square.jpg') %>" 
-                    data-src="<%= require('./assets/images/hero.jpg') %>" 
+                    src="placeholder_square.jpg" 
+                    data-src="hero.jpg" 
                     alt="Profile picture"
                 >
             </div>
@@ -116,8 +116,8 @@
                 <div class="projects__img-wrapper projects__image1">
                     <img 
                         class="projects__project-img lazy loading" 
-                        src="<%= require('./assets/images/placeholder_square.jpg') %>" 
-                        data-src="<%= require('./assets/images/placeholder_square.jpg') %>" 
+                        src="placeholder_square.jpg" 
+                        data-src="placeholder_square.jpg" 
                         alt="Project 1"
                     >
                 </div>
@@ -136,8 +136,8 @@
                 <div class="projects__img-wrapper projects__image2">
                     <img 
                         class="projects__project-img lazy loading" 
-                        src="<%= require('./assets/images/placeholder_square.jpg') %>" 
-                        data-src="<%= require('./assets/images/placeholder_square.jpg') %>" 
+                        src="placeholder_square.jpg" 
+                        data-src="placeholder_square.jpg" 
                         alt="Project 2"
                     >
                 </div>
@@ -156,8 +156,8 @@
                 <div class="projects__img-wrapper projects__image3">
                     <img 
                         class="projects__project-img lazy loading" 
-                        src="<%= require('./assets/images/placeholder_square.jpg') %>" 
-                        data-src="<%= require('./assets/images/placeholder_square.jpg') %>" 
+                        src="placeholder_square.jpg" 
+                        data-src="placeholder_square.jpg" 
                         alt="Project 3"
                     >
                 </div>
@@ -176,8 +176,8 @@
                 <div class="projects__img-wrapper projects__image4">
                     <img 
                         class="projects__project-img lazy loading" 
-                        src="<%= require('./assets/images/placeholder_square.jpg') %>" 
-                        data-src="<%= require('./assets/images/placeholder_square.jpg') %>" 
+                        src="placeholder_square.jpg" 
+                        data-src="placeholder_square.jpg" 
                         alt="Project 4"
                     >
                 </div>
@@ -196,8 +196,8 @@
                 <div class="projects__img-wrapper projects__image5">
                     <img 
                         class="projects__project-img lazy loading" 
-                        src="<%= require('./assets/images/placeholder_square.jpg') %>" 
-                        data-src="<%= require('./assets/images/placeholder_square.jpg') %>" 
+                        src="placeholder_square.jpg" 
+                        data-src="placeholder_square.jpg" 
                         alt="Project 5"
                     >
                 </div>
@@ -216,8 +216,8 @@
                 <div class="projects__img-wrapper projects__image6">
                     <img 
                         class="projects__project-img lazy loading" 
-                        src="<%= require('./assets/images/placeholder_square.jpg') %>" 
-                        data-src="<%= require('./assets/images/placeholder_square.jpg') %>" 
+                        src="placeholder_square.jpg" 
+                        data-src="placeholder_square.jpg" 
                         alt="Project 6"
                     >
                 </div>
@@ -256,7 +256,14 @@
                     </ul>
                 </div>
                 <div class="project-details__imgs-container">
-                    <img class="project-details__img" src="<%= require('./assets/images/placeholder_square.jpg') %>" alt="">
+                    <video autoplay loop muted>
+                        <source src="placeholder_video.webm" type="video/webm">
+                    </video>
+                    <div class="project-details__img-small-container">
+                        <img class="project-details__img-small" src="placeholder_square.jpg" alt="">
+                        <img class="project-details__img-small" src="placeholder_square.jpg" alt="">
+                        <img class="project-details__img-small" src="placeholder_square.jpg" alt="">
+                    </div>
                 </div>
             </div>
         </div>
