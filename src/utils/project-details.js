@@ -7,6 +7,8 @@
         btn.addEventListener('click', () => {
             projectDetails = document.querySelector('#project-details-' + btn.value);
             projectDetails.style.display = 'flex';
+            projectDetails.classList.remove('slide-to-right');
+            projectDetails.classList.add('slide-from-right');
             document.body.style.overflowY = 'hidden';
         });
     });
@@ -15,7 +17,8 @@
         btn.addEventListener('click', () => {
             if (projectDetails)
             {
-                projectDetails.style.display = 'none';
+                projectDetails.classList.remove('slide-from-right');
+                projectDetails.classList.add('slide-to-right');
                 document.body.style.overflowY = 'auto';
             }
         });
