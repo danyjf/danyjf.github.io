@@ -1,5 +1,41 @@
 ﻿@use '../size';
 
+@keyframes mobile-nav__slide-from-top {
+    from {
+        visibility: visible;
+        top: -100vh;
+    }
+    to {
+        visibility: visible;
+        top: 0vh;
+    }
+}
+
+.mobile-nav__slide-from-top {
+    animation-name: mobile-nav__slide-from-top;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes mobile-nav__slide-to-top {
+    from {
+        visibility: visible;
+        top: 0vh;
+    }
+    to {
+        visibility: hidden;
+        top: -100vh;
+    }
+}
+
+.mobile-nav__slide-to-top {
+    animation-name: mobile-nav__slide-to-top;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
 .mobile-nav {
     position: absolute;
     top: 0;
@@ -8,7 +44,8 @@
     width: 100%;
     height: 100%;
     background-color: var(--clr-background);
-    display: none;
+    visibility: hidden;
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;

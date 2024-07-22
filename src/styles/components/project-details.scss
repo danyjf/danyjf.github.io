@@ -1,7 +1,42 @@
 ﻿@use '../size';
 
+@keyframes slide-from-right {
+    from {
+        visibility: visible;
+        left: 100vw;
+    }
+    to {
+        visibility: visible;
+        left: 0vw;
+    }
+}
+
+.slide-from-right {
+    animation-name: slide-from-right;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-to-right {
+    from {
+        visibility: visible;
+        left: 0vw;
+    }
+    to {
+        visibility: hidden;
+        left: 100vw;
+    }
+}
+
+.slide-to-right {
+    animation-name: slide-to-right;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
 .project-details {
-    display: none;
+    display: flex;
+    visibility: hidden;
     flex-direction: column;
     position: fixed;
     top: 0;

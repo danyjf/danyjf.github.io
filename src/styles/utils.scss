@@ -55,31 +55,6 @@
     transition: 0.7s ease-in-out;
 }
 
-@keyframes slide-from-right {
-    from {left: 100vw;}
-    to {left: 0vw;}
-}
-
-.slide-from-right {
-    animation-name: slide-from-right;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes slide-to-right {
-    from {left: 0vw;}
-    to {
-        display: none;
-        left: 100vw;
-    }
-}
-
-.slide-to-right {
-    animation-name: slide-to-right;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-}
-
 // xs
 @media (min-width: 475px) {
     .container {
