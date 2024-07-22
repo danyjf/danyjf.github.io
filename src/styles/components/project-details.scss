@@ -81,9 +81,18 @@
     gap: 0.5rem;
 }
 
+.project-details__img-small-wrapper {
+    overflow: hidden;
+}
+
 .project-details__img-small {
     width: 100%;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        scale: 1.05;
+    }
 }
 
 // xs

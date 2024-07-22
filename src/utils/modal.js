@@ -16,12 +16,12 @@
     });
 
     modal.addEventListener('click', (event) => {
-        if (event.target == modal) {
+        // if (event.target == modal) {
             modal.classList.add('modal__fade-out');
             modal.classList.remove('modal__fade-in');
             modalContent.classList.add('modal__zoom-out');
             modalContent.classList.remove('modal__zoom-in');
-        }
+        // }
     });
 }
 
