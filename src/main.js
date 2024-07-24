@@ -31,6 +31,14 @@ import './assets/images/sons_of_almeida_room.png';
 import './assets/images/sons_of_almeida_church.png';
 import './assets/videos/sons_of_almeida_video.mp4';
 
+import './assets/images/grief_main_picture.png';
+
+import './assets/images/virulent_odissey_main_picture.png';
+
+import './assets/images/avoid_main_picture.jpg';
+
+import './assets/images/break_the_game_main_picture.png';
+
 import mobileNav from './utils/mobile-nav';
 import darkMode from './utils/dark-mode';
 import lazyLoading from './utils/lazy-loading';
