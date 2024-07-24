@@ -50,9 +50,17 @@
     filter: blur(40px) grayscale(100%);
 }
 
+@keyframes unblur {
+    from {
+        filter: blur(40px) grayscale(100%);
+    }
+    to {
+        filter: blur(0) grayscale(0);
+    }
+}
+
 .loaded {
-    filter: blur(0) grayscale(0);
-    transition: 0.7s ease-in-out;
+    animation: unblur 0.7s ease-in-out;
 }
 
 // xs

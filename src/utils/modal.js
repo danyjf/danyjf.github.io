@@ -2,7 +2,6 @@
     const modalBtns = document.querySelectorAll('.modal__btn');
     const modal = document.querySelector('.modal');
     const modalContent = document.querySelector('.modal__content');
-    const modalCloseBtn = document.querySelector('.modal__close-btn')
 
     modalBtns.forEach((btn) => {
         btn.addEventListener('click', () => {

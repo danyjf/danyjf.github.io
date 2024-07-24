@@ -40,6 +40,7 @@
     flex-direction: column;
     position: fixed;
     top: 0;
+    left: 100vw;
     z-index: 99999;
     width: 100%;
     height: 100%;
@@ -63,6 +64,10 @@
     justify-content: center;
     align-items: center;
     padding: 2rem 2rem;
+}
+
+.project-details__content {
+    max-width: 70ch;
 }
 
 .project-details__title {
@@ -106,6 +111,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    max-width: 70ch;
 }
 
 .project-details__img-small-container {
@@ -118,12 +124,13 @@
 
 .project-details__img-small-wrapper {
     overflow: hidden;
+    flex: 1;
 }
 
 .project-details__img-small {
     width: 100%;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: scale 0.15s;
 
     &:hover {
         scale: 1.05;
@@ -183,8 +190,9 @@
     .project-details__container {
         flex: 1;
         flex-direction: row;
+        justify-content: center;
         align-items: center;
-        gap: 1rem;
+        gap: 4rem;
         align-self: stretch;
         padding: 0 4rem;
     }

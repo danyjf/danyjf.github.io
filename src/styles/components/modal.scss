@@ -103,8 +103,7 @@
 .modal__content {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 60ch;
+    width: 90%;
 }
 
 // xs
@@ -129,6 +128,10 @@
         margin-top: 4rem;
         margin-right: 4rem;
     }
+
+    .modal__content {
+        width: 80%;
+    }
 }
 
 // xl
@@ -139,7 +142,15 @@
         margin-top: 5rem;
         margin-right: 5rem;
     }
+
+    .modal__content {
+        width: 70%;
+    }
 }
 
 // 2xl
-//@media (min-width: 1536px) {}
+@media (min-width: 1536px) {
+    .modal__content {
+        width: 60%;
+    }
+}
