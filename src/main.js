@@ -32,12 +32,28 @@ import './assets/images/sons_of_almeida_church.png';
 import './assets/videos/sons_of_almeida_video.mp4';
 
 import './assets/images/grief_main_picture.png';
+import './assets/images/grief_tutorial.jpg';
+import './assets/images/grief_boxes.png';
+import './assets/images/grief_boss.png';
+import './assets/videos/grief_video.mp4';
 
 import './assets/images/virulent_odissey_main_picture.png';
+import './assets/images/virulent_odissey_main_menu.png';
+import './assets/images/virulent_odissey_dodge.png';
+import './assets/images/virulent_odissey_protein.png';
+import './assets/videos/virulent_odissey_video.mp4';
 
 import './assets/images/avoid_main_picture.jpg';
+import './assets/images/avoid_level_1.png';
+import './assets/images/avoid_level_2.png';
+import './assets/images/avoid_level_3.png';
+import './assets/videos/avoid_video.mp4';
 
 import './assets/images/break_the_game_main_picture.png';
+import './assets/images/break_the_game_level_1.png';
+import './assets/images/break_the_game_level_2.png';
+import './assets/images/break_the_game_level_6.png';
+import './assets/videos/break_the_game_video.mp4';
 
 import mobileNav from './utils/mobile-nav';
 import darkMode from './utils/dark-mode';
