@@ -114,10 +114,6 @@
     max-width: 70ch;
 }
 
-.project-details__video {
-    max-height: 300px;
-}
-
 .project-details__img-small-container {
     display: flex;
     flex-direction: row;
@@ -169,10 +165,6 @@
         font-size: size.$base;
     }
 
-    .project-details__video {
-        max-height: 400px;
-    }
-
     .project-details__img-small {
         max-height: 120px;
     }
@@ -186,10 +178,6 @@
 
     .project-details__img-small-container {
         gap: 0.75rem;
-    }
-
-    .project-details__video {
-        max-height: 400px;
     }
 }
 
@@ -265,9 +253,5 @@
 
     .project-details__container {
         padding: 0 10rem;
-    }
-
-    .project-details__video {
-        max-height: 450px;
     }
 }
