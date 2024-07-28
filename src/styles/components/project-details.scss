@@ -56,6 +56,11 @@
     margin-top: 2rem;
     margin-right: 2rem;
     align-self: flex-end;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        transform: rotate(90deg) scale(1.3);
+    }
 }
 
 .project-details__container {
@@ -67,13 +72,18 @@
 }
 
 .project-details__content {
-    max-width: 70ch;
+    max-width: 60ch;
 }
 
 .project-details__title {
     color: var(--clr-text);
     font-size: size.$xl2;
     margin-bottom: 1rem;
+}
+
+.project-details__tools {
+    color: var(--clr-accent);
+    font-size: 0.75em;
 }
 
 .project-details__description {
@@ -85,13 +95,14 @@
 .project-details__subtitle {
     color: var(--clr-text);
     font-size: size.$lg;
-    margin-bottom: 1rem;
+    margin-top: 2em;
+    margin-bottom: 1em;
 }
 
 .project-details__ul {
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 1em;
     list-style-type: '\1F449';
     padding-left: 1em;
     margin-bottom: 2rem;
@@ -158,7 +169,6 @@
 
     .project-details__subtitle {
         font-size: size.$xl;
-        margin-bottom: 1rem;
     }
 
     .project-details__list {
@@ -200,7 +210,7 @@
         align-items: center;
         gap: 4rem;
         align-self: stretch;
-        padding: 0 4rem;
+        padding: 0 3rem;
     }
 
     .project-details__content {
@@ -216,29 +226,28 @@
     }
 
     .project-details__title {
-        font-size: size.$xl4;
+        font-size: size.$xl3;
         margin-bottom: 1rem;
     }
 
     .project-details__description {
-        font-size: size.$lg;
+        font-size: size.$base;
         margin-bottom: 2rem;
     }
 
     .project-details__subtitle {
-        font-size: size.$xl2;
-        margin-bottom: 1rem;
+        font-size: size.$xl;
     }
 
     .project-details__list {
-        font-size: size.$lg;
+        font-size: size.$base;
     }
 }
 
 // xl
 @media (min-width: 1280px) {
     .project-details__container {
-        padding: 0 8rem;
+        padding: 0 6rem;
     }
 }
 

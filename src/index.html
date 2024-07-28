@@ -124,10 +124,11 @@
                 <div class="projects__project projects__content1">
                     <h3 class="projects__project-subtitle">Space Warfare</h3>
                     <p class="projects__project-description1">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum illo ipsum quae perferendis quis possimus?
+                        Space Warfare is a multiplayer, space simulation game that incorporates realistic physics. 
                     </p>
                     <p class="projects__project-description2">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quo quibusdam qui assumenda perferendis labore corporis? Officiis, quia voluptatum? Dolore, ipsum. Quas quia molestias nesciunt!
+                        In this game the player must launch and control different satellites with the goal of intercepting asteroids and enemy satellites.
+                        This prototype lets the player choose between two different game modes and allows up to four different players to participate in a session.
                     </p>
                     <button class="btn projects__project-btn" value="1">View Project</button>
                 </div>
@@ -144,10 +145,10 @@
                 <div class="projects__project projects__content2">
                     <h3 class="projects__project-subtitle">Sons of Almeida</h3>
                     <p class="projects__project-description1">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum illo ipsum quae perferendis quis possimus?
+                        Sons of Almeida is a first-person VR game that takes place in Almeida, Portugal during the Siege of 1810.
                     </p>
                     <p class="projects__project-description2">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quo quibusdam qui assumenda perferendis labore corporis? Officiis, quia voluptatum? Dolore, ipsum. Quas quia molestias nesciunt!
+                        The game follows the story of Clara, a child who sneaks out at night to see what's happening outside the town walls. However, things take a dark turn when an ambush by the enemy French forces sends everything into chaos. Clara must survive by exploring the town and avoiding soldiers while looking for her parents.
                     </p>
                     <button class="btn projects__project-btn" value="2">View Project</button>
                 </div>
@@ -243,16 +244,20 @@
             </button>
             <div class="project-details__container">
                 <div class="project-details__content">
-                    <h2 class="project-details__title">Space Warfare</h2>
+                    <h2 class="project-details__title">Space Warfare <span class="project-details__tools">(Unreal Engine C++)</span></h2>
                     <p class="project-details__description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quasi nobis vero doloremque maiores perspiciatis placeat vel magnam harum accusamus dicta et tenetur consequatur possimus dolore cupiditate soluta iste sunt beatae! Fugiat eos iure sed deleniti? Accusantium, nostrum? Cum animi explicabo alias ex ut, tenetur harum fugit aspernatur voluptates illo!
+                        This is a multiplayer project developed by myself using Unreal Engine. In this game the player can place satellites in orbit and control them to try to intercept other satellites or asteroids. All movement in the game is based on an implementation of realistic newtonian physics in space.
                     </p>
-                    <h3 class="project-details__subtitle">Biggest Learnings</h3>
+                    <p class="project-details__description">
+                        There are two available game modes. The Casual and Bots. In the Casual game mode the player manually controls each individual satellite. In the Bots game mode, the game allows the player to access and send information to the game through HTTP requests, allowing the player to program their own bot to play the game. 
+                    </p>
+                    <h3 class="project-details__subtitle">Key Features Implemented</h3>
                     <ul class="project-details__ul">
-                        <li class="project-details__list">Learning something</li>
-                        <li class="project-details__list">Learning something else</li>
-                        <li class="project-details__list">Also learning that</li>
-                        <li class="project-details__list">Finally learning this</li>
+                        <li class="project-details__list">A multiplayer solution that allows up to four players to play together, where one player acts as the host of a session</li>
+                        <li class="project-details__list">Gravity simulation by applying Newton's law of universal gravitation to all bodies in the simulation</li>
+                        <li class="project-details__list">Orbit visualization system that based on the current position and velocity of a body, displays the orbit that will be followed by it</li>
+                        <li class="project-details__list">Asteroid spawn system, that spawns an asteroid on a random earth orbit every couple seconds</li>
+                        <li class="project-details__list">Restful API, that allows the player to access and send information to the game through an API, allowing players to implement their own algorithms to control satellites</li>
                     </ul>
                 </div>
                 <div class="project-details__imgs-container">
@@ -298,16 +303,17 @@
             </button>
             <div class="project-details__container">
                 <div class="project-details__content">
-                    <h2 class="project-details__title">Sons of Almeida</h2>
+                    <h2 class="project-details__title">Sons of Almeida <span class="project-details__tools">(Unity C#)</span></h2>
                     <p class="project-details__description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quasi nobis vero doloremque maiores perspiciatis placeat vel magnam harum accusamus dicta et tenetur consequatur possimus dolore cupiditate soluta iste sunt beatae! Fugiat eos iure sed deleniti? Accusantium, nostrum? Cum animi explicabo alias ex ut, tenetur harum fugit aspernatur voluptates illo!
+                        This is a VR project developed primarily for the headset Meta Quest 1 and 2, by a team of five elements using the Unity engine. In this prototype, the goal of the player is to avoid a soldier while looking for a key that the player can use to open a door and escape.
                     </p>
-                    <h3 class="project-details__subtitle">Biggest Learnings</h3>
+                    <h3 class="project-details__subtitle">Main Responsabilities</h3>
                     <ul class="project-details__ul">
-                        <li class="project-details__list">Learning something</li>
-                        <li class="project-details__list">Learning something else</li>
-                        <li class="project-details__list">Also learning that</li>
-                        <li class="project-details__list">Finally learning this</li>
+                        <li class="project-details__list">Development of the VR hand interaction, which applies a pose to the virtual hand depending on where the player grabs an item</li>
+                        <li class="project-details__list">Implementation of a diegetic main menu where the player uses a door to exit the game and uses a tambourine to change and test at the same time the volume of the sound effects</li>
+                        <li class="project-details__list">Implementation of a save and load system for the game settings</li>
+                        <li class="project-details__list">Implementation of doors unlockable by inserting and rotating a key</li>
+                        <li class="project-details__list">Implementation of a dynamic sound effect system that plays different step sounds depending on the ground material</li>
                     </ul>
                 </div>
                 <div class="project-details__imgs-container">
@@ -353,7 +359,7 @@
             </button>
             <div class="project-details__container">
                 <div class="project-details__content">
-                    <h2 class="project-details__title">Grief</h2>
+                    <h2 class="project-details__title">Grief <span class="project-details__tools">(Godot GDScript)</span></h2>
                     <p class="project-details__description">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quasi nobis vero doloremque maiores perspiciatis placeat vel magnam harum accusamus dicta et tenetur consequatur possimus dolore cupiditate soluta iste sunt beatae! Fugiat eos iure sed deleniti? Accusantium, nostrum? Cum animi explicabo alias ex ut, tenetur harum fugit aspernatur voluptates illo!
                     </p>
@@ -408,7 +414,7 @@
             </button>
             <div class="project-details__container">
                 <div class="project-details__content">
-                    <h2 class="project-details__title">Virulent Odissey</h2>
+                    <h2 class="project-details__title">Virulent Odissey <span class="project-details__tools">(Unity C#)</span></h2>
                     <p class="project-details__description">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quasi nobis vero doloremque maiores perspiciatis placeat vel magnam harum accusamus dicta et tenetur consequatur possimus dolore cupiditate soluta iste sunt beatae! Fugiat eos iure sed deleniti? Accusantium, nostrum? Cum animi explicabo alias ex ut, tenetur harum fugit aspernatur voluptates illo!
                     </p>
@@ -463,7 +469,7 @@
             </button>
             <div class="project-details__container">
                 <div class="project-details__content">
-                    <h2 class="project-details__title">Avoid</h2>
+                    <h2 class="project-details__title">Avoid <span class="project-details__tools">(Unity C#)</span></h2>
                     <p class="project-details__description">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quasi nobis vero doloremque maiores perspiciatis placeat vel magnam harum accusamus dicta et tenetur consequatur possimus dolore cupiditate soluta iste sunt beatae! Fugiat eos iure sed deleniti? Accusantium, nostrum? Cum animi explicabo alias ex ut, tenetur harum fugit aspernatur voluptates illo!
                     </p>
@@ -518,7 +524,7 @@
             </button>
             <div class="project-details__container">
                 <div class="project-details__content">
-                    <h2 class="project-details__title">Break The Game</h2>
+                    <h2 class="project-details__title">Break The Game <span class="project-details__tools">(Unity C#)</span></h2>
                     <p class="project-details__description">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quasi nobis vero doloremque maiores perspiciatis placeat vel magnam harum accusamus dicta et tenetur consequatur possimus dolore cupiditate soluta iste sunt beatae! Fugiat eos iure sed deleniti? Accusantium, nostrum? Cum animi explicabo alias ex ut, tenetur harum fugit aspernatur voluptates illo!
                     </p>
