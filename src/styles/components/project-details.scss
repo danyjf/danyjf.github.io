@@ -81,6 +81,26 @@
     margin-bottom: 1rem;
 }
 
+.project-details__icon-link-wrapper {
+    display: flex;
+    justify-content: left;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.project-details__icon-link {
+    display: inline-block;
+    width: size.$xl3;
+    height: size.$xl3;
+    color: var(--clr-accent);
+    transition: all 0.4s ease;
+
+    &:hover {
+        color: var(--clr-primary);
+        scale: 1.15;
+    }
+}
+
 .project-details__tools {
     color: var(--clr-accent);
     font-size: 0.75em;
