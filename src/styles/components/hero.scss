@@ -36,9 +36,16 @@
     font-size: size.$sm;
 }
 
-.hero__btn {
-    text-transform: capitalize;
-    font-size: size.$sm;
+.hero__icon-link-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hero__icon {
+    width: size.$xl2;
+    height: size.$xl2;
 }
 
 // xs
@@ -64,8 +71,13 @@
         font-size: size.$base;
     }
 
-    .hero__btn {
-        font-size: size.$base;
+    .hero__icon-link-wrapper {
+        gap: 1.5rem;
+    }
+
+    .hero__icon {
+        width: size.$xl3;
+        height: size.$xl3;
     }
 }
 
@@ -94,8 +106,9 @@
         font-size: size.$lg;
     }
 
-    .hero__btn {
-        font-size: size.$lg;
+    .hero__icon {
+        width: size.$xl4;
+        height: size.$xl4;
     }
 }
 
@@ -122,8 +135,13 @@
         font-size: size.$xl;
     }
 
-    .hero__btn {
-        font-size: size.$xl;
+    .hero__icon-link-wrapper {
+        gap: 2rem;
+    }
+
+    .hero__icon {
+        width: size.$xl5;
+        height: size.$xl5;
     }
 }
 
