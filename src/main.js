@@ -12,12 +12,9 @@ import './styles/components/mobile-nav.scss';
 import './styles/utils.scss';
 
 import './assets/images/placeholder_square.jpg';
-import './assets/images/placeholder_square_red.jpg';
-import './assets/images/placeholder_square_green.jpg';
-import './assets/images/placeholder_square_blue.jpg';
-import './assets/videos/placeholder_video.webm';
 
-import './assets/images/hero.jpg';
+import './assets/images/profile_1.jpg';
+import './assets/images/profile_2.jpg';
 
 import './assets/images/space_warfare_main_picture.png';
 import './assets/images/space_warfare_satellite_selected_interface.png';

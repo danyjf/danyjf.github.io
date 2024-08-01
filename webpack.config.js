@@ -65,7 +65,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            title: 'Portfolio',
+            title: 'Daniel Francisco - Portfolio',
             filename: 'index.html',
             template: 'src/index.html'
         })
