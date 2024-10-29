@@ -1,5 +1,6 @@
 ﻿const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
@@ -17,8 +18,12 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    'style-loader',
-                    'css-loader',
+                    // 'style-loader',
+                    // 'css-loader',
+                    // 'sass-loader'
+                    MiniCssExtractPlugin.loader,
+                    // 'style-loader', 
+                    'css-loader', 
                     'sass-loader'
                 ]
             },
@@ -56,6 +61,11 @@ module.exports = {
             title: 'Daniel Francisco - Portfolio',
             filename: 'index.html',
             template: 'src/index.html'
-        })
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+            ignoreOrder: false, // Enable to remove warnings about conflicting order
+        }),
     ]
 }
