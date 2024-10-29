@@ -2,7 +2,6 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    mode: 'development',
     entry: {
         bundle: path.resolve(__dirname, 'src/main.js')
     },
@@ -13,17 +12,6 @@ module.exports = {
         assetModuleFilename: '[name][ext]'
     },
     devtool: 'source-map',
-    devServer: {
-        static: {
-            directory: path.resolve(__dirname, 'dist')
-        },
-        port: 3000,
-        watchFiles: ['src/*.html'],
-        open: true,
-        hot: true,
-        compress: true,
-        historyApiFallback: true
-    },
     module: {
         rules: [
             {
