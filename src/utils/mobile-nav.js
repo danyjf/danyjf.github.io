@@ -5,6 +5,16 @@
 
   let isMobileNavOpen = false;
 
+  let widthMatch = window.matchMedia("(min-width: 768px)");
+  widthMatch.addEventListener("change", function (mm) {
+    if (mm.matches && isMobileNavOpen) {
+      isMobileNavOpen = !isMobileNavOpen;
+      mobileNav.classList.add("mobile-nav__slide-to-top");
+      mobileNav.classList.remove("mobile-nav__slide-from-top");
+      document.body.style.overflowY = "auto";
+    }
+  });
+
   headerBtn.addEventListener("click", () => {
     isMobileNavOpen = !isMobileNavOpen;
     if (isMobileNavOpen) {
