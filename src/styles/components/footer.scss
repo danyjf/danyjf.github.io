@@ -1,11 +1,11 @@
 ﻿@use '../size';
 
 .footer__title {
-    font-size: size.$xs;
-    font-weight: 400;
-    color: var(--clr-accent);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    user-select: none;
+  font-size: size.$xs;
+  font-weight: 400;
+  color: var(--clr-accent);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  user-select: none;
 }

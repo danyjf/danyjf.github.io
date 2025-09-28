@@ -1,47 +1,47 @@
 ﻿@use '../size';
 
 .contact {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
 }
 
 .contact__title {
-    font-size: size.$xl2;
-    color: var(--clr-text);
-    text-transform: capitalize;
+  font-size: size.$xl2;
+  color: var(--clr-text);
+  text-transform: capitalize;
 }
 
 .contact__description {
-    font-size: size.$sm;
-    color: var(--clr-text);
-    max-width: 60ch;
+  font-size: size.$sm;
+  color: var(--clr-text);
+  max-width: 60ch;
 }
 
 .contact__btn {
-    font-size: size.$sm;
+  font-size: size.$sm;
 }
 
 // xs
 @media (min-width: 475px) {
-    .contact {
-        gap: 1.5rem;
-    }
+  .contact {
+    gap: 1.5rem;
+  }
 
-    .contact__title {
-        font-size: size.$xl3;
-    }
+  .contact__title {
+    font-size: size.$xl3;
+  }
 
-    .contact__description {
-        font-size: size.$base;
-    }
+  .contact__description {
+    font-size: size.$base;
+  }
 
-    .contact__btn {
-        font-size: size.$base;
-    }
+  .contact__btn {
+    font-size: size.$base;
+  }
 }
 
 // sm 
@@ -52,36 +52,36 @@
 
 // lg
 @media (min-width: 1024px) {
-    .contact__title {
-        font-size: size.$xl4;
-    }
+  .contact__title {
+    font-size: size.$xl4;
+  }
 
-    .contact__description {
-        font-size: size.$lg;
-    }
+  .contact__description {
+    font-size: size.$lg;
+  }
 
-    .contact__btn {
-        font-size: size.$lg;
-    }
+  .contact__btn {
+    font-size: size.$lg;
+  }
 }
 
 // xl
 @media (min-width: 1280px) {
-    .contact {
-        gap: 2rem;
-    }
+  .contact {
+    gap: 2rem;
+  }
 
-    .contact__title {
-        font-size: size.$xl5;
-    }
+  .contact__title {
+    font-size: size.$xl5;
+  }
 
-    .contact__description {
-        font-size: size.$xl;
-    }
+  .contact__description {
+    font-size: size.$xl;
+  }
 
-    .contact__btn {
-        font-size: size.$xl;
-    }
+  .contact__btn {
+    font-size: size.$xl;
+  }
 }
 
 // 2xl
